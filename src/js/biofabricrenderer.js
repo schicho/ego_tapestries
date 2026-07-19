@@ -186,7 +186,7 @@ export class BioFabricRenderer {
                 .attr("fill-opacity", "0")
                 .attr("stroke", ((nodeDepthIcon.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[nodeDepthIcon.get_depth()])
                 .attr("stroke-width", 0.2)
-                .on("dblclick", () => {
+                .on("click", () => {
                     // Check if Depth is not Singleton/Empty -> update drawing if not so
                     if ((nodeDepthIcon.get_state() != State["Singleton"]) && (nodeDepthIcon.get_state() != State["Empty"])) {
                         // we only fully compress if the edge is already fully compressed and we are compressing the node, or if we are already fully compressed and are decompressing the node.
@@ -351,7 +351,7 @@ export class BioFabricRenderer {
                     }
                 }
                 )
-                .on("dblclick", () => {
+                .on("click", () => {
                     // Ensure Current Depth's EdgeSet is not Singleton or Empty
                     if ((edgeDepth.get_state() != State["Singleton"]) && (edgeDepth.get_state() != State["Empty"])) {
                         let isFullCompression = false;
