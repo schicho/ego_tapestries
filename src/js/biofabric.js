@@ -243,12 +243,13 @@ export class BioFabric {
         }
     }
     calculcate_depth_x_coordinates() {
+        const renderedEdgeDepths = this.edgeDepths.filter(depthIcon => (depthIcon.get_depth() <= this.graph.get_depth()));
         let emptyDepths = [];
         // console.log("Graph Depth: " + this.graph.get_depth());
         // console.log(this.edgeDepths.filter(depthIcon => (depthIcon.get_depth() <= this.graph.get_depth())));
-        for (let depthIndex = 0; depthIndex < this.edgeDepths.filter(depthIcon => (depthIcon.get_depth() <= this.graph.get_depth())).length; depthIndex++) {
+        for (let depthIndex = 0; depthIndex < renderedEdgeDepths.length; depthIndex++) {
             // console.log("Depth Index: " + depthIndex);
-            let currEdgeDepthIcon = this.edgeDepths[depthIndex];
+            let currEdgeDepthIcon = renderedEdgeDepths[depthIndex];
             if (depthIndex == 0) {
                 currEdgeDepthIcon.set_x(0);
                 currEdgeDepthIcon.set_min_x(0);
@@ -284,15 +285,39 @@ export class BioFabric {
         // Iterate over remaining empty Depths and fill in (center) x values
         for (let depthIndex of emptyDepths) {
             console.log("Depth Index Part 2: " + depthIndex);
-            let currEdgeDepthIcon = this.edgeDepths[depthIndex];
+            let currEdgeDepthIcon = renderedEdgeDepths[depthIndex];
             if (currEdgeDepthIcon.get_x() != Infinity) {
                 continue;
             }
-            let previousX = this.edgeDepths[depthIndex - 1].get_max_x();
-            let nextX = this.edgeDepths[depthIndex + 1].get_min_x();
-            currEdgeDepthIcon.set_x((previousX + nextX) / 2);
-            currEdgeDepthIcon.set_min_x((previousX + nextX) / 2);
-            currEdgeDepthIcon.set_max_x((previousX + nextX) / 2);
+            let previousX = undefined;
+            for (let previousIndex = depthIndex - 1; previousIndex >= 0; previousIndex--) {
+                let previousDepthIcon = renderedEdgeDepths[previousIndex];
+                if (previousDepthIcon.get_max_x() != Infinity) {
+                    previousX = previousDepthIcon.get_max_x();
+                    break;
+                }
+            }
+            let nextX = undefined;
+            for (let nextIndex = depthIndex + 1; nextIndex < renderedEdgeDepths.length; nextIndex++) {
+                let nextDepthIcon = renderedEdgeDepths[nextIndex];
+                if (nextDepthIcon.get_min_x() != Infinity) {
+                    nextX = nextDepthIcon.get_min_x();
+                    break;
+                }
+            }
+            let x = 0.95;
+            if (previousX != undefined && nextX != undefined) {
+                x = (previousX + nextX) / 2;
+            }
+            else if (previousX != undefined) {
+                x = previousX;
+            }
+            else if (nextX != undefined) {
+                x = nextX;
+            }
+            currEdgeDepthIcon.set_x(x);
+            currEdgeDepthIcon.set_min_x(x);
+            currEdgeDepthIcon.set_max_x(x);
         }
     }
 
