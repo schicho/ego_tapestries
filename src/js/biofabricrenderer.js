@@ -446,19 +446,20 @@ export class BioFabricRenderer {
                         .attr("y1", node.get_y() * (this.canvasHeight * (1 - this.innerY)))
                         .attr("y2", node.get_y() * (this.canvasHeight * (1 - this.innerY)))
 
+                    let nodesInDepthCount = this.biofabric.graph.nodes.filter(n => n.get_depth() == node.get_depth()).length;
+
                     // (Un)collapse Node Text
                     nodeG.select("#" + "nodeText-" + node.get_id())
                         .transition()
                         .duration(transitionDuration)
                         .attr("y", node.get_y() * (this.canvasHeight * (1 - this.nodeGY)))
-                        .attr("opacity", () => {
+                        .text(() => {
                             if (node.get_state() == State["Fully Compressed"]) {
-                                return "0"
+                                return nodesInDepthCount + " Nodes"
                             } else {
-                                return "1"
+                                return node.get_label()
                             }
-                        }
-                        )
+                        })
                 }
 
                 // Iterate over depths and update their positions
