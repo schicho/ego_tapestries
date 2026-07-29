@@ -286,10 +286,24 @@ export class BioFabricRenderer {
                 .attr("stroke", ((edgeDepth.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edgeDepth.get_depth()])
                 .attr("stroke-linecap", "round")
                 .attr("stroke-width", 0.2)
+                .attr("visibility", () => {
+                    if ((edgeDepth.get_state() == State["Singleton"]) || (edgeDepth.get_state() == State["Empty"])) {
+                        return "hidden"
+                    } else {
+                        return "visible"
+                    }
+                });
 
             let edgeDepthCircleG = edgeDepthG.append("g")
                 .attr("id", "edgeDepthCircle-" + edgeDepth.get_depth().toString().replace(".", "-") + "G")
                 .attr("transform", "translate(" + (edgeDepth.get_x() * this.canvasWidth * (1 - this.edgeDepthX)) + "," + (0) + ")")
+                .attr("visibility", () => {
+                    if ((edgeDepth.get_state() == State["Singleton"]) || (edgeDepth.get_state() == State["Empty"])) {
+                        return "hidden"
+                    } else {
+                        return "visible"
+                    }
+                });
 
             edgeDepthCircleG.append("circle")
                 .attr("cx", 0)
@@ -335,11 +349,13 @@ export class BioFabricRenderer {
                     } else {
                         return ((edgeDepth.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edgeDepth.get_depth()]
                     }
-                })
+                });
+
+
 
             edgeDepthCircleG.append("circle")
                 .attr("id", "edgeDepthCircle-" + edgeDepth.get_depth().toString().replace(".", "-"))
-                .attr("class", "depthCircle")
+                .attr("classedgeDepthCircleG", "depthCircle")
                 .attr("cx", 0)
                 .attr("cy", 0)
                 .attr("stroke-width", 0.2)
@@ -655,6 +671,24 @@ export class BioFabricRenderer {
                         }
                     });
             }
+
+            // adjust edge circle radius for better visibility
+            const allEdges = this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth());
+            const allEdgesCount = allEdges.length;
+            const uncompressedEdges = allEdges.filter(e => e.get_state() == State["Uncompressed"]);
+            const uncEdgesCount = uncompressedEdges.length;
+
+            const divisor = allEdgesCount - (allEdgesCount - uncEdgesCount);
+
+            const allNodeDepthIcons = nodeDepthIcons.filter(nodeDepthIcon => nodeDepthIcon.get_state() != State["Singleton"] && nodeDepthIcon.get_state() != State["Empty"]);
+            const allNodesCount = allNodeDepthIcons.length;
+            const uncompressedNodeDepthIcons = allNodeDepthIcons.filter(nodeDepthIcon => nodeDepthIcon.get_state() == State["Uncompressed"]);
+            const uncNodeDepthIconsCount = uncompressedNodeDepthIcons.length;
+
+            innerG.selectAll(".edgecircle")
+                .transition("dotsize")
+                .duration(transitionDuration)
+                .attr("r", 30 / (divisor));
         });
 
         this.globalDispatcher.on("hover-in.biofabric", (id) => {
