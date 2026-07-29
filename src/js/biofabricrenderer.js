@@ -657,17 +657,16 @@ export class BioFabricRenderer {
         });
 
         this.globalDispatcher.on("hover-in.biofabric", (id) => {
-            const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
-            const path_to_ego = this.biofabric.graph.find_path_to_ego(n);
-
-            d3.selectAll(".edgeLine").classed("fade-biofabric", edge => !(path_to_ego.includes(edge.get_source_vertex()) && path_to_ego.includes(edge.get_target_vertex())));
-            d3.selectAll(".edgecircle").classed("fade-biofabric", node => !path_to_ego.includes(node));
+            //const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
+            //const path_to_ego = this.biofabric.graph.find_path_to_ego(n);
+            //d3.selectAll(".edgeLine").classed("fade-biofabric", edge => !(path_to_ego.includes(edge.get_source_vertex()) && path_to_ego.includes(edge.get_target_vertex())));
+            //d3.selectAll(".edgecircle").classed("fade-biofabric", node => !path_to_ego.includes(node));
 
         });
 
         this.globalDispatcher.on("hover-out.biofabric", () => {
-            d3.selectAll(".edgeLine").classed("fade-biofabric", false);
-            d3.selectAll(".edgecircle").classed("fade-biofabric", false);
+            //d3.selectAll(".edgeLine").classed("fade-biofabric", false);
+            //d3.selectAll(".edgecircle").classed("fade-biofabric", false);
         });
 
         this.globalDispatcher.on("highlight.biofabric", (id) => {
