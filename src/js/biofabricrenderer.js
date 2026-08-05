@@ -70,6 +70,12 @@ export class BioFabricRenderer {
                 .on("click", (_event, d) => {
                     this.globalDispatcher.call("highlight", this, d.get_id());
                 })
+                .on("mouseover", (_event, d) => {
+                    this.globalDispatcher.call("hover-in", this, d.get_id());
+                })
+                .on("mouseout", () => {
+                    this.globalDispatcher.call("hover-out");
+                });
 
             // Add Node Text
             nodeG.append("text")
@@ -692,16 +698,17 @@ export class BioFabricRenderer {
         });
 
         this.globalDispatcher.on("hover-in.biofabric", (id) => {
-            //const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
-            //const path_to_ego = this.biofabric.graph.find_path_to_ego(n);
-            //d3.selectAll(".edgeLine").classed("fade-biofabric", edge => !(path_to_ego.includes(edge.get_source_vertex()) && path_to_ego.includes(edge.get_target_vertex())));
-            //d3.selectAll(".edgecircle").classed("fade-biofabric", node => !path_to_ego.includes(node));
-
+            const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
+            const incidentEdges = this.biofabric.graph.get_incident_edges(n);
+            d3.selectAll(".edgeLine").classed("fade-biofabric", edge => !incidentEdges.includes(edge));
+            d3.selectAll(".edgecircle").classed("fade-biofabric", (d, i, nodes) => !incidentEdges.some(edge => edge.get_id() === nodes[i].id.split("-")[1]));
+            d3.selectAll(".nodeline").classed("fade-biofabric", node => !incidentEdges.some(edge => edge.has_node_id(node.get_id())));
         });
 
         this.globalDispatcher.on("hover-out.biofabric", () => {
-            //d3.selectAll(".edgeLine").classed("fade-biofabric", false);
-            //d3.selectAll(".edgecircle").classed("fade-biofabric", false);
+            d3.selectAll(".edgeLine").classed("fade-biofabric", false);
+            d3.selectAll(".edgecircle").classed("fade-biofabric", false);
+            d3.selectAll(".nodeline").classed("fade-biofabric", false);
         });
 
         this.globalDispatcher.on("highlight.biofabric", (id) => {

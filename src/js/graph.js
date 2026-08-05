@@ -81,6 +81,10 @@ export class Graph {
         return path.reverse();
     }
 
+    get_incident_edges(node) {
+        return this.edges.filter(edge => edge.has_node_id(node.get_id()));
+    }
+
     identify_singleton_nodes() {
         let depths = [...new Set(this.nodes.map(node => node.get_depth()))];
         for (let depth of depths) {
