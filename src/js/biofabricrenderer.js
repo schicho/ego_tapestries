@@ -81,6 +81,7 @@ export class BioFabricRenderer {
             nodeG.append("text")
                 .attr("id", "nodeText-" + node.get_id())
                 .attr("class", "nodetext")
+                .datum(node) // node data
                 .style("font-size", "0.5pt")
                 .attr("x", 0.95 * this.canvasWidth * (this.innerX - this.nodeGX))
                 .attr("y", node.get_y() * (this.canvasHeight * (1 - this.nodeGY)))
@@ -702,13 +703,15 @@ export class BioFabricRenderer {
             const incidentEdges = this.biofabric.graph.get_incident_edges(n);
             d3.selectAll(".edgeLine").classed("fade-biofabric", edge => !incidentEdges.includes(edge));
             d3.selectAll(".edgecircle").classed("fade-biofabric", (d, i, nodes) => !incidentEdges.some(edge => edge.get_id() === nodes[i].id.split("-")[1]));
-            d3.selectAll(".nodeline").classed("fade-biofabric", node => !incidentEdges.some(edge => edge.has_node_id(node.get_id())));
+            d3.selectAll(".nodeline").classed("fade-biofabric-light", node => !incidentEdges.some(edge => edge.has_node_id(node.get_id())));
+            d3.selectAll(".nodetext").classed("fade-biofabric-light", node => !incidentEdges.some(edge => edge.has_node_id(node.get_id())));
         });
 
         this.globalDispatcher.on("hover-out.biofabric", () => {
             d3.selectAll(".edgeLine").classed("fade-biofabric", false);
             d3.selectAll(".edgecircle").classed("fade-biofabric", false);
-            d3.selectAll(".nodeline").classed("fade-biofabric", false);
+            d3.selectAll(".nodeline").classed("fade-biofabric-light", false);
+            d3.selectAll(".nodetext").classed("fade-biofabric-light", false);
         });
 
         this.globalDispatcher.on("highlight.biofabric", (id) => {

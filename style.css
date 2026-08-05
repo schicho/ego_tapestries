@@ -36,6 +36,10 @@ body {
     opacity: 0.15;
 }
 
+.fade-biofabric-light {
+    opacity: 0.3;
+}
+
 .highlight-biofabric {
     stroke: gold;
     stroke-width: 0.2px;
