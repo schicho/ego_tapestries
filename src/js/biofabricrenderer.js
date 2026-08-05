@@ -716,8 +716,7 @@ export class BioFabricRenderer {
             const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
             this.biofabric.highlight_unh_nodes(n);
             d3.selectAll(".edgecircle").classed("highlight-biofabric", d => d.get_highlighted());
-
-            d3.select("#nodeLine-" + id).classed("highlight-biofabric", d => d.get_highlighted());
+            d3.selectAll(".nodeline").classed("highlight-biofabric", d => d.get_highlighted());
         });
     }
 

@@ -324,10 +324,9 @@ export class BioFabric {
     highlight_unh_nodes(node) {
         const depth = node.get_depth();
         const state = node.get_state();
-        // only highlight node of depth if both nodes and edges are fully compressed, otherwise only highlight the node
-        const edgeState = this.graph.edges.find(edge => edge.get_depth() == depth)?.get_state() || State.Empty;
+        // only highlight node of depth if both nodes are fully compressed, otherwise only highlight the node
         const isHighlighted = node.get_highlighted();
-        if (state == State["Fully Compressed"] && edgeState == State["Fully Compressed"]) {
+        if (state == State["Fully Compressed"]) {
             const nodes = this.graph.nodes.filter(node => node.get_depth() === depth);
             nodes.forEach(node => {
                 node.set_highlighted(!isHighlighted);
