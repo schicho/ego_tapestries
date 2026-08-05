@@ -681,21 +681,20 @@ export class BioFabricRenderer {
 
             // adjust edge circle radius for better visibility
             const allEdges = this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth());
-            const allEdgesCount = allEdges.length;
-            const uncompressedEdges = allEdges.filter(e => e.get_state() == State["Uncompressed"]);
-            const uncEdgesCount = uncompressedEdges.length;
+            const countUncompressed = allEdges.filter(e => e.get_state() == State["Uncompressed"]).length;
+            const countPartiallyCompressed = allEdges.filter(e => e.get_state() == State["Partially Compressed"]).length;
+            const fullyCompressedCount = allEdges.filter(e => e.get_state() == State["Fully Compressed"]).length;
 
-            const divisor = allEdgesCount - (allEdgesCount - uncEdgesCount);
+            const scaledDivisor = (countUncompressed + 0.4 * countPartiallyCompressed + 0.1 * fullyCompressedCount);
 
-            const allNodeDepthIcons = nodeDepthIcons.filter(nodeDepthIcon => nodeDepthIcon.get_state() != State["Singleton"] && nodeDepthIcon.get_state() != State["Empty"]);
-            const allNodesCount = allNodeDepthIcons.length;
-            const uncompressedNodeDepthIcons = allNodeDepthIcons.filter(nodeDepthIcon => nodeDepthIcon.get_state() == State["Uncompressed"]);
-            const uncNodeDepthIconsCount = uncompressedNodeDepthIcons.length;
+            const maximumRadius = 30 / 40;
+            const scaledRadius = 30 / scaledDivisor;
+            const radius = Math.min(maximumRadius, scaledRadius);
 
             innerG.selectAll(".edgecircle")
                 .transition("dotsize")
                 .duration(transitionDuration)
-                .attr("r", 30 / (divisor));
+                .attr("r", radius);
         });
 
         this.globalDispatcher.on("hover-in.biofabric", (id) => {
