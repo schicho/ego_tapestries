@@ -221,12 +221,17 @@ export class BioFabricRenderer {
         // Iterate over all Edges in Depth Limit
         for (let edge of this.biofabric.graph.edges.filter(edge => (edge.get_depth() <= this.biofabric.graph.get_depth()))) {
 
+            let edgeG = innerG.append("g")
+                .attr("id", "edgeG-" + edge.get_id())
+                .attr("class", "edgeG")
+                .datum(edge);
+
             // Get Indicies of Curent Edge's Termini Nodes
             let topNodeIndex = this.biofabric.get_topmost_node_index(edge);
             let lowNodeIndex = this.biofabric.get_bottommost_node_index(edge);
 
             // Append an Edge Line
-            innerG
+            edgeG
                 .append("line")
                 .attr("id", "edgeLine-" + edge.get_id())
                 .attr("class", "edgeLine")
@@ -239,7 +244,7 @@ export class BioFabricRenderer {
                 .attr("stroke-width", 30 / this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth()).length)
                 .attr("stroke-linecap", "round")
 
-            innerG
+            edgeG
                 .append("circle")
                 .attr("id", "edgeCircleSource-" + edge.get_id())
                 .attr('class', "edgecircle")
@@ -259,7 +264,7 @@ export class BioFabricRenderer {
                     this.globalDispatcher.call("hover-out");
                 });
 
-            innerG
+            edgeG
                 .append("circle")
                 .attr("id", "edgeCircleTarget-" + edge.get_id())
                 .attr('class', "edgecircle")
@@ -700,15 +705,13 @@ export class BioFabricRenderer {
         this.globalDispatcher.on("hover-in.biofabric", (id) => {
             const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
             const incidentEdges = this.biofabric.graph.get_incident_edges(n);
-            d3.selectAll(".edgeLine").classed("fade-biofabric", edge => !incidentEdges.includes(edge));
-            d3.selectAll(".edgecircle").classed("fade-biofabric", (d, i, nodes) => !incidentEdges.some(edge => edge.get_id() === nodes[i].id.split("-")[1]));
+            d3.selectAll(".edgeG").classed("fade-biofabric", edge => !incidentEdges.includes(edge));
             d3.selectAll(".nodeline").classed("fade-biofabric-light", node => !incidentEdges.some(edge => edge.has_node_id(node.get_id())));
             d3.selectAll(".nodetext").classed("fade-biofabric-light", node => !incidentEdges.some(edge => edge.has_node_id(node.get_id())));
         });
 
         this.globalDispatcher.on("hover-out.biofabric", () => {
-            d3.selectAll(".edgeLine").classed("fade-biofabric", false);
-            d3.selectAll(".edgecircle").classed("fade-biofabric", false);
+            d3.selectAll(".edgeG").classed("fade-biofabric", false);
             d3.selectAll(".nodeline").classed("fade-biofabric-light", false);
             d3.selectAll(".nodetext").classed("fade-biofabric-light", false);
         });
