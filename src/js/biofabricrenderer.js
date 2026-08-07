@@ -52,6 +52,9 @@ export class BioFabricRenderer {
         let nodeG = svg.append("g")
             .attr("transform", "translate(" + (this.canvasWidth * this.nodeGX) + "," + (this.canvasHeight * this.nodeGY) + ")")
 
+        let compressG = svg.append("g")
+            .attr("transform", "translate(" + (this.canvasWidth * this.nodeDepthX) + "," + (this.canvasHeight * this.edgeDepthY) + ")")
+
         // Iterate over all Nodes in Depth Limit
         for (let node of this.biofabric.graph.nodes.filter(node => (node.get_depth() <= this.biofabric.graph.get_depth()))) {
 
@@ -131,6 +134,80 @@ export class BioFabricRenderer {
 
                 })
         }
+
+        compressG.append("circle")
+            .attr("id", "compressAllButton")
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", 0.5)
+            .attr("fill", "black")
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2)
+            .on("mouseover", () => {
+                d3.select("#compressAllButton")
+                    .transition(transitionDuration)
+                    .attr("fill", "white");
+            })
+            .on("mouseout", () => {
+                d3.select("#compressAllButton")
+                    .transition(transitionDuration)
+                    .attr("fill", "black");
+            })
+            .on("click", () => {
+                for (let edgeDepth of this.biofabric.edgeDepths.filter(edgeDepth => edgeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
+                    switch (edgeDepth.get_state()) {
+                        case State["Uncompressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, false, "edge"));
+                        // fall through to partially compressed
+                        case State["Partially Compressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, false, "edge"));
+                    }
+                }
+                for (let nodeDepthIcon of this.biofabric.nodeDepths.filter(nodeDepth => nodeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
+                    switch (nodeDepthIcon.get_state()) {
+                        case State["Uncompressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(nodeDepthIcon, false, "node"));
+                    }
+                }
+            });
+
+        // uncompress All Button
+        compressG.append("circle")
+            .attr("id", "uncompressAllButton")
+            .attr("cx", 2)
+            .attr("cy", 0)
+            .attr("r", 0.5)
+            .attr("fill", "white")
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2)
+            .on("mouseover", () => {
+                d3.select("#uncompressAllButton")
+                    .transition(transitionDuration)
+                    .attr("fill", "black");
+            })
+            .on("mouseout", () => {
+                d3.select("#uncompressAllButton")
+
+                    .transition(transitionDuration)
+                    .attr("fill", "white");
+            })
+            .on("click", () => {
+                for (let edgeDepth of this.biofabric.edgeDepths.filter(edgeDepth => edgeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
+                    switch (edgeDepth.get_state()) {
+                        case State["Partially Compressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, false, "edge"));
+                        // fall through to fully compressed
+                        case State["Fully Compressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, false, "edge"));
+                    }
+                }
+                for (let nodeDepthIcon of this.biofabric.nodeDepths.filter(nodeDepth => nodeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
+                    switch (nodeDepthIcon.get_state()) {
+                        case State["Fully Compressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(nodeDepthIcon, false, "node"));
+                    }
+                }
+            });
 
         // Iterate over unique node Depths       
         let nodeDepthIcons = [...new Set(this.biofabric.nodeDepths.filter(nodeDepth => nodeDepth.get_depth() <= this.biofabric.graph.get_depth()))]
