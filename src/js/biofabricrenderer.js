@@ -143,10 +143,13 @@ export class BioFabricRenderer {
             .attr("fill", "black")
             .attr("stroke", "black")
             .attr("stroke-width", 0.2)
+            .style("cursor", "pointer")
             .on("mouseover", () => {
                 d3.select("#compressAllButton")
                     .transition(transitionDuration)
-                    .attr("fill", "white");
+                    .attr("fill", "white")
+                    .transition(transitionDuration)
+                    .attr("fill", "black");
             })
             .on("mouseout", () => {
                 d3.select("#compressAllButton")
@@ -180,10 +183,13 @@ export class BioFabricRenderer {
             .attr("fill", "white")
             .attr("stroke", "black")
             .attr("stroke-width", 0.2)
+            .style("cursor", "pointer")
             .on("mouseover", () => {
                 d3.select("#uncompressAllButton")
                     .transition(transitionDuration)
-                    .attr("fill", "black");
+                    .attr("fill", "black")
+                    .transition(transitionDuration)
+                    .attr("fill", "white");
             })
             .on("mouseout", () => {
                 d3.select("#uncompressAllButton")
