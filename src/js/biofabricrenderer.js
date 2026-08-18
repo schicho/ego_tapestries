@@ -93,20 +93,11 @@ export class BioFabricRenderer {
                 .text(node.get_label())
                 .attr("fill", d3.schemeObservable10[node.get_depth()])
                 .on("dblclick", () => {
-
                     // clear canvas
                     svg.selectAll("*").remove();
 
                     // recalculate ego network with new ego
-                    this.biofabric.graph.set_ego(node);
-                    this.biofabric.graph.construct_ego_network();
-                    console.log("Constructed Ego Network")
-
-                    // Sort Nodes Based on Hop + Weighted Distanced to Ego
-                    this.biofabric.graph.identify_singleton_nodes();
-                    this.biofabric.graph.identify_singleton_edges();
-                    this.biofabric.graph.sort_nodes();
-                    console.log("Sorted Nodes")
+                    this.biofabric.graph.change_ego_and_reconstruct(node);
 
                     // Repopulate depth icons
                     this.biofabric.populate_node_depths();

@@ -13,7 +13,7 @@ export class Graph {
         this.load_data(data);
         // Construct the Ego Network
         this.ego = this.nodes[0];
-        this.construct_ego_network();
+        this.construct_grouped_network();
         // Sort Nodes Based on Hop + Weighted Distanced to Ego
         this.identify_singleton_nodes();
         this.identify_singleton_edges();
@@ -26,43 +26,31 @@ export class Graph {
 
     change_ego_and_reconstruct(node) {
         this.set_ego(node);
-        this.construct_ego_network();
+        this.construct_grouped_network();
         //this.identify_singleton_nodes();
         //this.identify_singleton_edges();
         this.sort_nodes();
     }
 
     // Populate Edges and Nodes from Dataset
+    // load from json object with nodes and links
     load_data(data) {
-        // Initialize IDs of edges and nodes
-        let nodeCounter = 0;
+        const nodes = data.nodes;
+        for (let node of nodes) {
+            this.nodes.push(new Vertex(node.id, node.label, { "group": node.group, "level": node.level }));
+        }
+
+        const links = data.links;
         let edgeCounter = 0;
-        // Iterate over Entries in Dataset
-        for (let entry of data) {
-            // If Edge Source Node Doesn't Exist -> Add
-            if (!this.nodes.find(n => n.label == entry.source)) {
-                let nodeID = nodeCounter++;
-                this.nodes.push(new Vertex(nodeID.toString(), entry.source));
-            }
-            // If Edge Target Node Doesn't Exist -> Add
-            if (!this.nodes.find(n => n.label == entry.target)) {
-                let nodeID = nodeCounter++;
-                this.nodes.push(new Vertex(nodeID.toString(), entry.target));
-            }
-            // Get Source and Target ID's from Node List
-            let sourceVertex = this.nodes.find(n => n.label == entry.source);
-            let targetVertex = this.nodes.find(n => n.label == entry.target);
-            // Check that Source and Target ID's exist in node list
+        for (let link of links) {
+            let sourceVertex = this.nodes.find(n => n.id == link.source);
+            let targetVertex = this.nodes.find(n => n.id == link.target);
             if (sourceVertex == undefined || targetVertex == undefined) {
                 throw new Error("Source or Target not found in node list!");
             }
-            // Check if Edge already exists in Edge list
-            if (!this.edges.find(e => e.has_node_id(sourceVertex.get_id()) && e.has_node_id(targetVertex.get_id()))) {
-                // Create new Edge and Add to Edge list
-                let edgeID = edgeCounter++;
-                let newEdge = new Edge(edgeID.toString(), sourceVertex, targetVertex, entry.attrs);
-                this.edges.push(newEdge);
-            }
+            edgeCounter++;
+            let newEdge = new Edge(edgeCounter.toString(), sourceVertex, targetVertex, { "group": link.group, "weight": link.weight, "label": link.label });
+            this.edges.push(newEdge);
         }
     }
 
@@ -162,6 +150,42 @@ export class Graph {
         // FIX THIS LATER
         for (let node of this.nodes) {
             node.set_distance(shortestPaths[node.get_id()]);
+        }
+    }
+
+    construct_grouped_network() {
+        this.nodes.map(node => node.reset());
+        this.edges.map(edge => edge.reset());
+
+        let groupMap = new Map();
+        for (let node of this.nodes) {
+            let group = node.attrs.group;
+            if (!groupMap.has(group)) {
+                groupMap.set(group, []);
+            }
+            groupMap.get(group).push(node);
+        }
+
+        let depthCounter = 0;
+        for (let [group, nodes] of groupMap.entries()) {
+            for (let node of nodes) {
+                node.set_depth(depthCounter);
+                // I'm unsure for what these values are used, but they are set in the construct_ego_network code, so I will keep them here.
+                node.set_incidence(this.edges.filter(edge => edge.has_node_id(node.id)));
+                let neighborIDs = node.incidence.map(edge => edge.get_endpoint_ids()).flat(1).filter(nodeID => node.get_id() != nodeID);
+                let adjacency = neighborIDs.map(nodeID => this.nodes.find(node => node.id == nodeID)).filter(node => node != undefined && node.attrs.group === group);
+                node.set_adjacency(adjacency);
+            }
+
+            depthCounter++;
+        }
+
+        for (let edge of this.edges) {
+            let source = edge.get_source_vertex();
+            let target = edge.get_target_vertex();
+
+            let smallerDepth = Math.min(source.depth, target.depth);
+            edge.set_depth((source.depth == target.depth) ? smallerDepth : smallerDepth + 1 / 2);
         }
     }
 

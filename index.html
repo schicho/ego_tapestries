@@ -12,43 +12,30 @@
 
 <body>
     <div>
-        <button class="view-button" id="smallstarwars">Small Star Wars</button>
-        <button class="view-button" id="lesmiserables">Les Misérables</button>
-        <button class="view-button" id="g01">Large Graph 01</button>
-        <button class="view-button" id="g02">Large Graph 02</button>
-        <button class="view-button" id="g03">Large Graph 03</button>
-        <button class="view-button" id="ieeevis">IEEE VIS Co-Authorship</button>
+        <button class="view-button" id="company">Company Network</button>
+        <button class="view-button" id="logistics">Logistics Network</button>
+        <button class="view-button" id="trading">Trading Network</button>
     </div>
 </body>
 
 <script type="module">
     import { init, setRenderType, setLayoutType } from "./src/js/main.js";
 
-    const SMALL_STAR_WARS = "./data/star_wars_4_adapted.edges.json";
-    const LES_MISERABLES = "./data/miserables.edges.json";
-    const GRAPH01 = "./data/biofabric_graph_01_edgelist.json";
-    const GRAPH02 = "./data/graph_02_edge_list.json";
-    const GRAPH03 = "./data/graph_03_edge_list.json"
-    const IEEEVIS = "./data/ieeevis-co-authorship.json"
-
+    const COMPANY_NETWORK = "./data/company-network.json";
+    const LOGISTICS_NETWORK = "./data/logistics-network.json";
+    const TRADING_NETWORK = "./data/trading-network.json";
 
     const buttons = [...document.querySelectorAll(".view-button")];
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             const btnid = btn.id;
-            if (btnid === "smallstarwars") {
-                init({ dataPath: SMALL_STAR_WARS })
-            } else if (btnid === "lesmiserables") {
-                init({ dataPath: LES_MISERABLES })
-            } else if (btnid === "g01") {
-                init({ dataPath: GRAPH01 })
-            } else if (btnid === "g02") {
-                init({ dataPath: GRAPH02 })
-            } else if (btnid === "g03") {
-                init({ dataPath: GRAPH03 })
-            } else if (btnid === "ieeevis") {
-                init({ dataPath: IEEEVIS })
+            if (btnid === "company") {
+                init({ dataPath: COMPANY_NETWORK })
+            } else if (btnid === "logistics") {
+                init({ dataPath: LOGISTICS_NETWORK })
+            } else if (btnid === "trading") {
+                init({ dataPath: TRADING_NETWORK })
             }
         });
     });
