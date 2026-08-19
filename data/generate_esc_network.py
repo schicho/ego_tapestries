@@ -33,23 +33,28 @@ PERFORMER_CODES = [
     "ME",
 ]
 
-EU_CODES = {
-    "AT", "BE", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE",
-    "GR", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT",
-    "ES", "SE",
-}
-ASIA_CODES = {"AM", "AZ", "GE", "IL"}
+WEST_EUROPE_CODES = {"FR", "GB", "IE", "IS", "MT", "PT", "ES"}
+CENTRAL_EUROPE_CODES = {"AT", "CH", "CZ", "DE", "IT", "SI", "SM", "LU", "NL", "BE"}
+EAST_EUROPE_CODES = {"AL", "EE", "GR", "LT", "LV", "ME", "PL", "RS", "HR", "UA"}
+SCANDINAVIA_CODES = {"DK", "FI", "NO", "SE"}
+ASIA_CODES = {"AM", "AZ", "CY", "GE", "IL"}
 OCEANIA_CODES = {"AU"}
 
 
 def group_for(code):
-    if code in EU_CODES:
-        return "EU"
+    if code in WEST_EUROPE_CODES:
+        return "west europe"
+    if code in CENTRAL_EUROPE_CODES:
+        return "central europe"
+    if code in EAST_EUROPE_CODES:
+        return "east europe"
+    if code in SCANDINAVIA_CODES:
+        return "scandinavia"
     if code in ASIA_CODES:
         return "asia"
     if code in OCEANIA_CODES:
         return "oceania"
-    return "european non eu"
+    raise ValueError(f"No geographic group configured for {code}")
 
 
 def main():

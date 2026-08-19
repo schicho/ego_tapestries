@@ -3,7 +3,7 @@
     {
       "id": "AL",
       "label": "Albania",
-      "group": "european non eu",
+      "group": "east europe",
       "level": 1
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "AT",
       "label": "Austria",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
@@ -33,49 +33,49 @@
     {
       "id": "BE",
       "label": "Belgium",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "HR",
       "label": "Croatia",
-      "group": "EU",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "CY",
       "label": "Cyprus",
-      "group": "EU",
+      "group": "asia",
       "level": 1
     },
     {
       "id": "CZ",
       "label": "Czechia",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "DK",
       "label": "Denmark",
-      "group": "EU",
+      "group": "scandinavia",
       "level": 1
     },
     {
       "id": "EE",
       "label": "Estonia",
-      "group": "EU",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "FI",
       "label": "Finland",
-      "group": "EU",
+      "group": "scandinavia",
       "level": 1
     },
     {
       "id": "FR",
       "label": "France",
-      "group": "EU",
+      "group": "west europe",
       "level": 1
     },
     {
@@ -87,25 +87,25 @@
     {
       "id": "DE",
       "label": "Germany",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "GR",
       "label": "Greece",
-      "group": "EU",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "IS",
       "label": "Iceland",
-      "group": "european non eu",
+      "group": "west europe",
       "level": 1
     },
     {
       "id": "IE",
       "label": "Ireland",
-      "group": "EU",
+      "group": "west europe",
       "level": 1
     },
     {
@@ -117,109 +117,109 @@
     {
       "id": "IT",
       "label": "Italy",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "LV",
       "label": "Latvia",
-      "group": "EU",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "LT",
       "label": "Lithuania",
-      "group": "EU",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "LU",
       "label": "Luxembourg",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "MT",
       "label": "Malta",
-      "group": "EU",
+      "group": "west europe",
       "level": 1
     },
     {
       "id": "ME",
       "label": "Montenegro",
-      "group": "european non eu",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "NL",
       "label": "Netherlands",
-      "group": "EU",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "NO",
       "label": "Norway",
-      "group": "european non eu",
+      "group": "scandinavia",
       "level": 1
     },
     {
       "id": "PL",
       "label": "Poland",
-      "group": "EU",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "PT",
       "label": "Portugal",
-      "group": "EU",
+      "group": "west europe",
       "level": 1
     },
     {
       "id": "SM",
       "label": "San Marino",
-      "group": "european non eu",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "RS",
       "label": "Serbia",
-      "group": "european non eu",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "SI",
       "label": "Slovenia",
-      "group": "european non eu",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "ES",
       "label": "Spain",
-      "group": "EU",
+      "group": "west europe",
       "level": 1
     },
     {
       "id": "SE",
       "label": "Sweden",
-      "group": "EU",
+      "group": "scandinavia",
       "level": 1
     },
     {
       "id": "CH",
       "label": "Switzerland",
-      "group": "european non eu",
+      "group": "central europe",
       "level": 1
     },
     {
       "id": "UA",
       "label": "Ukraine",
-      "group": "european non eu",
+      "group": "east europe",
       "level": 1
     },
     {
       "id": "GB",
       "label": "United Kingdom",
-      "group": "european non eu",
+      "group": "west europe",
       "level": 1
     }
   ],
