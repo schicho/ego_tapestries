@@ -91,39 +91,7 @@ export class BioFabricRenderer {
                 .attr("text-anchor", "end")
                 .attr("dominant-baseline", "middle")
                 .text(node.get_label())
-                .attr("fill", d3.schemeObservable10[node.get_depth()])
-                .on("dblclick", () => {
-                    // clear canvas
-                    svg.selectAll("*").remove();
-
-                    // recalculate ego network with new ego
-                    this.biofabric.graph.change_ego_and_reconstruct(node);
-
-                    // Repopulate depth icons
-                    this.biofabric.populate_node_depths();
-                    this.biofabric.populate_edge_depths();
-                    console.log("Populated Edge/Node Depths")
-
-                    // Sort Edges, Depths
-                    this.biofabric.sort_edges_degreescending();
-                    this.biofabric.sort_edge_depth_icons();
-                    this.biofabric.sort_node_depth_icons();
-                    console.log("Sort Edges and Edge/Node Depths")
-
-                    // Calculcate Y Coordinates
-                    this.biofabric.calculate_node_y_coordinates();
-                    this.biofabric.calculcate_depth_y_coordinates();
-                    console.log("Calculated Y Coordinates")
-
-                    // Calculcate X Coordiantes
-                    this.biofabric.calculate_edge_x_coordinates();
-                    this.biofabric.calculcate_depth_x_coordinates();
-                    console.log("Calculated X Coordinates")
-
-                    // TODO: do not just redraw but animate the transition
-                    this.render(svg)
-
-                })
+                .attr("fill", d3.schemeObservable10[node.get_depth()]);
         }
 
         compressG.append("circle")
