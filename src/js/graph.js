@@ -8,7 +8,7 @@ export class Graph {
     constructor(data) {
         this.edges = [];
         this.nodes = [];
-        this.depth = 3;
+        this.depth = 5;
         // Load Data
         this.load_data(data);
         // Construct the Ego Network
