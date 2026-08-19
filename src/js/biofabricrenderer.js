@@ -568,9 +568,10 @@ export class BioFabricRenderer {
                 for (let nodeDepthIconB of nodeDepthIcons) {
 
                     // Get all Nodes for Given Depth -> Skip if Singleton or Empty
-                    if ((nodeDepthIconB.get_state() == State["Empty"]) || (nodeDepthIconB.get_state() == State["Singleton"])) {
-                        continue;
-                    }
+                    //if ((nodeDepthIconB.get_state() == State["Empty"]) || (nodeDepthIconB.get_state() == State["Singleton"])) {
+                    //    continue;
+                    //}
+                    // don't know why this check was ever here. there can be singleton depths that are not empty, and they should still have their depth lines updated. so I removed the check.
 
                     // update the Endpoints of the Depth lines
                     nodeDepthG.select("#nodeDepthLine-" + nodeDepthIconB.get_depth().toString().replace(".", "-"))
