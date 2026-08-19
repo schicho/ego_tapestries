@@ -91,7 +91,13 @@ export class BioFabricRenderer {
                 .attr("text-anchor", "end")
                 .attr("dominant-baseline", "middle")
                 .text(node.get_label())
-                .attr("fill", d3.schemeObservable10[node.get_depth()]);
+                .attr("fill", d3.schemeObservable10[node.get_depth()])
+                .on("mouseover", (_event, d) => {
+                    this.globalDispatcher.call("hover-in", this, d.get_id());
+                })
+                .on("mouseout", () => {
+                    this.globalDispatcher.call("hover-out");
+                });
         }
 
         compressG.append("circle")
