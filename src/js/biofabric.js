@@ -250,12 +250,7 @@ export class BioFabric {
         for (let depthIndex = 0; depthIndex < renderedEdgeDepths.length; depthIndex++) {
             // console.log("Depth Index: " + depthIndex);
             let currEdgeDepthIcon = renderedEdgeDepths[depthIndex];
-            if (depthIndex == 0) {
-                currEdgeDepthIcon.set_x(0);
-                currEdgeDepthIcon.set_min_x(0);
-                currEdgeDepthIcon.set_max_x(0);
-            }
-            else {
+            
                 let depthEdges = this.graph.edges.filter(edge => edge.get_depth() == currEdgeDepthIcon.get_depth());
                 if (currEdgeDepthIcon.get_depth() == this.graph.get_depth()) {
                     if (depthEdges.length == 0) {
@@ -280,7 +275,6 @@ export class BioFabric {
                         currEdgeDepthIcon.set_x((currEdgeDepthIcon.get_min_x() + currEdgeDepthIcon.get_max_x()) / 2);
                     }
                 }
-            }
         }
         // Iterate over remaining empty Depths and fill in (center) x values
         for (let depthIndex of emptyDepths) {

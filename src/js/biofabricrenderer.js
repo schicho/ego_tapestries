@@ -714,9 +714,9 @@ export class BioFabricRenderer {
                 // Iterate over all depth circles and lines and update their positions
                 for (let edgeDepthB of this.biofabric.edgeDepths) {
 
-                    if ((edgeDepthB.get_state() == State["Empty"]) || (edgeDepthB.get_state() == State["Singleton"])) {
-                        continue;
-                    }
+                    //if ((edgeDepthB.get_state() == State["Empty"]) || (edgeDepthB.get_state() == State["Singleton"])) {
+                    //    continue;
+                    //}
 
                     edgeDepthG.select("#edgeDepthLine-" + edgeDepthB.get_depth().toString().replace(".", "-"))
                         .transition()
