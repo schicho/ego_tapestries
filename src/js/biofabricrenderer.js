@@ -762,7 +762,7 @@ export class BioFabricRenderer {
             const countPartiallyCompressed = allEdges.filter(e => e.get_state() == State["Partially Compressed"]).length;
             const fullyCompressedCount = allEdges.filter(e => e.get_state() == State["Fully Compressed"]).length;
 
-            const scaledDivisor = (countUncompressed + 0.4 * countPartiallyCompressed + 0.1 * fullyCompressedCount);
+            const scaledDivisor = (countUncompressed + 0.8 * countPartiallyCompressed + 0.5 * fullyCompressedCount);
 
             const maximumRadius = 30 / 40;
             const scaledRadius = 30 / scaledDivisor;
