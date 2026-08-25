@@ -9,28 +9,39 @@ PERFORMER_CODES = [
     "IL",
     "EE",
     "SE",
-    "DE",
+    "IT",
     "GR",
     "FR",
     "AL",
     "UA",
     "CH",
-    "IT",
-    "NL",
     "FI",
+    "NL",
+    "LV",
     "PL",
-    "SM",
-    "BE",
-    "AM",
-    "PT",
-    "NO",
+    "DE",
     "LT",
     "MT",
-    "ES",
-    "DK",
+    "NO",
     "GB",
+    "AM",
+    "PT",
+    "LU",
+    "DK",
+    "ES",
     "IS",
+    "SM",
+    "CY",
+    "AU",
+    "HR",
+    "CZ",
+    "IE",
+    "RS",
+    "GE",
+    "SI",
+    "BE",
     "ME",
+    "AZ",
 ]
 
 WEST_EUROPE_CODES = {"FR", "GB", "IE", "IS", "MT", "PT", "ES"}
@@ -87,11 +98,15 @@ def main():
         )
         for source, weight in total["votes"].items():
             if source in participating_codes and weight:
+                source_group = group_for(source)
+                target_group = group_for(target)
                 graph["links"].append(
                     {
                         "source": source,
                         "target": target,
-                        "group": "vote",
+                        "group": (
+                            f"{source_group} group"
+                        ),
                         "weight": weight,
                         "label": f"{countries[source]} to {countries[target]}",
                     }
