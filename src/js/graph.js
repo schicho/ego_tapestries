@@ -157,17 +157,17 @@ export class Graph {
         this.nodes.map(node => node.reset());
         this.edges.map(edge => edge.reset());
 
-        let groupMap = new Map();
+        let nodeGroupMap = new Map();
         for (let node of this.nodes) {
             let group = node.attrs.group;
-            if (!groupMap.has(group)) {
-                groupMap.set(group, []);
+            if (!nodeGroupMap.has(group)) {
+                nodeGroupMap.set(group, []);
             }
-            groupMap.get(group).push(node);
+            nodeGroupMap.get(group).push(node);
         }
 
         let depthCounter = 0;
-        for (let [group, nodes] of groupMap.entries()) {
+        for (let [group, nodes] of nodeGroupMap.entries()) {
             for (let node of nodes) {
                 node.set_depth(depthCounter);
                 // I'm unsure for what these values are used, but they are set in the construct_ego_network code, so I will keep them here.
@@ -180,12 +180,28 @@ export class Graph {
             depthCounter++;
         }
 
+        let edgeGroupMap = new Map();
         for (let edge of this.edges) {
-            let source = edge.get_source_vertex();
-            let target = edge.get_target_vertex();
+            let group = edge.attrs.group;
+            if (!edgeGroupMap.has(group)) {
+                edgeGroupMap.set(group, []);
+            }
+            edgeGroupMap.get(group).push(edge);
+        }
 
-            let smallerDepth = Math.min(source.depth, target.depth);
-            edge.set_depth((source.depth == target.depth) ? smallerDepth : smallerDepth + 1 / 2);
+        // sort keys in case they indicate a ego network depth
+        let keys = Array.from(edgeGroupMap.keys());
+        keys.sort((a, b) => {
+            return a-b;
+        });
+
+        let depthCounterEdges = 0;
+        for (let key of keys) {
+            let edges = edgeGroupMap.get(key);
+            for (let edge of edges) {
+                edge.set_depth(depthCounterEdges);
+            }
+            depthCounterEdges++;
         }
     }
 
