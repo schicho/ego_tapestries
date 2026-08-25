@@ -195,7 +195,7 @@ export class BioFabric {
         for (let edgeIndex = 0; edgeIndex < this.graph.edges.filter(edge => edge.get_depth() <= this.graph.get_depth()).length; edgeIndex++) {
             let x = 0;
             if (edgeIndex == 0) {
-                x = depthspace;
+                x = 0.001; // can't be 0 as we would divide by 0 later on when scaling to percentage, so we set it to a very small value
             }
             else {
                 if (this.graph.edges[edgeIndex - 1].get_depth() == this.graph.edges[edgeIndex].get_depth()) {
