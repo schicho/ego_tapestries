@@ -154,7 +154,7 @@ export class BioFabric {
         for (let nodeIndex = 0; nodeIndex < this.graph.nodes.filter(node => node.get_depth() <= this.graph.get_depth()).length; nodeIndex++) {
             let y = Infinity;
             if (nodeIndex == 0) {
-                y = 0;
+                y = 0.001;
             }
             else {
                 if (this.graph.nodes[nodeIndex - 1].get_depth() == this.graph.nodes[nodeIndex].get_depth()) {
