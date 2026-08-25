@@ -297,18 +297,14 @@ export class BioFabricRenderer {
                 .attr("class", "edgeG")
                 .datum(edge);
 
-            // Get Indicies of Curent Edge's Termini Nodes
-            let topNodeIndex = this.biofabric.get_topmost_node_index(edge);
-            let lowNodeIndex = this.biofabric.get_bottommost_node_index(edge);
-
             // Append an Edge Line
             edgeG
                 .append("line")
                 .attr("id", "edgeLine-" + edge.get_id())
                 .attr("class", "edgeLine")
                 .datum(edge) // edge data
-                .attr("y1", this.biofabric.graph.nodes[topNodeIndex].get_y() * (this.canvasHeight * (1 - this.innerY)))
-                .attr("y2", this.biofabric.graph.nodes[lowNodeIndex].get_y() * (this.canvasHeight * (1 - this.innerY)))
+                .attr("y1", edge.get_source_vertex().get_y() * (this.canvasHeight * (1 - this.innerY)))
+                .attr("y2", edge.get_target_vertex().get_y() * (this.canvasHeight * (1 - this.innerY)))
                 .attr("x1", edge.get_x() * (this.canvasWidth * (1 - this.innerX)))
                 .attr("x2", edge.get_x() * (this.canvasWidth * (1 - this.innerX)))
                 .attr("stroke", ((edge.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edge.get_depth()])
