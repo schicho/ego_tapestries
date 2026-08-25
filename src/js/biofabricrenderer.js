@@ -454,11 +454,6 @@ export class BioFabricRenderer {
                     // Ensure Current Depth's EdgeSet is not Singleton or Empty
                     if ((edgeDepth.get_state() != State["Singleton"]) && (edgeDepth.get_state() != State["Empty"])) {
                         let isFullCompression = false;
-                        // we only fully compress if the node is already fully compressed and we are compressing the edge fully, or if we are already fully compressed and are decompressing the node.
-                        if (edgeDepth.get_depth() % 1 == 0) { // only fully compress if its a full depth, not a half depth
-                            const nodePendant = this.biofabric.nodeDepths.find(nodeDepth => nodeDepth.get_depth() == edgeDepth.get_depth());
-                            isFullCompression = (edgeDepth.get_state() == State["Partially Compressed"] && nodePendant.get_state() == State["Fully Compressed"]) || (edgeDepth.get_state() == State["Fully Compressed"] && nodePendant.get_state() == State["Fully Compressed"]);
-                        }
                         this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, isFullCompression, "edge"));
                     }
                 });
