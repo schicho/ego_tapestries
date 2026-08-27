@@ -129,9 +129,67 @@ export class BioFabricRenderer {
                 }
             });
 
+        // require a group for the half step to render the semi circle and the circle
+        let compressAllEdgesHalfButton = compressG.append("g").attr("transform", "translate(" + (2) + "," + (0) + ")");
+
+        compressAllEdgesHalfButton
+            .append("path")
+            .attr("id", "compressAllEdgesHalfButtonPath")
+            .attr("fill", "black")
+            .attr("stroke", "black")
+            .attr("stroke-width", 0)
+            .attr("d", () => {
+                let curve = d3.line().curve(d3.curveBasisClosed)
+                return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]]);
+            })
+
+        compressAllEdgesHalfButton.append("circle")
+            .attr("id", "compressAllEdgesHalfButton")
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", 0.5)
+            .attr("fill", "white")
+            .attr("fill-opacity", "0")
+            .attr("stroke", "black")
+            .attr("stroke-width", 0.2)
+            .style("cursor", "pointer")
+            .on("mouseover", () => {
+                d3.select("#compressAllEdgesHalfButtonPath")
+                    .transition(transitionDuration)
+                    .attr("d", () => {
+                        let curve = d3.line().curve(d3.curveBasisClosed)
+                        return curve([[0, 0.7], [0, 0.7], [0, 0.7], [0, 0.7]])
+                    })
+                    .transition(transitionDuration)
+                    .attr("d", () => {
+                        let curve = d3.line().curve(d3.curveBasisClosed)
+                        return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]]);
+                    })
+            })
+            .on("mouseout", () => {
+                d3.select("#compressAllEdgesHalfButtonPath")
+                    .attr("d", () => {
+                        let curve = d3.line().curve(d3.curveBasisClosed)
+                        return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]]);
+                    })
+            })
+            .on("click", () => {
+                for (let edgeDepth of this.biofabric.edgeDepths.filter(edgeDepth => edgeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
+                    switch (edgeDepth.get_state()) {
+                        case State["Fully Compressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, false, "edge"));
+                        // fall through to uncompressed
+                        case State["Uncompressed"]:
+                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, false, "edge"));
+                    }
+                }
+            })
+
+
+
         compressG.append("circle")
             .attr("id", "compressAllEdgesButton")
-            .attr("cx", 2)
+            .attr("cx", 4)
             .attr("cy", 0)
             .attr("r", 0.5)
             .attr("fill", "black")
