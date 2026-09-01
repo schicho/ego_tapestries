@@ -175,7 +175,7 @@ export class BioFabric {
         // Scale X Coordinates to Percentage
         let totalLength = Math.max.apply(0, this.graph.nodes.filter(node => node.get_depth() <= this.graph.get_depth()).map(node => node.get_y()));
         for (let node of this.graph.nodes) {
-            node.set_y(0.95 * (node.get_y() / totalLength));
+            node.set_y(0.98 * (node.get_y() / totalLength));
         }
     }
     calculcate_depth_y_coordinates() {
