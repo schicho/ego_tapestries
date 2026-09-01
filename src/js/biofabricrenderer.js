@@ -90,7 +90,7 @@ export class BioFabricRenderer {
                 .attr("text-anchor", "end")
                 .attr("dominant-baseline", "middle")
                 .text(node.get_label())
-                .attr("fill", d3.schemeObservable10[node.get_depth()])
+                .attr("fill", "#333")
                 .on("mouseover", (_event, d) => {
                     this.globalDispatcher.call("hover-in", this, d.get_id());
                 })
@@ -277,7 +277,7 @@ export class BioFabricRenderer {
                 .attr("x2", 0)
                 .attr("y1", Math.min.apply(0, depthNodes.map(node => node.get_y() * (this.canvasHeight * (1 - this.innerY)))))
                 .attr("y2", Math.max.apply(0, depthNodes.map(node => node.get_y() * (this.canvasHeight * (1 - this.innerY)))))
-                .attr("stroke", ((nodeDepthIcon.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[nodeDepthIcon.get_depth()])
+                .attr("stroke", ("#333"))
                 .attr("stroke-width", 0.2)
                 .attr("stroke-linecap", "round")
 
@@ -313,7 +313,7 @@ export class BioFabricRenderer {
                 }
                 )
                 .attr("id", "nodeDepthCircleIcon-" + nodeDepthIcon.get_depth().toString().replace(".", "-"))
-                .attr('fill', ((nodeDepthIcon.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[nodeDepthIcon.get_depth()])
+                .attr('fill', "#333")
 
             // Node Depth Circles
             nodeDepthCircleG.append("circle")
@@ -324,7 +324,7 @@ export class BioFabricRenderer {
                 .attr("r", 0.5)
                 .attr("fill", "white")
                 .attr("fill-opacity", "0")
-                .attr("stroke", ((nodeDepthIcon.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[nodeDepthIcon.get_depth()])
+                .attr("stroke", "#333")
                 .attr("stroke-width", 0.2)
                 .on("click", () => {
                     // Check if Depth is not Singleton/Empty -> update drawing if not so
