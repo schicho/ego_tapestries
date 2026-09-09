@@ -14,6 +14,8 @@ export class DepthIcon {
         //
         this.depth = Infinity;
         this.state = State.Empty;
+
+        this.group_label = null;
     }
     get_x() {
         return this.x;
@@ -62,5 +64,11 @@ export class DepthIcon {
     }
     get_depth() {
         return this.depth;
+    }
+    set_group_label(name) {
+        this.group_label = name;
+    }
+    get_group_label() {
+        return this.group_label;
     }
 }

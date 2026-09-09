@@ -515,6 +515,18 @@ export class BioFabricRenderer {
                         this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, isFullCompression, "edge"));
                     }
                 });
+
+            edgeDepthCircleG.append("text")
+                .attr("id", "edgeDepthCircleText-" + edgeDepth.get_depth().toString().replace(".", "-"))
+                .attr("class", "depthCircleText")
+                .attr("x", 0)
+                .attr("y", 1.5)
+                .attr("text-anchor", "middle")
+                .attr("class", "nodetext")
+                .style("font-size", "0.5pt")
+                .attr("dominant-baseline", "middle")
+                .attr("fill", "#333")
+                .text(edgeDepth.get_group_label());
         }
 
         this.globalDispatcher.on("compression.biofabric", (msg) => {
