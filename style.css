@@ -7,6 +7,11 @@ body {
     font-family: "Arial";
 }
 
+.edgetext {
+    font-size: 2pt;
+    font-family: "Arial";
+}
+
 .highlight {
     stroke: gold;
     stroke-width: 0.1px;

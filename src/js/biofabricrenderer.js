@@ -522,7 +522,7 @@ export class BioFabricRenderer {
                 .attr("x", 0)
                 .attr("y", 1.5)
                 .attr("text-anchor", "middle")
-                .attr("class", "nodetext")
+                .attr("class", "edgetext")
                 .style("font-size", "0.5pt")
                 .attr("dominant-baseline", "middle")
                 .attr("fill", "#333")
