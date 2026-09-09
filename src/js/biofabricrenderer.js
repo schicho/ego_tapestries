@@ -7,7 +7,7 @@ const transitionDuration = 300;
 export class BioFabricRenderer {
 
     // Constructor
-    constructor(biofabric, canvasWidth, canvasHeight, globalDispatcher = d3.dispatch("highlight", "hover-in", "hover-out", "compression")) {
+    constructor(biofabric, canvasWidth, canvasHeight, globalDispatcher = d3.dispatch("highlight", "hover-in", "hover-out", "compression", "edge-hover-in", "edge-hover-out")) {
 
         //
         this.biofabric = biofabric;
@@ -368,6 +368,12 @@ export class BioFabricRenderer {
                 .attr("stroke", ((edge.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edge.get_depth()])
                 .attr("stroke-width", 30 / this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth()).length)
                 .attr("stroke-linecap", "round")
+                .on("mouseover", (_event, d) => {
+                    this.globalDispatcher.call("edge-hover-in", this, d.get_id());
+                })
+                .on("mouseout", () => {
+                    this.globalDispatcher.call("edge-hover-out");
+                });
 
             edgeG
                 .append("circle")
@@ -855,6 +861,19 @@ export class BioFabricRenderer {
             this.biofabric.highlight_unh_nodes(n);
             d3.selectAll(".edgecircle").classed("highlight-biofabric", d => d.get_highlighted());
             d3.selectAll(".nodeline").classed("highlight-biofabric", d => d.get_highlighted());
+        });
+
+        this.globalDispatcher.on("edge-hover-in.biofabric", (id) => {
+            const e = this.biofabric.graph.edges.find(e => e.get_id() === id);
+            d3.selectAll(".edgeG").classed("fade-biofabric", edge => edge.get_id() !== id);
+            d3.selectAll(".nodeline").classed("fade-biofabric-light", node => !e.has_node_id(node.get_id()));
+            d3.selectAll(".nodetext").classed("fade-biofabric-light", node => !e.has_node_id(node.get_id()));
+        });
+
+        this.globalDispatcher.on("edge-hover-out.biofabric", () => {
+            d3.selectAll(".edgeG").classed("fade-biofabric", false);
+            d3.selectAll(".nodeline").classed("fade-biofabric-light", false);
+            d3.selectAll(".nodetext").classed("fade-biofabric-light", false);
         });
     }
 
