@@ -84,7 +84,6 @@ export class BioFabricRenderer {
                 .attr("id", "nodeText-" + node.get_id())
                 .attr("class", "nodetext")
                 .datum(node) // node data
-                .style("font-size", "0.5pt")
                 .attr("x", 0.95 * this.canvasWidth * (this.innerX - this.nodeGX))
                 .attr("y", node.get_y() * (this.canvasHeight * (1 - this.nodeGY)))
                 .attr("text-anchor", "end")
@@ -537,7 +536,6 @@ export class BioFabricRenderer {
                 .attr("y", 1.5)
                 .attr("text-anchor", "middle")
                 .attr("class", "edgetext")
-                .style("font-size", "0.5pt")
                 .attr("dominant-baseline", "middle")
                 .attr("fill", "#333")
                 .text(edgeDepth.get_group_label());
