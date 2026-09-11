@@ -26,9 +26,11 @@ export class BioFabric {
         this.nodeDepths = [];
         let nodeDepths = [...new Set(this.graph.nodes.filter(node => node.get_depth() <= this.graph.get_depth()).map(node => node.get_depth()))];
         for (let depth of nodeDepths) {
-            let nNodes = this.graph.nodes.filter(node => node.get_depth() == depth).length;
+            let nodes = this.graph.nodes.filter(node => node.get_depth() == depth);
+            let nNodes = nodes.length;
             let nodeDepth = new DepthIcon();
             nodeDepth.set_depth(depth);
+            nodeDepth.set_group_label(nNodes > 0 ? nodes[0].attrs.group : null);
             switch (nNodes) {
                 case (0):
                     nodeDepth.set_state(State.Empty);

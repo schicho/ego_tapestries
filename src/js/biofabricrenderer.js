@@ -293,6 +293,15 @@ export class BioFabricRenderer {
                 .attr("fill", "white")
                 .attr("r", 0.8)
 
+            nodeDepthCircleG.append("text")
+                .attr("id", "nodeDepthCircleText-" + nodeDepthIcon.get_depth().toString().replace(".", "-"))
+                .attr("x", 1.5)
+                .attr("y", 0)
+                .attr("class", "nodegrouptext")
+                .attr("dominant-baseline", "middle")
+                .attr("fill", "#333")
+                .text(nodeDepthIcon.get_group_label());
+
             // Node Depth Circles Icon Paths
             nodeDepthCircleG.append("path")
                 .attr('opacity', () => {
@@ -524,7 +533,6 @@ export class BioFabricRenderer {
 
             edgeDepthCircleG.append("text")
                 .attr("id", "edgeDepthCircleText-" + edgeDepth.get_depth().toString().replace(".", "-"))
-                .attr("class", "depthCircleText")
                 .attr("x", 0)
                 .attr("y", 1.5)
                 .attr("text-anchor", "middle")

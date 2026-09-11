@@ -7,6 +7,11 @@ body {
     font-family: "Arial";
 }
 
+.nodegrouptext {
+    font-size: 0.5pt;
+    font-family: "Arial";
+}
+
 .edgetext {
     font-size: 2pt;
     font-family: "Arial";
