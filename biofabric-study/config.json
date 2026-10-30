@@ -1,0 +1,1310 @@
+{
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "components": {
+        "intro_introduction": {
+            "path": "biofabric-study/assets/introduction.md",
+            "response": [],
+            "type": "markdown"
+        },
+        "intro_tutorial": {
+            "path": "biofabric-study/assets/tutorial.md",
+            "response": [],
+            "type": "markdown"
+        },
+        "intro_graph_terminology_biofabric": {
+            "path": "biofabric-study/assets/graph_terminology_biofabric.md",
+            "response": [],
+            "type": "markdown"
+        },
+        "task1_component_grafo4286.74.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Adrian"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Amelia.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Amelia.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "givenNode": "Amelia"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4481.77.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Amelia",
+                        "Ethan"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Olivia.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Olivia.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "givenNode": "Olivia"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4672.76.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Noah",
+                        "Olivia",
+                        "Ava",
+                        "Sophia",
+                        "Sebastian",
+                        "Hannah",
+                        "Victoria"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Ethan.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Ethan.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "givenNode": "Ethan"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo7907.80.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Andrew",
+                        "Chloe",
+                        "Christopher",
+                        "Benjamin"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Andrew and Benjamin.",
+            "instruction": "### Task 2\nIdentify the shortest path between Andrew and Benjamin.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "sourceNode": "Andrew",
+                "targetNode": "Benjamin"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8127.78.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Grace",
+                        "Luna",
+                        "Adrian",
+                        "Samuel"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Grace and Samuel.",
+            "instruction": "### Task 2\nIdentify the shortest path between Grace and Samuel.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "sourceNode": "Grace",
+                "targetNode": "Samuel"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8142.73.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Sebastian",
+                        "Adrian",
+                        "Maya",
+                        "Violet"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Sebastian and Violet.",
+            "instruction": "### Task 2\nIdentify the shortest path between Sebastian and Violet.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "sourceNode": "Sebastian",
+                "targetNode": "Violet"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo8961.75.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo9163.72.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo9691.79.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8961.75.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Aurora",
+                        "Evelyn",
+                        "Lincoln",
+                        "Ellie"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Aurora and Ellie.",
+            "instruction": "### Task 2\nIdentify the shortest path between Aurora and Ellie.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "sourceNode": "Aurora",
+                "targetNode": "Ellie"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo9163.72.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Adrian",
+                        "Aurora",
+                        "Mia",
+                        "Henry"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Adrian and Henry.",
+            "instruction": "### Task 2\nIdentify the shortest path between Adrian and Henry.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "sourceNode": "Adrian",
+                "targetNode": "Henry"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo9691.79.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Daniel",
+                        "Scarlett",
+                        "Samuel",
+                        "Victoria"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Daniel and Victoria.",
+            "instruction": "### Task 2\nIdentify the shortest path between Daniel and Victoria.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "sourceNode": "Daniel",
+                "targetNode": "Victoria"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo7907.80.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo8127.78.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo8142.73.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo7907.80.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Amelia",
+                        "Ethan",
+                        "Leah",
+                        "Gabriel"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Liam.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Liam.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "givenNode": "Liam"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8127.78.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Mason",
+                        "Mia",
+                        "James",
+                        "Henry",
+                        "Scarlett",
+                        "Layla",
+                        "Dylan"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Caleb.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Caleb.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "givenNode": "Caleb"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8142.73.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Nora",
+                        "Anthony",
+                        "Ellie"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Layla.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Layla.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "givenNode": "Layla"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4286.74.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Luna",
+                        "Victoria",
+                        "Adrian",
+                        "Michael"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Luna and Michael.",
+            "instruction": "### Task 2\nIdentify the shortest path between Luna and Michael.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "sourceNode": "Luna",
+                "targetNode": "Michael"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4481.77.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Victoria",
+                        "Dylan",
+                        "Aurora",
+                        "Zoey"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Victoria and Zoey.",
+            "instruction": "### Task 2\nIdentify the shortest path between Victoria and Zoey.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "sourceNode": "Victoria",
+                "targetNode": "Zoey"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4672.76.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Owen",
+                        "Natalie",
+                        "Lincoln",
+                        "Stella"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Identify the shortest path between Owen and Stella.",
+            "instruction": "### Task 2\nIdentify the shortest path between Owen and Stella.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "sourceNode": "Owen",
+                "targetNode": "Stella"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo4286.74.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo4481.77.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo4672.76.json": {
+            "description": "Estimate the number of edges in the graph.",
+            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8961.75.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Henry",
+                        "Matthew",
+                        "Aria"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Gabriel.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Gabriel.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "givenNode": "Gabriel"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo9163.72.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Noah",
+                        "Lucas",
+                        "Mia",
+                        "Matthew",
+                        "Wyatt"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Julian.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Julian.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "givenNode": "Julian"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo9691.79.json": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Luke",
+                        "Nathan",
+                        "Connor"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all adjacent nodes of node Naomi.",
+            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Naomi.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "givenNode": "Naomi"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "required": true,
+                    "type": "reactive"
+                }
+            ],
+            "type": "website"
+        }
+    },
+    "importedLibraries": [
+        "nasa-tlx"
+    ],
+    "sequence": {
+        "components": [
+            "intro_introduction",
+            "intro_tutorial",
+            "intro_graph_terminology_biofabric",
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task1_component_grafo4286.74.json",
+                                            "task1_component_grafo4481.77.json",
+                                            "task1_component_grafo4672.76.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task2_component_grafo7907.80.json",
+                                            "task2_component_grafo8127.78.json",
+                                            "task2_component_grafo8142.73.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task3_component_grafo8961.75.json",
+                                            "task3_component_grafo9163.72.json",
+                                            "task3_component_grafo9691.79.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            }
+                        ],
+                        "id": "random_sequence_permutation_0",
+                        "order": "random"
+                    },
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task1_component_grafo4286.74.json",
+                                            "task1_component_grafo4481.77.json",
+                                            "task1_component_grafo4672.76.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task2_component_grafo8961.75.json",
+                                            "task2_component_grafo9163.72.json",
+                                            "task2_component_grafo9691.79.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task3_component_grafo7907.80.json",
+                                            "task3_component_grafo8127.78.json",
+                                            "task3_component_grafo8142.73.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            }
+                        ],
+                        "id": "random_sequence_permutation_1",
+                        "order": "random"
+                    },
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task1_component_grafo7907.80.json",
+                                            "task1_component_grafo8127.78.json",
+                                            "task1_component_grafo8142.73.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task2_component_grafo4286.74.json",
+                                            "task2_component_grafo4481.77.json",
+                                            "task2_component_grafo4672.76.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task3_component_grafo8961.75.json",
+                                            "task3_component_grafo9163.72.json",
+                                            "task3_component_grafo9691.79.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            }
+                        ],
+                        "id": "random_sequence_permutation_2",
+                        "order": "random"
+                    },
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task1_component_grafo7907.80.json",
+                                            "task1_component_grafo8127.78.json",
+                                            "task1_component_grafo8142.73.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task2_component_grafo8961.75.json",
+                                            "task2_component_grafo9163.72.json",
+                                            "task2_component_grafo9691.79.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task3_component_grafo4286.74.json",
+                                            "task3_component_grafo4481.77.json",
+                                            "task3_component_grafo4672.76.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            }
+                        ],
+                        "id": "random_sequence_permutation_3",
+                        "order": "random"
+                    },
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task1_component_grafo8961.75.json",
+                                            "task1_component_grafo9163.72.json",
+                                            "task1_component_grafo9691.79.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task2_component_grafo4286.74.json",
+                                            "task2_component_grafo4481.77.json",
+                                            "task2_component_grafo4672.76.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task3_component_grafo7907.80.json",
+                                            "task3_component_grafo8127.78.json",
+                                            "task3_component_grafo8142.73.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            }
+                        ],
+                        "id": "random_sequence_permutation_4",
+                        "order": "random"
+                    },
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task1_component_grafo8961.75.json",
+                                            "task1_component_grafo9163.72.json",
+                                            "task1_component_grafo9691.79.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task2_component_grafo7907.80.json",
+                                            "task2_component_grafo8127.78.json",
+                                            "task2_component_grafo8142.73.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            "task3_component_grafo4286.74.json",
+                                            "task3_component_grafo4481.77.json",
+                                            "task3_component_grafo4672.76.json"
+                                        ],
+                                        "order": "random"
+                                    },
+                                    {
+                                        "components": [
+                                            "$nasa-tlx.components.nasa-tlx"
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "order": "fixed"
+                            }
+                        ],
+                        "id": "random_sequence_permutation_5",
+                        "order": "random"
+                    }
+                ],
+                "numSamples": 1.0,
+                "order": "latinSquare"
+            }
+        ],
+        "order": "fixed"
+    },
+    "studyMetadata": {
+        "authors": [
+            "Sara Di Bartolomeo",
+            "Daniel Pahr",
+            "Velitchko Filipov",
+            "Henry Ehlers",
+            "Johann Sebastian Schicho"
+        ],
+        "date": "2026-02-23",
+        "description": "Working with collapsible BioFabric",
+        "organizations": [
+            "TU Wien"
+        ],
+        "title": "BioFabric Study",
+        "version": "pilot"
+    },
+    "uiConfig": {
+        "contactEmail": "your@email.com",
+        "helpTextPath": "biofabric-study/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "withSidebar": false
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🧬</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <!-- Load revisit-communicate to be able to send data to reVISit -->
+    <script src="../../../revisitUtilities/revisit-communicate.js"></script>
+    <script src="d3.v7.js"></script>
+</head>
+
+<body>
+</body>
+
+<script type="module">
+    import { init } from "./src/js/main.js";
+
+    const COMPANY_NETWORK = "./data/company-network.json";
+    const LOGISTICS_NETWORK = "./data/logistics-network.json";
+    const TRADING_NETWORK = "./data/trading-network.json";
+    const ESC_NETWORK = "./data/esc-network.json";
+
+    Revisit.onDataReceive((data) => {
+        console.log(data);
+        if (!data.graphDataPath) {
+            console.warn("No graphDataPath provided, using default data.");
+            data.graphDataPath = COMPANY_NETWORK;
+        }
+
+        let options = {};
+        if (data.graphDataPath) {
+            // note the path must be relative to 'main.js'
+            options.dataPath = data.graphDataPath;
+
+            if (Object.hasOwn(data, "nodeAlterCompressions")) {
+                options.nodeAlterCompressions = data.nodeAlterCompressions;
+            }
+            if (Object.hasOwn(data, "edgeAlterCompressions")) {
+                options.edgeAlterCompressions = data.edgeAlterCompressions;
+            }
+        }
+
+        init(options);
+    });
+</script>
+
+</html>
