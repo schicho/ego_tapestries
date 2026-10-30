@@ -670,7 +670,7 @@ export class BioFabricRenderer {
         let highlightedNodes = this.biofabric.graph.nodes.filter(n => n.get_highlighted()).map(n => n.label);
         Revisit.postAnswers({
             // 'graphVis' must match id defined in config.json baseComponent response 
-            ['graphVis']: highlightedNodes
+            ['graphVis']: highlightedNodes.sort()
         });
 
     }
