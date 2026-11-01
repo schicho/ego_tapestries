@@ -238,9 +238,9 @@ def generate_task3_component(graph_file: str, path_prefix: str = "./"):
 
 NASA_TLX = rvt.sequence(order="fixed", components=["$nasa-tlx.components.nasa-tlx"])
 
-NASA_TLX_AND_SOURCE_OF_LOAD = rvt.sequence(
-    order="fixed",
-    components=["$nasa-tlx.sequences.nasa-tlx-with-source-of-load-evaluation"],
+# a separate instance is needed so the same sequence is not attached twice
+NASA_TLX_BEFORE_TASK = rvt.sequence(
+    order="fixed", components=["$nasa-tlx.components.nasa-tlx"]
 )
 
 
@@ -335,7 +335,7 @@ def generate_task_sequence_with_tlx(task: str, graph_subset):
 
     task_outer_fixed = rvt.sequence(order="fixed", components=[])
 
-    task_outer_fixed += NASA_TLX_AND_SOURCE_OF_LOAD
+    task_outer_fixed += NASA_TLX_BEFORE_TASK
     task_outer_fixed += random_inner_task
     task_outer_fixed += NASA_TLX
 
