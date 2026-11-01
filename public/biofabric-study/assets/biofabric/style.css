@@ -1,5 +1,15 @@
+html {
+    height: 100%;
+}
+
 body {
-    font-family: "Arial"
+    font-family: "Arial";
+    /* the drawing fits into the page, so that the page does not need to scroll */
+    height: 100%;
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .nodetext {
