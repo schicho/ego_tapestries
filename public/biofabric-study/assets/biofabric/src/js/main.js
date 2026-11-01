@@ -24,6 +24,10 @@ const REFERENCE_NODE_COUNT = 72;
 const REFERENCE_EDGE_COUNT = 110;
 // Space above the first node line, in canvas units, so that the first node label and circles are not cut off
 const TOP_PADDING = 2;
+// Space below the last node line, in canvas units, so that the last node line and its circles are not cut off
+const BOTTOM_PADDING = 3;
+// Space right of the last edge column, in canvas units, so that its circles are not cut off
+const RIGHT_PADDING = 3;
 // Share of the default height that is used for the node lines (the rest was the margin above them)
 const NODE_LINES_HEIGHT_SHARE = 0.98;
 // Share of the default width that is reserved for the node labels
@@ -46,11 +50,11 @@ function getOrCreateSvg(width, height) {
     // graphs (or collapsed edges) get a smaller drawing, instead of being blown up to the full
     // width. The drawing never gets bigger than the page, so it does not stretch the page.
     svg
-        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("viewBox", `0 0 ${width + RIGHT_PADDING} ${height + BOTTOM_PADDING}`)
         .attr("preserveAspectRatio", "xMidYMin meet")
         .style("display", "block")
         .style("margin", "0 auto")
-        .style("width", `${Math.min(100, DISPLAY_SCALE * 100 * width / state.width)}%`)
+        .style("width", `${Math.min(100, DISPLAY_SCALE * 100 * (width + RIGHT_PADDING) / state.width)}%`)
         .style("height", "auto")
         .style("max-height", "100%");
     return svg;

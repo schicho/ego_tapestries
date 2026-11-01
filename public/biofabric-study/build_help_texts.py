@@ -31,7 +31,7 @@ QUESTION_SPECIFIC_PARTS = {
 The two nodes highlighted in pink are given. They are connected if a vertical line (a connection) has a circle on the horizontal line of each of the two nodes. Answer **Yes** or **No**.""",
         "collapsed": """## Help: are the two nodes connected?
 
-The two nodes highlighted in pink are given. They are connected if one of them is at the top of a vertical line, and the other one has a circle on that same line. Answer **Yes** or **No**.""",
+The two nodes highlighted in pink are given. They are connected if one of them is at the top of a vertical line, and the other one has a circle on that same line. <span style="color: #e03131; font-weight: 600;">If two nodes have a circle on the same vertical line, they are both connected to the node at the TOPMOST end of that line, but not necessarily to each other.</span> Answer **Yes** or **No**.""",
     },
     "task1": {
         "normal": f"""## Help: select the nodes connected to the given node
