@@ -51,6 +51,22 @@
                 options.visibleLabels = [];
             }
 
+            // Collapsed edges condition, chosen with the URL parameter of the study (?condition=collapsed).
+            // The study runs in the parent window of this page.
+            try {
+                const condition = new URLSearchParams(window.parent.location.search).get("condition");
+                if (condition && condition.split(",").map(c => c.trim()).includes("collapsed")) {
+                    options.edgeCompression = "partial";
+                }
+            } catch (e) {
+                console.warn("Could not read the condition from the URL.", e);
+            }
+
+            // Read-only view, e.g. for questions about the highlighted nodes
+            if (data.readOnly) {
+                options.selectionDisabled = true;
+            }
+
             if (Object.hasOwn(data, "nodeAlterCompressions")) {
                 options.nodeAlterCompressions = data.nodeAlterCompressions;
             }

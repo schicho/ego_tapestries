@@ -1,0 +1,377 @@
+{
+  "nodes": [
+    {
+      "id": "Amelia",
+      "label": "Amelia",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Noah",
+      "label": "Noah",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Olivia",
+      "label": "Olivia",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Liam",
+      "label": "Liam",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Ava",
+      "label": "Ava",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Ethan",
+      "label": "Ethan",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Sophia",
+      "label": "Sophia",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Lucas",
+      "label": "Lucas",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Isabella",
+      "label": "Isabella",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Mason",
+      "label": "Mason",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Mia",
+      "label": "Mia",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "James",
+      "label": "James",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Charlotte",
+      "label": "Charlotte",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Benjamin",
+      "label": "Benjamin",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Evelyn",
+      "label": "Evelyn",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Henry",
+      "label": "Henry",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Harper",
+      "label": "Harper",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Alexander",
+      "label": "Alexander",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Camila",
+      "label": "Camila",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Daniel",
+      "label": "Daniel",
+      "group": "all",
+      "level": 1
+    },
+    {
+      "id": "Luna",
+      "label": "Luna",
+      "group": "all",
+      "level": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "Amelia",
+      "target": "Lucas",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Noah",
+      "target": "James",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Noah",
+      "target": "Henry",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Noah",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Olivia",
+      "target": "Evelyn",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Olivia",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Liam",
+      "target": "Lucas",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Liam",
+      "target": "Henry",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Liam",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Ava",
+      "target": "Isabella",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Ava",
+      "target": "Mason",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Ava",
+      "target": "Mia",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Ava",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Ethan",
+      "target": "Evelyn",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Sophia",
+      "target": "Charlotte",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Sophia",
+      "target": "Alexander",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Sophia",
+      "target": "Daniel",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Lucas",
+      "target": "Charlotte",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Isabella",
+      "target": "Evelyn",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Mason",
+      "target": "Benjamin",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Mason",
+      "target": "James",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Mason",
+      "target": "Camila",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Mason",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "James",
+      "target": "Evelyn",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "James",
+      "target": "Harper",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "James",
+      "target": "Daniel",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "James",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Charlotte",
+      "target": "Evelyn",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Charlotte",
+      "target": "Camila",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Charlotte",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Benjamin",
+      "target": "Evelyn",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Benjamin",
+      "target": "Alexander",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Evelyn",
+      "target": "Henry",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Evelyn",
+      "target": "Luna",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    },
+    {
+      "source": "Henry",
+      "target": "Camila",
+      "group": "all",
+      "weight": 1,
+      "label": ""
+    }
+  ]
+}

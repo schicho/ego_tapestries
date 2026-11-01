@@ -12,6 +12,24 @@ type ResponseWithDefault = Response & { default?: ResponseDefault };
 
 export const DONT_KNOW_DEFAULT_VALUE = "I don't know";
 
+/**
+ * Decides whether the next button is enabled after a participant checked their answer in a training trial.
+ * A trainingAttempts value of -1 means unlimited attempts: the participant has to answer correctly to continue.
+ */
+export function canContinueAfterAnswerCheck({
+  allCorrect, attemptsUsed, trainingAttempts, allowFailedTraining,
+}: {
+  allCorrect: boolean;
+  attemptsUsed: number;
+  trainingAttempts: number;
+  allowFailedTraining: boolean;
+}) {
+  const unlimitedAttempts = trainingAttempts === -1;
+  const usedAllAttempts = !unlimitedAttempts && attemptsUsed >= trainingAttempts;
+  return (allowFailedTraining && usedAllAttempts)
+    || (allCorrect && (unlimitedAttempts || attemptsUsed <= trainingAttempts));
+}
+
 function isEmptyCustomResponseValue(value: JsonValue | undefined): boolean {
   if (value === null || value === undefined || value === '') {
     return true;

@@ -6,6 +6,7 @@ import type {
 } from '../../parser/types';
 import type { CustomResponseValidate } from '../../store/types';
 import {
+  canContinueAfterAnswerCheck,
   checkCheckboxResponseForValidation,
   generateCustomResponseErrorMessage,
   generateErrorMessage,
@@ -495,5 +496,43 @@ describe('generateErrorMessage matrix', () => {
     });
 
     expect(error).toBeNull();
+  });
+});
+
+describe('canContinueAfterAnswerCheck', () => {
+  it('continues after a correct answer within the allowed attempts', () => {
+    expect(canContinueAfterAnswerCheck({
+      allCorrect: true, attemptsUsed: 1, trainingAttempts: 2, allowFailedTraining: false,
+    })).toBe(true);
+  });
+
+  it('does not continue after a wrong answer while attempts are left', () => {
+    expect(canContinueAfterAnswerCheck({
+      allCorrect: false, attemptsUsed: 1, trainingAttempts: 2, allowFailedTraining: true,
+    })).toBe(false);
+  });
+
+  it('continues after all attempts are used if failed training is allowed', () => {
+    expect(canContinueAfterAnswerCheck({
+      allCorrect: false, attemptsUsed: 2, trainingAttempts: 2, allowFailedTraining: true,
+    })).toBe(true);
+  });
+
+  it('does not continue after all attempts are used if failed training is not allowed', () => {
+    expect(canContinueAfterAnswerCheck({
+      allCorrect: false, attemptsUsed: 2, trainingAttempts: 2, allowFailedTraining: false,
+    })).toBe(false);
+  });
+
+  it('continues after a correct answer with unlimited attempts (-1)', () => {
+    expect(canContinueAfterAnswerCheck({
+      allCorrect: true, attemptsUsed: 5, trainingAttempts: -1, allowFailedTraining: false,
+    })).toBe(true);
+  });
+
+  it('never continues after a wrong answer with unlimited attempts (-1)', () => {
+    expect(canContinueAfterAnswerCheck({
+      allCorrect: false, attemptsUsed: 50, trainingAttempts: -1, allowFailedTraining: true,
+    })).toBe(false);
   });
 });

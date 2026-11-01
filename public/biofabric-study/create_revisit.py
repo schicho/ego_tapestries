@@ -122,6 +122,55 @@ TASK_2_SOLUTIONS = [  # in order of the graph files in ROME_GRAPH_FILES_LARGE
 #
 # only an estimate answer, so no solution
 
+# Task 3 uses smaller graphs (19-23 nodes, 28-38 edges) than the other tasks. The graphs are
+# assigned to the graphs of the other tasks one to one, in the order of ROME_GRAPH_FILES_LARGE,
+# so the grouping of the graphs into thirds (see get_graph_perumtations) stays the same.
+TASK_3_GRAPH_FILES = [
+    "grafo1154.22.json",
+    "grafo1052.22.json",
+    "grafo1037.22.json",
+    "grafo137.21.json",
+    "grafo1055.19.json",
+    "grafo153.21.json",
+    "grafo146.22.json",
+    "grafo2469.23.json",
+    "grafo1106.21.json",
+]
+TASK_3_GRAPH_FILE_OF_LARGE_GRAPH = dict(zip(ROME_GRAPH_FILES_LARGE, TASK_3_GRAPH_FILES))
+
+# PRACTICE TASKS (after the tutorial): small graphs, one per question. Participants cannot
+# continue until they answer correctly.
+PRACTICE_PATH_PREFIX = "./data/selected-rome-data/small/"
+
+PRACTICE_CONNECTION = {
+    "graph_file": "grafo1682.21.json",
+    "source": "Alexander",
+    "target": "Camila",
+    "connected": False,
+}
+PRACTICE_TASK_1 = {
+    "graph_file": "grafo1819.22.json",
+    "solution": {
+        "given": "Benjamin",
+        "adjacent": ["Amelia", "Liam", "Michael", "Olivia"],
+    },
+}
+PRACTICE_TASK_2 = {
+    "graph_file": "grafo2209.20.json",
+    "solution": {
+        "source": "Alexander",
+        "target": "Liam",
+        "common": ["Amelia", "Daniel"],
+    },
+}
+PRACTICE_TASK_3 = {
+    "graph_file": "grafo2375.19.json",
+    "num_edges": 35,
+    # the estimate is accepted within +-30% of the actual number of edges
+    "acceptable_low": 25,
+    "acceptable_high": 45,
+}
+
 
 biofabric_website_base = rvt.component(
     component_name__="website_base",
@@ -163,7 +212,7 @@ def generate_task1_component(graph_file: str, solution: dict, path_prefix: str =
         },
         provideFeedback=False,
         correctAnswer=[
-            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=solution["adjacent"])
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(solution["adjacent"]))
         ],
     )
 
@@ -202,7 +251,7 @@ def generate_task2_component(graph_file: str, solution: dict, path_prefix: str =
         },
         provideFeedback=False,
         correctAnswer=[
-            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=solution["common"])
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(solution["common"]))
         ],
     )
 
@@ -273,6 +322,148 @@ def generate_intro_sequence():
     )
 
 
+PRACTICE_FEEDBACK = {
+    "provideFeedback": True,
+    # -1: unlimited attempts, the participant has to answer correctly to continue
+    # (the correct answer is not revealed)
+    "trainingAttempts": -1,
+    "allowFailedTraining": False,
+}
+
+PRACTICE_CONTINUE_TEXT = "You can only continue once your answer is correct."
+
+
+def generate_practice_connection_component():
+    practice = PRACTICE_CONNECTION
+    return rvt.component(
+        component_name__="practice_connection",
+        base__=biofabric_website_base,
+        description="Practice: are the two highlighted nodes connected?",
+        instruction=(
+            "### Practice 1: Connections\n"
+            "In BioFabric, two nodes are **connected** if a **vertical line (an edge)** "
+            "has a circle on the horizontal line of each of the two nodes. "
+            "A vertical line that only crosses a node's horizontal line does not connect that node: "
+            "it connects the two nodes where it ends.\n\n"
+            f"The two nodes highlighted in pink are {practice['source']} and {practice['target']}. "
+            f"{PRACTICE_CONTINUE_TEXT}"
+        ),
+        parameters={
+            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{practice['graph_file']}",
+            "sourceNode": practice["source"],
+            "targetNode": practice["target"],
+            "readOnly": True,
+        },
+        response=[
+            rvt.response(
+                type="radio",
+                id="practice-connection",
+                prompt="Are the two highlighted nodes connected?",
+                options=["Yes", "No"],
+                required=True,
+                location="belowStimulus",
+            )
+        ],
+        correctAnswer=[
+            rvt.answer(
+                id="practice-connection",
+                answer="Yes" if practice["connected"] else "No",
+            )
+        ],
+        **PRACTICE_FEEDBACK,
+    )
+
+
+def generate_practice_task1_component():
+    practice = PRACTICE_TASK_1
+    solution = practice["solution"]
+    task_text = f"Locate and select all adjacent nodes of node {solution['given']}."
+    return rvt.component(
+        component_name__="practice_task1",
+        base__=task1_base,
+        description=f"Practice: {task_text}",
+        instruction=f"### Practice 2: Task 1\n{task_text} {PRACTICE_CONTINUE_TEXT}",
+        parameters={
+            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{practice['graph_file']}",
+            "givenNode": solution["given"],
+        },
+        correctAnswer=[
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(solution["adjacent"]))
+        ],
+        **PRACTICE_FEEDBACK,
+    )
+
+
+def generate_practice_task2_component():
+    practice = PRACTICE_TASK_2
+    solution = practice["solution"]
+    task_text = f"Locate and select all common neighbors of nodes {solution['source']} and {solution['target']}."
+    return rvt.component(
+        component_name__="practice_task2",
+        base__=task2_base,
+        description=f"Practice: {task_text}",
+        instruction=f"### Practice 3: Task 2\n{task_text} {PRACTICE_CONTINUE_TEXT}",
+        parameters={
+            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{practice['graph_file']}",
+            "sourceNode": solution["source"],
+            "targetNode": solution["target"],
+        },
+        correctAnswer=[
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(solution["common"]))
+        ],
+        **PRACTICE_FEEDBACK,
+    )
+
+
+def generate_practice_task3_component():
+    practice = PRACTICE_TASK_3
+    return rvt.component(
+        component_name__="practice_task3",
+        base__=task3_base,
+        description="Practice: estimate the number of edges in the graph.",
+        instruction=(
+            "### Practice 4: Task 3\nEstimate the number of edges in the graph. "
+            "Your estimate has to be roughly correct to continue."
+        ),
+        parameters={
+            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{practice['graph_file']}",
+            "hideLabels": True,
+        },
+        correctAnswer=[
+            rvt.answer(
+                id="task3-numerical",
+                answer=practice["num_edges"],
+                acceptableLow=practice["acceptable_low"],
+                acceptableHigh=practice["acceptable_high"],
+            )
+        ],
+        **PRACTICE_FEEDBACK,
+    )
+
+
+def generate_practice_sequence():
+    return rvt.sequence(
+        order="fixed",
+        components=[
+            generate_practice_connection_component(),
+            generate_practice_task1_component(),
+            generate_practice_task2_component(),
+            generate_practice_task3_component(),
+        ],
+    )
+
+
+def generate_experiment_start_sequence():
+    """A short page between the practice tasks and the actual experiment."""
+    experiment_start = rvt.component(
+        component_name__="experiment_start",
+        type="markdown",
+        path="biofabric-study/assets/experiment_start.md",
+    )
+
+    return rvt.sequence(order="fixed", components=[experiment_start])
+
+
 def generate_task1_sequence(graphs_subset):
     task1_random_sequence = rvt.sequence(
         order="random",
@@ -311,7 +502,8 @@ def generate_task3_sequence(graph_subset):
         order="random",
         components=[
             generate_task3_component(
-                graph_file, path_prefix="./data/selected-rome-data/large/"
+                TASK_3_GRAPH_FILE_OF_LARGE_GRAPH[graph_file],
+                path_prefix="./data/selected-rome-data/small/",
             )
             for graph_file in graph_subset["graph_files"]
         ],
@@ -437,7 +629,7 @@ study_metadata = rvt.studyMetadata(
 )
 
 ui_config = rvt.uiConfig(
-    helpTextPath="biofabric-study/assets/help.md",
+    helpTextPath="biofabric-study/assets/graph_terminology_biofabric.md",
     logoPath="revisitAssets/revisitLogoSquare.svg",
     contactEmail="your@email.com",  # todo
     withProgressBar=True,
@@ -452,7 +644,10 @@ def main() -> None:
         schema="https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
         uiConfig=ui_config,
         studyMetadata=study_metadata,
-        sequence=generate_intro_sequence() + generate_random_task_seqeuence(),
+        sequence=generate_intro_sequence()
+        + generate_practice_sequence()
+        + generate_experiment_start_sequence()
+        + generate_random_task_seqeuence(),
         importedLibraries=["nasa-tlx"],
     )
 

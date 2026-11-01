@@ -26,9 +26,19 @@ export class BioFabricRenderer {
         this.preselectedLabels = new Set(options.preselectedLabels ?? []);
         // The depth icons (circles and lines with "all") on the top and left are hidden by default.
         this.hideDepthIcons = options.hideDepthIcons ?? true;
+        // When true, nodes cannot be selected by clicking them (the view is read-only).
+        this.selectionDisabled = options.selectionDisabled ?? false;
+
+        // Optional divisor for the size of the edge lines and circles (30 / divisor).
+        // Defaults to the number of edges: the more edges, the thinner they are.
+        this.edgeSizeDivisor = options.edgeSizeDivisor ?? null;
 
         // InnerG (x,y)
         this.innerX = 0.12
+        // Optionally give the node labels a fixed width (in canvas units) instead of a share of the canvas
+        if (options.labelColumnWidth != null) {
+            this.innerX = options.labelColumnWidth / canvasWidth;
+        }
         this.innerY = 0.1
 
         // NodeDepthG (x,y)
@@ -48,6 +58,12 @@ export class BioFabricRenderer {
         // EdgeDepthG (x,y)
         this.edgeDepthX = 0.1
         this.edgeDepthY = 0.05
+    }
+
+    // Stroke width / circle radius of the edges
+    edgeSize() {
+        const edgeCount = this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth()).length;
+        return 30 / (this.edgeSizeDivisor ?? edgeCount);
     }
 
     // Label to display for a node, blank if it is not in the list of visible labels
@@ -121,8 +137,8 @@ export class BioFabricRenderer {
             // column), as the visible line itself is very thin and hard to hit.
             innerG.append("line")
                 .attr("id", "nodeHit-" + node.get_id())
-                // preselected nodes cannot be clicked, so they get no hover feedback
-                .attr("class", this.preselectedLabels.has(node.get_label()) ? "nodehit nodehit-locked" : "nodehit")
+                // preselected nodes (or all nodes, if the selection is disabled) cannot be clicked, so they get no hover feedback
+                .attr("class", (this.selectionDisabled || this.preselectedLabels.has(node.get_label())) ? "nodehit nodehit-locked" : "nodehit")
                 .datum(node) // node data
                 .attr("x1", -this.canvasWidth * this.innerX * 0.9)
                 .attr("x2", this.canvasWidth * (0.95 * (1 - this.innerX)))
@@ -257,7 +273,7 @@ export class BioFabricRenderer {
                 .attr("x1", edge.get_x() * (this.canvasWidth * (1 - this.innerX)))
                 .attr("x2", edge.get_x() * (this.canvasWidth * (1 - this.innerX)))
                 .attr("stroke", ((edge.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edge.get_depth()])
-                .attr("stroke-width", 30 / this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth()).length)
+                .attr("stroke-width", this.edgeSize())
                 .attr("stroke-linecap", "round")
                 .on("mouseover", (_event, d) => {
                     this.globalDispatcher.call("edge-hover-in", this, d.get_id());
@@ -273,7 +289,7 @@ export class BioFabricRenderer {
                 .datum(edge.endpoints[0]) // source vertex data
                 .attr("cy", edge.get_source_vertex().get_y() * (this.canvasHeight * (1 - this.innerY)))
                 .attr("cx", edge.get_x() * (this.canvasWidth * (1 - this.innerX)))
-                .attr("r", 30 / this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth()).length)
+                .attr("r", this.edgeSize())
                 .attr("stroke-width", "0")
                 .attr("fill", ((edge.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edge.get_depth()])
                 .on("click", (_event, d) => {
@@ -293,7 +309,7 @@ export class BioFabricRenderer {
                 .datum(edge.endpoints[1]) // target vertex data
                 .attr("cy", edge.get_target_vertex().get_y() * (this.canvasHeight * (1 - this.innerY)))
                 .attr("cx", edge.get_x() * (this.canvasWidth * (1 - this.innerX)))
-                .attr("r", 30 / this.biofabric.graph.edges.filter(e => e.get_depth() <= this.biofabric.graph.get_depth()).length)
+                .attr("r", this.edgeSize())
                 .attr("stroke-width", "0")
                 .attr("fill", ((edge.get_depth() % 1) == 0.5) ? "#333" : d3.schemeObservable10[edge.get_depth()])
                 .on("click", (_event, d) => {
@@ -719,7 +735,7 @@ export class BioFabricRenderer {
         this.globalDispatcher.on("highlight.biofabric", (id) => {
             // equivalent to matrix highlighting.
             const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
-            if (this.preselectedLabels.has(n.get_label())) return;
+            if (this.selectionDisabled || this.preselectedLabels.has(n.get_label())) return;
             this.biofabric.highlight_unh_nodes(n);
             this.updateHighlightClasses();
 

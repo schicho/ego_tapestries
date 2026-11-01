@@ -20,7 +20,7 @@ import {
 
 import { NextButton } from '../NextButton';
 import {
-  generateCustomResponseErrorMessage, generateInitFields, mergeReactiveAnswers, useAnswerField, usesStandaloneDontKnowField,
+  canContinueAfterAnswerCheck, generateCustomResponseErrorMessage, generateInitFields, mergeReactiveAnswers, useAnswerField, usesStandaloneDontKnowField,
 } from './utils';
 import { ResponseSwitcher } from './ResponseSwitcher';
 import { FeedbackAlert } from './FeedbackAlert';
@@ -333,14 +333,12 @@ export function ResponseBlock({
       });
 
       setHasCorrectAnswer(Object.values(correctAnswers).every((isCorrect) => isCorrect));
-      setEnableNextButton(
-        (
-          allowFailedTraining && newAttemptsUsed >= trainingAttempts
-        ) || (
-          Object.values(correctAnswers).every((isCorrect) => isCorrect)
-          && newAttemptsUsed <= trainingAttempts
-        ),
-      );
+      setEnableNextButton(canContinueAfterAnswerCheck({
+        allCorrect: Object.values(correctAnswers).every((isCorrect) => isCorrect),
+        attemptsUsed: newAttemptsUsed,
+        trainingAttempts,
+        allowFailedTraining,
+      }));
     }
   }, [attemptsUsed, allResponsesWithDefaults, config, hasCorrectAnswerFeedback, trainingAttempts, allowFailedTraining, navigate, identifier, storeDispatch, alertConfig, saveIncorrectAnswer, trialValidation]);
 
