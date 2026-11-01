@@ -157,19 +157,21 @@ TASK_2_SOLUTIONS = [  # in order of the graph files in ROME_GRAPH_FILES_LARGE
 #
 # only an estimate answer, so no solution
 
-# Task 3 uses smaller graphs (19-23 nodes, 28-38 edges) than the other tasks. The graphs are
+# Task 3 uses smaller graphs of different sizes than the other tasks: graphs with 20, 30 and 40
+# nodes (22 to 55 connections), so the estimates differ between the questions. The graphs are
 # assigned to the graphs of the other tasks one to one, in the order of ROME_GRAPH_FILES_LARGE,
-# so the grouping of the graphs into thirds (see get_graph_perumtations) stays the same.
+# so the grouping of the graphs into thirds (see get_graph_perumtations) stays the same. Every
+# third has one graph of each size, and the number of connections is varied within the sizes.
 TASK_3_GRAPH_FILES = [
-    "grafo1154.22.json",
-    "grafo1052.22.json",
-    "grafo1037.22.json",
-    "grafo137.21.json",
-    "grafo1055.19.json",
-    "grafo153.21.json",
-    "grafo146.22.json",
-    "grafo2469.23.json",
-    "grafo1106.21.json",
+    "grafo2056.20.json",
+    "grafo4040.30.json",
+    "grafo6976.40.json",
+    "grafo1690.20.json",
+    "grafo1334.30.json",
+    "grafo6178.40.json",
+    "grafo1761.20.json",
+    "grafo1252.30.json",
+    "grafo6207.40.json",
 ]
 TASK_3_GRAPH_FILE_OF_LARGE_GRAPH = dict(zip(ROME_GRAPH_FILES_LARGE, TASK_3_GRAPH_FILES))
 
@@ -665,7 +667,7 @@ def generate_task3_sequence(graph_subset, condition: str):
         components=[
             generate_task3_component(
                 TASK_3_GRAPH_FILE_OF_LARGE_GRAPH[graph_file],
-                path_prefix="./data/selected-rome-data/small/",
+                path_prefix="./data/selected-rome-data/estimation/",
                 condition=condition,
             )
             for graph_file in graph_subset["graph_files"]
