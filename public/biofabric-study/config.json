@@ -1,6 +1,21 @@
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "components": {
+        "condition_check": {
+            "nextButtonText": "Continue",
+            "path": "biofabric-study/assets/condition_check.html",
+            "response": [
+                {
+                    "id": "conditionCheck",
+                    "location": "belowStimulus",
+                    "prompt": "",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
         "consent": {
             "nextButtonText": "I Agree",
             "path": "biofabric-study/assets/consent.md",
@@ -1930,6 +1945,7 @@
     ],
     "sequence": {
         "components": [
+            "condition_check",
             "consent",
             "intro_introduction",
             "intro_tutorial",
@@ -2826,7 +2842,7 @@
         "version": "pilot"
     },
     "uiConfig": {
-        "contactEmail": "your@email.com",
+        "contactEmail": "sdb@ac.tuwien.ac.at",
         "helpTextPath": "biofabric-study/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "studyEndMsg": "## The experiment is finished\n\nThank you very much for taking part in this study! Your answers have been recorded.\n\nYou can now close this window.",

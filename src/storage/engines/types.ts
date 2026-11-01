@@ -143,7 +143,10 @@ export abstract class StorageEngine {
 
   protected abstract participantStore: ReturnType<typeof localforage.createInstance>;
 
-  protected collectionPrefix = import.meta.env.DEV ? 'dev-' : 'prod-';
+  // Prefix of the folder / collection that the data of a study is stored in. Can be set with the
+  // VITE_COLLECTION_PREFIX env variable (e.g. to store the data of a deployed test version in the dev
+  // folder), otherwise development builds use dev- and production builds use prod-.
+  protected collectionPrefix = import.meta.env.VITE_COLLECTION_PREFIX ?? (import.meta.env.DEV ? 'dev-' : 'prod-');
 
   protected studyId: string | undefined;
 

@@ -94,7 +94,8 @@ function StudyCard({
   }), [config.studyRules, isBrowserAllowed, isDeviceAllowed, isDisplayAllowed, isInputAllowed]);
 
   const conditions = useMemo(() => getSequenceConditions(config.sequence), [config.sequence]);
-  const [selectedConditions, setSelectedConditions] = useState<string[]>(['default']);
+  // Start with the first condition of the study, if it has conditions, so that the study is not started without one
+  const [selectedConditions, setSelectedConditions] = useState<string[]>(() => (conditions.length > 0 ? [conditions[0]] : ['default']));
   const [conditionParticipantCounts, setConditionParticipantCounts] = useState<Record<string, number>>({});
 
   // Load participant counts into dropdown for each condition

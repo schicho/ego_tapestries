@@ -354,6 +354,24 @@ def conditional_sequence_of_sequence(condition: str, sequence):
 
 def generate_intro_sequence():
 
+    # Participants can only continue if the link of the study contains a valid condition
+    condition_check = rvt.component(
+        component_name__="condition_check",
+        type="website",
+        path="biofabric-study/assets/condition_check.html",
+        nextButtonText="Continue",
+        response=[
+            rvt.response(
+                type="reactive",
+                id="conditionCheck",
+                prompt="",
+                required=True,
+                location="belowStimulus",
+                showList=False,  # the check page shows its own message
+            )
+        ],
+    )
+
     consent = rvt.component(
         component_name__="consent",
         type="markdown",
@@ -387,7 +405,7 @@ def generate_intro_sequence():
 
     intro_sequence = rvt.sequence(
         order="fixed",
-        components=[consent, intro_introduction, intro_tutorial],
+        components=[condition_check, consent, intro_introduction, intro_tutorial],
     )
     # sequences are added with += (a sequence can not be passed in the components list)
     intro_sequence += conditional_sequence(
@@ -794,7 +812,7 @@ ui_config = rvt.uiConfig(
     # the questions have their own help texts (see help_text_path)
     helpTextPath="biofabric-study/assets/help.md",
     logoPath="revisitAssets/revisitLogoSquare.svg",
-    contactEmail="your@email.com",  # todo
+    contactEmail="sdb@ac.tuwien.ac.at",
     studyEndMsg=STUDY_END_MESSAGE,
     withProgressBar=True,
     showNavigationButtons=True,

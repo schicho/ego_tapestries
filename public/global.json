@@ -1,9 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.2/src/parser/GlobalConfigSchema.json",
   "configsList": [
-    "biofabric-study",
-    "graph-vis-study",
-    "tutorial"
+    "biofabric-study"
   ],
   "configs": {
     "tutorial": {
