@@ -33,11 +33,11 @@ In the first two types of question, you will click nodes to select your answer a
 - The data that is recorded are your answers, your response times, your interactions with the visualizations (such as which nodes you click), and your answers to the questionnaires.
 - The study software also records technical information about your browser session: your browser and operating system, your screen resolution, your browser language, and your IP address. The IP address is not part of the data that will be published or shared.
 - The data is stored securely on a server and is accessible only to the research team.
-- Data will be retained in accordance with TU Wien's institutional policy [TODO: confirm retention period].
+- Data will be retained for a minimum of five years, in accordance with institutional policy.
 
 ## Contact
 
-If you have questions about this study, contact: [TODO: PI email address]
+If you have questions about this study, contact: [sdb@ac.tuwien.ac.at](mailto:sdb@ac.tuwien.ac.at)
 
 **Sara Di Bartolomeo**
 TU Wien, Vienna, Austria
