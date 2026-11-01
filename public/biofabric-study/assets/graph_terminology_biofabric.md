@@ -26,7 +26,7 @@ In the examples that follow, use the horizontal lines to identify nodes and the 
 
 ### Selecting Nodes
 
-The diagram is interactive: clicking a node, either on its horizontal line or on its label, highlights that node. Click the node again to remove the highlight.
+The diagram is interactive: clicking a node on its horizontal line highlights that node. Click the node again to remove the highlight.
 
 In the questions, you will also use this to give your answers by selecting the nodes you want to answer with.
 

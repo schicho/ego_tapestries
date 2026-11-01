@@ -4,7 +4,7 @@ Find the node highlighted in pink: it is the node the question is about. Every v
 
 ### How to answer
 
-Click a node, on its horizontal line or on its label, to select it. Click it again to remove the selection. The nodes highlighted in pink are given by the question: you cannot change them, and they are not part of your answer. Submit your answer once you have selected all the nodes.
+Click a node on its horizontal line to select it. Click it again to remove the selection. The nodes highlighted in pink are given by the question: you cannot change them, and they are not part of your answer. Submit your answer once you have selected all the nodes.
 
 ---
 
@@ -36,7 +36,7 @@ In the examples that follow, use the horizontal lines to identify nodes and the 
 
 ### Selecting Nodes
 
-The diagram is interactive: clicking a node, either on its horizontal line or on its label, highlights that node. Click the node again to remove the highlight.
+The diagram is interactive: clicking a node on its horizontal line highlights that node. Click the node again to remove the highlight.
 
 In the questions, you will also use this to give your answers by selecting the nodes you want to answer with.
 
