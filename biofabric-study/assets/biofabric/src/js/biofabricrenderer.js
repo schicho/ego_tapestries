@@ -53,6 +53,11 @@ export class BioFabricRenderer {
         if (this.hideDepthIcons) {
             this.innerY = 0.02;
             this.nodeGY = 0.02;
+            // Optionally give the space above the drawing a fixed size (in canvas units)
+            if (options.topPadding != null) {
+                this.innerY = options.topPadding / canvasHeight;
+                this.nodeGY = options.topPadding / canvasHeight;
+            }
         }
 
         // EdgeDepthG (x,y)
@@ -422,6 +427,15 @@ export class BioFabricRenderer {
                 .attr("fill", "#333")
                 .text(edgeDepth.get_group_label());
         }
+
+        // Layering inside the graph drawing, from bottom to top: node lines (and their highlights),
+        // edge lines, edge circles (the nodes), click targets of the nodes. The edge circles are moved
+        // out of their edge groups, as each circle would otherwise stay in the layer of its edge and
+        // the lines of the following edges (which share the same column when edges are collapsed)
+        // would be drawn over it, hiding its highlight.
+        const edgeCircleG = innerG.append("g").attr("class", "edgeCircleLayer");
+        innerG.selectAll(".edgecircle").each(function () { edgeCircleG.node().appendChild(this); });
+        innerG.selectAll(".nodehit").raise();
 
         if (this.hideDepthIcons) {
             nodeDepthG.remove();

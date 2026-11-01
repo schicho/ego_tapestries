@@ -22,8 +22,16 @@ const state = {
 // least this size are drawn as before.
 const REFERENCE_NODE_COUNT = 72;
 const REFERENCE_EDGE_COUNT = 110;
+// Space above the first node line, in canvas units, so that the first node label and circles are not cut off
+const TOP_PADDING = 2;
+// Share of the default height that is used for the node lines (the rest was the margin above them)
+const NODE_LINES_HEIGHT_SHARE = 0.98;
 // Share of the default width that is reserved for the node labels
 const LABEL_COLUMN_SHARE = 0.12;
+
+// How much bigger than the default size a canvas unit is shown for canvases that are narrower
+// than the default one (smaller graphs, collapsed edges). The drawing is never wider than the page.
+const DISPLAY_SCALE = 1.5;
 
 function getOrCreateSvg(width, height) {
     let svg = d3.select("#something");
@@ -31,12 +39,20 @@ function getOrCreateSvg(width, height) {
         svg = d3
             .select("body")
             .append("svg")
-            .attr("id", "something")
-            .attr("width", "100%")
-            .attr("height", "100%");
+            .attr("id", "something");
     }
 
-    svg.attr("viewBox", `0 0 ${width} ${height}`);
+    // Canvas units have the same size on screen for all graphs (times DISPLAY_SCALE), so smaller
+    // graphs (or collapsed edges) get a smaller drawing, instead of being blown up to the full
+    // width. The drawing never gets bigger than the page, so it does not stretch the page.
+    svg
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMin meet")
+        .style("display", "block")
+        .style("margin", "0 auto")
+        .style("width", `${Math.min(100, DISPLAY_SCALE * 100 * width / state.width)}%`)
+        .style("height", "auto")
+        .style("max-height", "100%");
     return svg;
 }
 
@@ -58,7 +74,7 @@ function render() {
     const columnScale = Math.min(1, columnCount / REFERENCE_EDGE_COUNT);
     const labelColumnWidth = state.width * LABEL_COLUMN_SHARE;
     const width = labelColumnWidth + (state.width - labelColumnWidth) * columnScale;
-    const height = state.height * nodeScale;
+    const height = state.height * NODE_LINES_HEIGHT_SHARE * nodeScale + TOP_PADDING;
 
     state.svg = getOrCreateSvg(width, height);
     state.svg.selectAll("*").remove();
@@ -66,6 +82,7 @@ function render() {
     const renderer = new BioFabricRenderer(biofabric, width, height, undefined, {
         ...state.rendererOptions,
         labelColumnWidth,
+        topPadding: TOP_PADDING,
         // edge lines and circles are as thick as in the large graphs, also for smaller graphs
         edgeSizeDivisor: Math.max(state.graph.edges.length, REFERENCE_EDGE_COUNT),
     });

@@ -1,6 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "components": {
+        "consent": {
+            "nextButtonText": "I Agree",
+            "path": "biofabric-study/assets/consent.md",
+            "response": [],
+            "type": "markdown"
+        },
         "intro_introduction": {
             "path": "biofabric-study/assets/introduction.md",
             "response": [],
@@ -16,604 +22,26 @@
             "response": [],
             "type": "markdown"
         },
-        "task1_component_grafo4286.74.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Adrian"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Amelia.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Amelia.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
-                "givenNode": "Amelia"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
+        "intro_graph_terminology_biofabric_collapsed": {
+            "path": "biofabric-study/assets/graph_terminology_biofabric_collapsed.md",
+            "response": [],
+            "type": "markdown"
         },
-        "task1_component_grafo4481.77.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Amelia",
-                        "Ethan"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Olivia.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Olivia.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
-                "givenNode": "Olivia"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo4672.76.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Ava",
-                        "Hannah",
-                        "Noah",
-                        "Olivia",
-                        "Sebastian",
-                        "Sophia",
-                        "Victoria"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Ethan.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Ethan.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
-                "givenNode": "Ethan"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo7907.80.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Michael",
-                        "Natalie"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Alexander and Avery.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Alexander and Avery.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
-                "sourceNode": "Alexander",
-                "targetNode": "Avery"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo8127.78.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Chloe",
-                        "Julian"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Aaron and Luke.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Aaron and Luke.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
-                "sourceNode": "Aaron",
-                "targetNode": "Luke"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo8142.73.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Christopher",
-                        "Julian"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Caleb and Olivia.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Caleb and Olivia.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
-                "sourceNode": "Caleb",
-                "targetNode": "Olivia"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo8961.75.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Chloe",
-                        "Matthew"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Alexander and Julian.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Alexander and Julian.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
-                "sourceNode": "Alexander",
-                "targetNode": "Julian"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo9163.72.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Andrew",
-                        "Owen"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Alice and Ella.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Alice and Ella.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
-                "sourceNode": "Alice",
-                "targetNode": "Ella"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo9691.79.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Grace",
-                        "Harper"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Aaron and Mason.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Aaron and Mason.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
-                "sourceNode": "Aaron",
-                "targetNode": "Mason"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo7907.80.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Amelia",
-                        "Ethan",
-                        "Gabriel",
-                        "Leah"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Liam.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Liam.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
-                "givenNode": "Liam"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo8127.78.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Dylan",
-                        "Henry",
-                        "James",
-                        "Layla",
-                        "Mason",
-                        "Mia",
-                        "Scarlett"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Caleb.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Caleb.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
-                "givenNode": "Caleb"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo8142.73.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Anthony",
-                        "Ellie",
-                        "Nora"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Layla.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Layla.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
-                "givenNode": "Layla"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo4286.74.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Ryan",
-                        "Sebastian"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Avery and Scarlett.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Avery and Scarlett.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
-                "sourceNode": "Avery",
-                "targetNode": "Scarlett"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo4481.77.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Ava",
-                        "Ellie"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Adrian and Noah.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Adrian and Noah.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
-                "sourceNode": "Adrian",
-                "targetNode": "Noah"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task2_component_grafo4672.76.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Isaac",
-                        "Stella"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all common neighbors of nodes Anthony and Joshua.",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Anthony and Joshua.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
-                "sourceNode": "Anthony",
-                "targetNode": "Joshua"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo8961.75.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Aria",
-                        "Henry",
-                        "Matthew"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Gabriel.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Gabriel.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
-                "givenNode": "Gabriel"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo9163.72.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Lucas",
-                        "Matthew",
-                        "Mia",
-                        "Noah",
-                        "Wyatt"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Julian.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Julian.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
-                "givenNode": "Julian"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "task1_component_grafo9691.79.json": {
-            "correctAnswer": [
-                {
-                    "answer": [
-                        "Connor",
-                        "Luke",
-                        "Nathan"
-                    ],
-                    "id": "graphVis"
-                }
-            ],
-            "description": "Locate and select all adjacent nodes of node Naomi.",
-            "instruction": "### Task 1\nLocate and select all adjacent nodes of node Naomi.",
-            "instructionLocation": "aboveStimulus",
-            "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
-                "givenNode": "Naomi"
-            },
-            "path": "biofabric-study/assets/biofabric/index.html",
-            "provideFeedback": false,
-            "response": [
-                {
-                    "id": "graphVis",
-                    "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
-                    "required": true,
-                    "type": "reactive",
-                    "showList": false
-                }
-            ],
-            "type": "website"
-        },
-        "practice_connection": {
+        "practice_connection_normal": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
-                    "answer": "No",
+                    "answer": "Yes",
                     "id": "practice-connection"
                 }
             ],
             "description": "Practice: are the two highlighted nodes connected?",
-            "instruction": "### Practice 1: Connections\nIn BioFabric, two nodes are **connected** if a **vertical line (an edge)** has a circle on the horizontal line of each of the two nodes. A vertical line that only crosses a node's horizontal line does not connect that node: it connects the two nodes where it ends.\n\nThe two nodes highlighted in pink are Alexander and Camila. You can only continue once your answer is correct.",
+            "helpTextPath": "biofabric-study/assets/help/connection_normal.md",
+            "instruction": "### Practice 1: Connections\nIn BioFabric, two nodes are **connected** if a **vertical line (an edge, also called a connection)** has a circle on the horizontal line of each of the two nodes. A vertical line that only crosses a node's horizontal line does not connect that node: it connects the two nodes where it ends.\n\nThe two nodes highlighted in pink are Luna and Camila. You can only continue once your answer is correct.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1682.21.json",
-                "sourceNode": "Alexander",
+                "sourceNode": "Luna",
                 "targetNode": "Camila",
                 "readOnly": true
             },
@@ -635,25 +63,63 @@
             "trainingAttempts": -1,
             "type": "website"
         },
-        "practice_task1": {
+        "practice_connection_collapsed": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": "Yes",
+                    "id": "practice-connection"
+                }
+            ],
+            "description": "Practice: are the two highlighted nodes connected?",
+            "helpTextPath": "biofabric-study/assets/help/connection_collapsed.md",
+            "instruction": "### Practice 1: Connections\nIn this version of BioFabric, all connections that start at the same node share one **vertical line**. Two nodes are **connected** if one of them is at the top of a vertical line, and the other one has a circle on that same line. Two nodes that both have a circle on the same line, but neither of them at the top, are not necessarily connected to each other. A vertical line that only crosses a node's horizontal line, without a circle, does not connect that node.\n\nThe two nodes highlighted in pink are Luna and Camila. You can only continue once your answer is correct.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1682.21.json",
+                "sourceNode": "Luna",
+                "targetNode": "Camila",
+                "readOnly": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "practice-connection",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "prompt": "Are the two highlighted nodes connected?",
+                    "required": true,
+                    "type": "radio"
+                }
+            ],
+            "trainingAttempts": -1,
+            "type": "website"
+        },
+        "practice_task1_normal": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
                     "answer": [
-                        "Amelia",
-                        "Liam",
-                        "Michael",
-                        "Olivia"
+                        "Benjamin",
+                        "Isabella",
+                        "James",
+                        "Lucas",
+                        "Mason"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Practice: Locate and select all adjacent nodes of node Benjamin.",
-            "instruction": "### Practice 2: Task 1\nLocate and select all adjacent nodes of node Benjamin. You can only continue once your answer is correct.",
+            "description": "Practice: Locate and select all nodes connected to node Amelia.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Practice 2: Task 1\nLocate and select all nodes connected to node Amelia. You can only continue once your answer is correct.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1819.22.json",
-                "givenNode": "Benjamin"
+                "givenNode": "Amelia"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": true,
@@ -661,7 +127,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
                     "required": true,
                     "type": "reactive",
                     "showList": false
@@ -670,24 +136,63 @@
             "trainingAttempts": -1,
             "type": "website"
         },
-        "practice_task2": {
+        "practice_task1_collapsed": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
                     "answer": [
-                        "Amelia",
-                        "Daniel"
+                        "Benjamin",
+                        "Isabella",
+                        "James",
+                        "Lucas",
+                        "Mason"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Practice: Locate and select all common neighbors of nodes Alexander and Liam.",
-            "instruction": "### Practice 3: Task 2\nLocate and select all common neighbors of nodes Alexander and Liam. You can only continue once your answer is correct.",
+            "description": "Practice: Locate and select all nodes connected to node Amelia.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Practice 2: Task 1\nLocate and select all nodes connected to node Amelia. The given node is at the top of its own vertical line: its neighbors are the other nodes that have a circle on that line. You can only continue once your answer is correct.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1819.22.json",
+                "givenNode": "Amelia"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "trainingAttempts": -1,
+            "type": "website"
+        },
+        "practice_task2_normal": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Alexander",
+                        "Harper",
+                        "Liam"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Practice: Locate and select all common neighbors of nodes Daniel and Amelia.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Practice 3: Task 2\nLocate and select all common neighbors of nodes Daniel and Amelia. The common neighbors are below the two given nodes: each of them has a circle on a connection from the first given node and a circle on a connection from the second given node, on its horizontal line. You can only continue once your answer is correct.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2209.20.json",
-                "sourceNode": "Alexander",
-                "targetNode": "Liam"
+                "sourceNode": "Daniel",
+                "targetNode": "Amelia"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": true,
@@ -704,18 +209,55 @@
             "trainingAttempts": -1,
             "type": "website"
         },
-        "practice_task3": {
+        "practice_task2_collapsed": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
-                    "acceptableHigh": 45,
-                    "acceptableLow": 25,
+                    "answer": [
+                        "Alexander",
+                        "Harper",
+                        "Liam"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Practice: Locate and select all common neighbors of nodes Daniel and Amelia.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Practice 3: Task 2\nLocate and select all common neighbors of nodes Daniel and Amelia. The common neighbors are below the two given nodes: each of them has circles side by side on its horizontal line, one on the vertical line of each of the two given nodes. You can only continue once your answer is correct.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2209.20.json",
+                "sourceNode": "Daniel",
+                "targetNode": "Amelia"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "trainingAttempts": -1,
+            "type": "website"
+        },
+        "practice_task3_normal": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "acceptableHigh": 40.25,
+                    "acceptableLow": 29.75,
                     "answer": 35,
                     "id": "task3-numerical"
                 }
             ],
-            "description": "Practice: estimate the number of edges in the graph.",
-            "instruction": "### Practice 4: Task 3\nEstimate the number of edges in the graph. Your estimate has to be roughly correct to continue.",
+            "description": "Practice: estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Practice 4: Task 3\nEstimate the number of connections between nodes in the graph. Each vertical line is one connection, so you can count the vertical lines. Your estimate has to be within 15% of the actual number of connections to continue.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json",
@@ -727,7 +269,39 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "trainingAttempts": -1,
+            "type": "website"
+        },
+        "practice_task3_collapsed": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "acceptableHigh": 40.25,
+                    "acceptableLow": 29.75,
+                    "answer": 35,
+                    "id": "task3-numerical"
+                }
+            ],
+            "description": "Practice: estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Practice 4: Task 3\nEstimate the number of connections between nodes in the graph. For each vertical line, count the nodes on it and subtract one. Add up the results of all lines. Your estimate has to be within 15% of the actual number of connections to continue.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
@@ -740,9 +314,211 @@
             "response": [],
             "type": "markdown"
         },
-        "task3_component_grafo146.22.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task1_component_grafo4286.74.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Andrew",
+                        "Ethan",
+                        "Evelyn",
+                        "Hannah",
+                        "Samuel"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Mason.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Mason.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "givenNode": "Mason"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4481.77.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Christopher",
+                        "Isabella",
+                        "Liam",
+                        "Olivia"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Ethan.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Ethan.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "givenNode": "Ethan"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4672.76.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Anthony",
+                        "Joshua",
+                        "Lincoln",
+                        "Nora"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Stella.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Stella.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "givenNode": "Stella"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo7907.80.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Levi",
+                        "Violet"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Christopher and Nathan.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and Nathan. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "sourceNode": "Christopher",
+                "targetNode": "Nathan"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8127.78.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Adrian",
+                        "Harper"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Luna and Samuel.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Luna and Samuel. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "sourceNode": "Luna",
+                "targetNode": "Samuel"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8142.73.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Owen"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Maya and Christopher.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Maya and Christopher. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "sourceNode": "Maya",
+                "targetNode": "Christopher"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo146.22.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo146.22.json",
@@ -754,16 +530,17 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo2469.23.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task3_component_grafo2469.23.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2469.23.json",
@@ -775,16 +552,17 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo1106.21.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task3_component_grafo1106.21.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1106.21.json",
@@ -796,16 +574,116 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo137.21.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task2_component_grafo8961.75.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Avery",
+                        "Jack"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Hannah and Layla.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Hannah and Layla. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "sourceNode": "Hannah",
+                "targetNode": "Layla"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo9163.72.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Joseph",
+                        "Sofia"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Nathan and David.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Nathan and David. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "sourceNode": "Nathan",
+                "targetNode": "David"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo9691.79.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Ellie",
+                        "Joshua"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Connor and Clara.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Connor and Clara. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "sourceNode": "Connor",
+                "targetNode": "Clara"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo137.21.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo137.21.json",
@@ -817,16 +695,17 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo1055.19.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task3_component_grafo1055.19.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1055.19.json",
@@ -838,16 +717,17 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo153.21.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task3_component_grafo153.21.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo153.21.json",
@@ -859,16 +739,219 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo1154.22.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task1_component_grafo7907.80.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Caleb",
+                        "Liam",
+                        "Olivia",
+                        "Ruby"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Amelia.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Amelia.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "givenNode": "Amelia"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8127.78.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Jonathan",
+                        "Joshua",
+                        "Mason",
+                        "Naomi",
+                        "Noah"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Ava.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Ava.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "givenNode": "Ava"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8142.73.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Luke",
+                        "Ryan",
+                        "Scarlett",
+                        "Zoey"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node James.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node James.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "givenNode": "James"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4286.74.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Benjamin",
+                        "Isabella"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Liam and Charlotte.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Liam and Charlotte. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "sourceNode": "Liam",
+                "targetNode": "Charlotte"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4481.77.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Adrian",
+                        "Noah"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Ellie and Ava.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Ellie and Ava. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "sourceNode": "Ellie",
+                "targetNode": "Ava"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4672.76.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Charlotte",
+                        "Ellie"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Christopher and James.",
+            "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and James. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "sourceNode": "Christopher",
+                "targetNode": "James"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo1154.22.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1154.22.json",
@@ -880,16 +963,17 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo1052.22.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task3_component_grafo1052.22.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1052.22.json",
@@ -901,16 +985,17 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
                 }
             ],
             "type": "website"
         },
-        "task3_component_grafo1037.22.json": {
-            "description": "Estimate the number of edges in the graph.",
-            "instruction": "### Task 3\nEstimate the number of edges in the graph.",
+        "task3_component_grafo1037.22.json_normal": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1037.22.json",
@@ -922,9 +1007,919 @@
                 {
                     "id": "task3-numerical",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of edges:",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
                     "required": true,
                     "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8961.75.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Andrew",
+                        "Chloe",
+                        "Matthew",
+                        "Nora",
+                        "Ryan",
+                        "Stella"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Julian.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Julian.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "givenNode": "Julian"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo9163.72.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "James",
+                        "Joshua",
+                        "Riley",
+                        "Sophia",
+                        "Thomas"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Isabella.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Isabella.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "givenNode": "Isabella"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo9691.79.json_normal": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Aurora",
+                        "Ellie",
+                        "Joseph",
+                        "Liam"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Matthew.",
+            "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Matthew.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "givenNode": "Matthew"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4286.74.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Andrew",
+                        "Ethan",
+                        "Evelyn",
+                        "Hannah",
+                        "Samuel"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Mason.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Mason.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "givenNode": "Mason"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4481.77.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Christopher",
+                        "Isabella",
+                        "Liam",
+                        "Olivia"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Ethan.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Ethan.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "givenNode": "Ethan"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo4672.76.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Anthony",
+                        "Joshua",
+                        "Lincoln",
+                        "Nora"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Stella.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Stella.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "givenNode": "Stella"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo7907.80.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Levi",
+                        "Violet"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Christopher and Nathan.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and Nathan. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "sourceNode": "Christopher",
+                "targetNode": "Nathan"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8127.78.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Adrian",
+                        "Harper"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Luna and Samuel.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Luna and Samuel. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "sourceNode": "Luna",
+                "targetNode": "Samuel"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8142.73.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Owen"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Maya and Christopher.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Maya and Christopher. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "sourceNode": "Maya",
+                "targetNode": "Christopher"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo146.22.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo146.22.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo2469.23.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2469.23.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo1106.21.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1106.21.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo8961.75.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Avery",
+                        "Jack"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Hannah and Layla.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Hannah and Layla. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "sourceNode": "Hannah",
+                "targetNode": "Layla"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo9163.72.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Joseph",
+                        "Sofia"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Nathan and David.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Nathan and David. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "sourceNode": "Nathan",
+                "targetNode": "David"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo9691.79.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Ellie",
+                        "Joshua"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Connor and Clara.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Connor and Clara. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "sourceNode": "Connor",
+                "targetNode": "Clara"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo137.21.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo137.21.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo1055.19.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1055.19.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo153.21.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo153.21.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo7907.80.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Caleb",
+                        "Liam",
+                        "Olivia",
+                        "Ruby"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Amelia.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Amelia.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "givenNode": "Amelia"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8127.78.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Jonathan",
+                        "Joshua",
+                        "Mason",
+                        "Naomi",
+                        "Noah"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Ava.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Ava.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "givenNode": "Ava"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8142.73.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Luke",
+                        "Ryan",
+                        "Scarlett",
+                        "Zoey"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node James.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node James.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "givenNode": "James"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4286.74.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Benjamin",
+                        "Isabella"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Liam and Charlotte.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Liam and Charlotte. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "sourceNode": "Liam",
+                "targetNode": "Charlotte"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4481.77.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Adrian",
+                        "Noah"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Ellie and Ava.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Ellie and Ava. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "sourceNode": "Ellie",
+                "targetNode": "Ava"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task2_component_grafo4672.76.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Charlotte",
+                        "Ellie"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all common neighbors of nodes Christopher and James.",
+            "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and James. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "sourceNode": "Christopher",
+                "targetNode": "James"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo1154.22.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1154.22.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo1052.22.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1052.22.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task3_component_grafo1037.22.json_collapsed": {
+            "description": "Estimate the number of connections between nodes in the graph.",
+            "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
+            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1037.22.json",
+                "hideLabels": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "task3-numerical",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "required": true,
+                    "type": "numerical"
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo8961.75.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Andrew",
+                        "Chloe",
+                        "Matthew",
+                        "Nora",
+                        "Ryan",
+                        "Stella"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Julian.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Julian.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "givenNode": "Julian"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo9163.72.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "James",
+                        "Joshua",
+                        "Riley",
+                        "Sophia",
+                        "Thomas"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Isabella.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Isabella.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "givenNode": "Isabella"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "type": "website"
+        },
+        "task1_component_grafo9691.79.json_collapsed": {
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Aurora",
+                        "Ellie",
+                        "Joseph",
+                        "Liam"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Locate and select all nodes connected to node Matthew.",
+            "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
+            "instruction": "### Task 1\nLocate and select all nodes connected to node Matthew.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "givenNode": "Matthew"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": false,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -935,15 +1930,91 @@
     ],
     "sequence": {
         "components": [
+            "consent",
             "intro_introduction",
             "intro_tutorial",
-            "intro_graph_terminology_biofabric",
             {
                 "components": [
-                    "practice_connection",
-                    "practice_task1",
-                    "practice_task2",
-                    "practice_task3"
+                    "intro_graph_terminology_biofabric"
+                ],
+                "conditional": true,
+                "id": "normal",
+                "order": "fixed"
+            },
+            {
+                "components": [
+                    "intro_graph_terminology_biofabric_collapsed"
+                ],
+                "conditional": true,
+                "id": "collapsed",
+                "order": "fixed"
+            },
+            {
+                "components": [
+                    {
+                        "components": [
+                            "practice_connection_normal"
+                        ],
+                        "conditional": true,
+                        "id": "normal",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_connection_collapsed"
+                        ],
+                        "conditional": true,
+                        "id": "collapsed",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_task1_normal"
+                        ],
+                        "conditional": true,
+                        "id": "normal",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_task1_collapsed"
+                        ],
+                        "conditional": true,
+                        "id": "collapsed",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_task2_normal"
+                        ],
+                        "conditional": true,
+                        "id": "normal",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_task2_collapsed"
+                        ],
+                        "conditional": true,
+                        "id": "collapsed",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_task3_normal"
+                        ],
+                        "conditional": true,
+                        "id": "normal",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_task3_collapsed"
+                        ],
+                        "conditional": true,
+                        "id": "collapsed",
+                        "order": "fixed"
+                    }
                 ],
                 "order": "fixed"
             },
@@ -961,381 +2032,779 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "task1_component_grafo4286.74.json",
-                                            "task1_component_grafo4481.77.json",
-                                            "task1_component_grafo4672.76.json"
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo4286.74.json_normal",
+                                                    "task1_component_grafo4481.77.json_normal",
+                                                    "task1_component_grafo4672.76.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
                                         ],
-                                        "order": "random"
+                                        "order": "fixed"
                                     },
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo7907.80.json_normal",
+                                                    "task2_component_grafo8127.78.json_normal",
+                                                    "task2_component_grafo8142.73.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo146.22.json_normal",
+                                                    "task3_component_grafo2469.23.json_normal",
+                                                    "task3_component_grafo1106.21.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
                                         ],
                                         "order": "fixed"
                                     }
                                 ],
-                                "order": "fixed"
+                                "id": "random_sequence_permutation_0_normal",
+                                "order": "random"
                             },
                             {
                                 "components": [
                                     {
                                         "components": [
-                                            "task2_component_grafo7907.80.json",
-                                            "task2_component_grafo8127.78.json",
-                                            "task2_component_grafo8142.73.json"
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo4286.74.json_normal",
+                                                    "task1_component_grafo4481.77.json_normal",
+                                                    "task1_component_grafo4672.76.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
                                         ],
-                                        "order": "random"
+                                        "order": "fixed"
                                     },
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo8961.75.json_normal",
+                                                    "task2_component_grafo9163.72.json_normal",
+                                                    "task2_component_grafo9691.79.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo137.21.json_normal",
+                                                    "task3_component_grafo1055.19.json_normal",
+                                                    "task3_component_grafo153.21.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
                                         ],
                                         "order": "fixed"
                                     }
                                 ],
-                                "order": "fixed"
+                                "id": "random_sequence_permutation_1_normal",
+                                "order": "random"
                             },
                             {
                                 "components": [
                                     {
                                         "components": [
-                                            "task3_component_grafo146.22.json",
-                                            "task3_component_grafo2469.23.json",
-                                            "task3_component_grafo1106.21.json"
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo7907.80.json_normal",
+                                                    "task1_component_grafo8127.78.json_normal",
+                                                    "task1_component_grafo8142.73.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
                                         ],
-                                        "order": "random"
+                                        "order": "fixed"
                                     },
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo4286.74.json_normal",
+                                                    "task2_component_grafo4481.77.json_normal",
+                                                    "task2_component_grafo4672.76.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo146.22.json_normal",
+                                                    "task3_component_grafo2469.23.json_normal",
+                                                    "task3_component_grafo1106.21.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
                                         ],
                                         "order": "fixed"
                                     }
                                 ],
-                                "order": "fixed"
+                                "id": "random_sequence_permutation_2_normal",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo7907.80.json_normal",
+                                                    "task1_component_grafo8127.78.json_normal",
+                                                    "task1_component_grafo8142.73.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo8961.75.json_normal",
+                                                    "task2_component_grafo9163.72.json_normal",
+                                                    "task2_component_grafo9691.79.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo1154.22.json_normal",
+                                                    "task3_component_grafo1052.22.json_normal",
+                                                    "task3_component_grafo1037.22.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_3_normal",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo8961.75.json_normal",
+                                                    "task1_component_grafo9163.72.json_normal",
+                                                    "task1_component_grafo9691.79.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo4286.74.json_normal",
+                                                    "task2_component_grafo4481.77.json_normal",
+                                                    "task2_component_grafo4672.76.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo137.21.json_normal",
+                                                    "task3_component_grafo1055.19.json_normal",
+                                                    "task3_component_grafo153.21.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_4_normal",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo8961.75.json_normal",
+                                                    "task1_component_grafo9163.72.json_normal",
+                                                    "task1_component_grafo9691.79.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo7907.80.json_normal",
+                                                    "task2_component_grafo8127.78.json_normal",
+                                                    "task2_component_grafo8142.73.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo1154.22.json_normal",
+                                                    "task3_component_grafo1052.22.json_normal",
+                                                    "task3_component_grafo1037.22.json_normal"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_5_normal",
+                                "order": "random"
                             }
                         ],
-                        "id": "random_sequence_permutation_0",
-                        "order": "random"
-                    },
-                    {
-                        "components": [
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task1_component_grafo4286.74.json",
-                                            "task1_component_grafo4481.77.json",
-                                            "task1_component_grafo4672.76.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task2_component_grafo8961.75.json",
-                                            "task2_component_grafo9163.72.json",
-                                            "task2_component_grafo9691.79.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task3_component_grafo137.21.json",
-                                            "task3_component_grafo1055.19.json",
-                                            "task3_component_grafo153.21.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            }
-                        ],
-                        "id": "random_sequence_permutation_1",
-                        "order": "random"
-                    },
-                    {
-                        "components": [
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task1_component_grafo7907.80.json",
-                                            "task1_component_grafo8127.78.json",
-                                            "task1_component_grafo8142.73.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task2_component_grafo4286.74.json",
-                                            "task2_component_grafo4481.77.json",
-                                            "task2_component_grafo4672.76.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task3_component_grafo146.22.json",
-                                            "task3_component_grafo2469.23.json",
-                                            "task3_component_grafo1106.21.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            }
-                        ],
-                        "id": "random_sequence_permutation_2",
-                        "order": "random"
-                    },
-                    {
-                        "components": [
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task1_component_grafo7907.80.json",
-                                            "task1_component_grafo8127.78.json",
-                                            "task1_component_grafo8142.73.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task2_component_grafo8961.75.json",
-                                            "task2_component_grafo9163.72.json",
-                                            "task2_component_grafo9691.79.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task3_component_grafo1154.22.json",
-                                            "task3_component_grafo1052.22.json",
-                                            "task3_component_grafo1037.22.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            }
-                        ],
-                        "id": "random_sequence_permutation_3",
-                        "order": "random"
-                    },
-                    {
-                        "components": [
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task1_component_grafo8961.75.json",
-                                            "task1_component_grafo9163.72.json",
-                                            "task1_component_grafo9691.79.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task2_component_grafo4286.74.json",
-                                            "task2_component_grafo4481.77.json",
-                                            "task2_component_grafo4672.76.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task3_component_grafo137.21.json",
-                                            "task3_component_grafo1055.19.json",
-                                            "task3_component_grafo153.21.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            }
-                        ],
-                        "id": "random_sequence_permutation_4",
-                        "order": "random"
-                    },
-                    {
-                        "components": [
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task1_component_grafo8961.75.json",
-                                            "task1_component_grafo9163.72.json",
-                                            "task1_component_grafo9691.79.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task2_component_grafo7907.80.json",
-                                            "task2_component_grafo8127.78.json",
-                                            "task2_component_grafo8142.73.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            },
-                            {
-                                "components": [
-                                    {
-                                        "components": [
-                                            "task3_component_grafo1154.22.json",
-                                            "task3_component_grafo1052.22.json",
-                                            "task3_component_grafo1037.22.json"
-                                        ],
-                                        "order": "random"
-                                    },
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    }
-                                ],
-                                "order": "fixed"
-                            }
-                        ],
-                        "id": "random_sequence_permutation_5",
-                        "order": "random"
+                        "numSamples": 1,
+                        "order": "latinSquare"
                     }
                 ],
-                "numSamples": 1,
-                "order": "latinSquare"
+                "conditional": true,
+                "id": "normal",
+                "order": "fixed"
+            },
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo4286.74.json_collapsed",
+                                                    "task1_component_grafo4481.77.json_collapsed",
+                                                    "task1_component_grafo4672.76.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo7907.80.json_collapsed",
+                                                    "task2_component_grafo8127.78.json_collapsed",
+                                                    "task2_component_grafo8142.73.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo146.22.json_collapsed",
+                                                    "task3_component_grafo2469.23.json_collapsed",
+                                                    "task3_component_grafo1106.21.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_0_collapsed",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo4286.74.json_collapsed",
+                                                    "task1_component_grafo4481.77.json_collapsed",
+                                                    "task1_component_grafo4672.76.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo8961.75.json_collapsed",
+                                                    "task2_component_grafo9163.72.json_collapsed",
+                                                    "task2_component_grafo9691.79.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo137.21.json_collapsed",
+                                                    "task3_component_grafo1055.19.json_collapsed",
+                                                    "task3_component_grafo153.21.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_1_collapsed",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo7907.80.json_collapsed",
+                                                    "task1_component_grafo8127.78.json_collapsed",
+                                                    "task1_component_grafo8142.73.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo4286.74.json_collapsed",
+                                                    "task2_component_grafo4481.77.json_collapsed",
+                                                    "task2_component_grafo4672.76.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo146.22.json_collapsed",
+                                                    "task3_component_grafo2469.23.json_collapsed",
+                                                    "task3_component_grafo1106.21.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_2_collapsed",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo7907.80.json_collapsed",
+                                                    "task1_component_grafo8127.78.json_collapsed",
+                                                    "task1_component_grafo8142.73.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo8961.75.json_collapsed",
+                                                    "task2_component_grafo9163.72.json_collapsed",
+                                                    "task2_component_grafo9691.79.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo1154.22.json_collapsed",
+                                                    "task3_component_grafo1052.22.json_collapsed",
+                                                    "task3_component_grafo1037.22.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_3_collapsed",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo8961.75.json_collapsed",
+                                                    "task1_component_grafo9163.72.json_collapsed",
+                                                    "task1_component_grafo9691.79.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo4286.74.json_collapsed",
+                                                    "task2_component_grafo4481.77.json_collapsed",
+                                                    "task2_component_grafo4672.76.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo137.21.json_collapsed",
+                                                    "task3_component_grafo1055.19.json_collapsed",
+                                                    "task3_component_grafo153.21.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_4_collapsed",
+                                "order": "random"
+                            },
+                            {
+                                "components": [
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task1_component_grafo8961.75.json_collapsed",
+                                                    "task1_component_grafo9163.72.json_collapsed",
+                                                    "task1_component_grafo9691.79.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task2_component_grafo7907.80.json_collapsed",
+                                                    "task2_component_grafo8127.78.json_collapsed",
+                                                    "task2_component_grafo8142.73.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    },
+                                    {
+                                        "components": [
+                                            {
+                                                "components": [
+                                                    "task3_component_grafo1154.22.json_collapsed",
+                                                    "task3_component_grafo1052.22.json_collapsed",
+                                                    "task3_component_grafo1037.22.json_collapsed"
+                                                ],
+                                                "order": "random"
+                                            },
+                                            {
+                                                "components": [
+                                                    "$nasa-tlx.components.nasa-tlx"
+                                                ],
+                                                "order": "fixed"
+                                            }
+                                        ],
+                                        "order": "fixed"
+                                    }
+                                ],
+                                "id": "random_sequence_permutation_5_collapsed",
+                                "order": "random"
+                            }
+                        ],
+                        "numSamples": 1,
+                        "order": "latinSquare"
+                    }
+                ],
+                "conditional": true,
+                "id": "collapsed",
+                "order": "fixed"
             }
         ],
         "order": "fixed"
@@ -1358,8 +2827,9 @@
     },
     "uiConfig": {
         "contactEmail": "your@email.com",
-        "helpTextPath": "biofabric-study/assets/graph_terminology_biofabric.md",
+        "helpTextPath": "biofabric-study/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "studyEndMsg": "## The experiment is finished\n\nThank you very much for taking part in this study! Your answers have been recorded.\n\nYou can now close this window.",
         "withProgressBar": true,
         "withSidebar": false
     }
