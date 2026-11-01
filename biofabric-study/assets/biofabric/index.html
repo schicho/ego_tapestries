@@ -35,21 +35,14 @@
             // note the path must be relative to 'main.js'
             options.dataPath = data.graphDataPath;
 
-            // Only the nodes that the task is about keep their labels (larger font) and start out
-            // highlighted: the given node (task 1) or the two given nodes (task 2).
-            // All other labels, e.g. those of the answers, are left blank on purpose.
+            // The node labels are never shown, as the nodes that the task is about are highlighted instead:
+            // the given node (task 1) or the two given nodes (task 2). These start out highlighted.
             const givenNodes = data.sourceNode && data.targetNode
                 ? [data.sourceNode, data.targetNode]
                 : (data.givenNode ? [data.givenNode] : []);
-            if (givenNodes.length > 0) {
-                options.visibleLabels = givenNodes;
-                options.labelFontSize = "0.8pt";
-                // The given nodes are not part of the answer.
-                options.preselectedLabels = givenNodes;
-            } else if (data.hideLabels) {
-                // No node labels at all (task 3)
-                options.visibleLabels = [];
-            }
+            options.visibleLabels = [];
+            // The given nodes are not part of the answer.
+            options.preselectedLabels = givenNodes;
 
             // Collapsed edges condition, chosen with the URL parameter of the study (?condition=collapsed).
             // The study runs in the parent window of this page.

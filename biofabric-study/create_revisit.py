@@ -186,22 +186,21 @@ PRACTICE_CONNECTION = {
     "target": "Camila",
     "connected": True,
 }
-# Second connection question, only in the collapsed condition: both nodes are connected to the topmost
-# node (Luna) through its vertical line, but they are not connected to each other, so the answer is No
+# Second connection question: both nodes are connected to the topmost node (Luna), but they are not
+# connected to each other, so the answer is No
 PRACTICE_CONNECTION_2 = {
     "graph_file": "grafo1682.21.json",
     "source": "Henry",
     "target": "Liam",
     "connected": False,
 }
-# ATTENTION CHECK, before the last block of the actual tasks: a connection question on a small graph, with two
-# nodes that are clearly not connected (Harper is the first node (top row) of the graph). Participants
-# have two attempts, and are rejected from the study if both are wrong.
+# ATTENTION CHECK, at a random place between the task blocks (roughly in the middle of the actual
+# tasks): select the first and the last node (the top and the bottom line) of a small graph.
+# Participants have two attempts, and are rejected from the study if both are wrong.
 ATTENTION_CHECK = {
     "graph_file": "grafo2375.19.json",
-    "source": "Harper",
-    "target": "Benjamin",
-    "connected": False,
+    # the first and the last node of the graph in the visualization (the top and the bottom line)
+    "solution": ["Harper", "Henry"],
 }
 ATTENTION_CHECK_ATTEMPTS = 2
 
@@ -243,7 +242,7 @@ task1_response_base = rvt.response(
     prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the nodes connected to the given node.",
     required=True,
     location="belowStimulus",
-    showList=False,  # the selection is not listed, as only the given node's label is shown
+    showList=False,  # node labels are hidden, so listing the selection is not useful
 )
 
 
@@ -260,8 +259,8 @@ def generate_task1_component(graph_file: str, solution: dict, path_prefix: str =
     return rvt.component(
         component_name__=f"task1_component_{graph_file}_{condition}",
         base__=task1_base,
-        description=f"Locate and select all nodes connected to node {solution['given']}.",
-        instruction=f"### Connected nodes\nLocate and select all nodes connected to node {solution['given']}.",
+        description="Locate and select all nodes connected to the highlighted node.",
+        instruction="### Connected nodes\nLocate and select all nodes connected to the highlighted node.",
         parameters={
             "graphDataPath": f"{path_prefix}/{graph_file}",
             "givenNode": solution["given"],
@@ -282,7 +281,7 @@ task2_response_base = rvt.response(
     prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
     required=True,
     location="belowStimulus",
-    showList=False,  # node labels are hidden in this task, so listing the selection is not useful
+    showList=False,  # node labels are hidden, so listing the selection is not useful
 )
 
 task2_base = rvt.component(
@@ -304,7 +303,7 @@ TASK_2_HINT = (
 
 
 def generate_task2_component(graph_file: str, solution: dict, path_prefix: str = "./", condition: str = CONDITION_NORMAL):
-    task_text = f"Locate and select all common neighbors of nodes {solution['source']} and {solution['target']}."
+    task_text = "Locate and select all common neighbors of the two highlighted nodes."
     return rvt.component(
         component_name__=f"task2_component_{graph_file}_{condition}",
         base__=task2_base,
@@ -418,6 +417,13 @@ def generate_intro_sequence():
         path="biofabric-study/assets/graph_terminology_biofabric_collapsed.md",
     )
 
+    # a brief explanation of the NASA-TLX questionnaire that follows each group of questions
+    intro_tlx_tutorial = rvt.component(
+        component_name__="intro_tlx_tutorial",
+        type="markdown",
+        path="biofabric-study/assets/tlx_tutorial.md",
+    )
+
     intro_sequence = rvt.sequence(
         order="fixed",
         components=[consent, intro_introduction, intro_tutorial],
@@ -429,6 +435,7 @@ def generate_intro_sequence():
     intro_sequence += conditional_sequence(
         CONDITION_COLLAPSED, [intro_graph_terminology_biofabric_collapsed]
     )
+    intro_sequence += rvt.sequence(order="fixed", components=[intro_tlx_tutorial])
     return intro_sequence
 
 
@@ -462,6 +469,8 @@ PRACTICE_CONNECTION_EXPLANATION = {
         "has a circle on the horizontal line of each of the two nodes. "
         "A vertical line that only crosses a node's horizontal line does not connect that node: "
         "it connects the two nodes where it ends."
+        " Two nodes that are both connected to the same third node are not necessarily connected "
+        "to each other."
     ),
     CONDITION_COLLAPSED: (
         "In this version of BioFabric, all connections that start at the same node share one "
@@ -471,11 +480,6 @@ PRACTICE_CONNECTION_EXPLANATION = {
         "A vertical line that only crosses a node's horizontal line, without a circle, does not connect that node."
     ),
 }
-
-
-def practice_number(number_in_normal_condition: int, condition: str) -> int:
-    """The collapsed condition has an extra practice question (the second connection question)."""
-    return number_in_normal_condition + (1 if condition == CONDITION_COLLAPSED else 0)
 
 
 def generate_practice_connection_component(
@@ -489,7 +493,7 @@ def generate_practice_connection_component(
         instruction=(
             f"### Practice {number}: Connections\n"
             f"{PRACTICE_CONNECTION_EXPLANATION[condition]}\n\n"
-            f"The two nodes highlighted in pink are {practice['source']} and {practice['target']}. "
+            "The question is about the two nodes highlighted in pink. "
             f"{PRACTICE_CONTINUE_TEXT}"
         ),
         parameters={
@@ -520,9 +524,6 @@ def generate_practice_connection_component(
 
 
 def generate_practice_connection_2_component(condition: str = CONDITION_NORMAL):
-    """Checks that the collapsed connections are understood, so it only exists in the collapsed condition."""
-    if condition != CONDITION_COLLAPSED:
-        return None
     return generate_practice_connection_component(condition, PRACTICE_CONNECTION_2, number=2)
 
 
@@ -558,13 +559,13 @@ PRACTICE_HINTS = {
 def generate_practice_task1_component(condition: str = CONDITION_NORMAL):
     practice = PRACTICE_TASK_1
     solution = practice["solution"]
-    task_text = f"Locate and select all nodes connected to node {solution['given']}."
+    task_text = "Locate and select all nodes connected to the highlighted node."
     return rvt.component(
         component_name__=f"practice_task1_{condition}",
         base__=task1_base,
         description=f"Practice: {task_text}",
         instruction=(
-            f"### Practice {practice_number(2, condition)}: Connected nodes\n{task_text} "
+            f"### Practice 3: Connected nodes\n{task_text} "
             f"{PRACTICE_HINTS[condition]['task1']}{PRACTICE_CONTINUE_TEXT}"
         ),
         parameters={
@@ -582,13 +583,13 @@ def generate_practice_task1_component(condition: str = CONDITION_NORMAL):
 def generate_practice_task2_component(condition: str = CONDITION_NORMAL):
     practice = PRACTICE_TASK_2
     solution = practice["solution"]
-    task_text = f"Locate and select all common neighbors of nodes {solution['source']} and {solution['target']}."
+    task_text = "Locate and select all common neighbors of the two highlighted nodes."
     return rvt.component(
         component_name__=f"practice_task2_{condition}",
         base__=task2_base,
         description=f"Practice: {task_text}",
         instruction=(
-            f"### Practice {practice_number(3, condition)}: Common neighbors\n{task_text} "
+            f"### Practice 4: Common neighbors\n{task_text} "
             f"{PRACTICE_HINTS[condition]['task2']}{PRACTICE_CONTINUE_TEXT}"
         ),
         parameters={
@@ -612,7 +613,7 @@ def generate_practice_task3_component(condition: str = CONDITION_NORMAL):
         base__=task3_base,
         description="Practice: estimate the number of connections between nodes in the graph.",
         instruction=(
-            f"### Practice {practice_number(4, condition)}: Estimating connections\nEstimate the number of connections between nodes in the graph. "
+            f"### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. "
             f"{PRACTICE_HINTS[condition]['task3']}"
             f"Your estimate has to be within {round(allowed_error * 100)}% of the actual number "
             "of connections to continue."
@@ -645,9 +646,9 @@ def generate_practice_sequence():
         generate_practice_task3_component,
     ]:
         for condition in [CONDITION_NORMAL, CONDITION_COLLAPSED]:
-            component = generate_component(condition)
-            if component is not None:
-                practice_sequence += conditional_sequence(condition, [component])
+            practice_sequence += conditional_sequence(
+                condition, [generate_component(condition)]
+            )
     return practice_sequence
 
 
@@ -722,34 +723,25 @@ def generate_attention_check_component(condition: str = CONDITION_NORMAL):
     return rvt.component(
         component_name__=f"attention_check_{condition}",
         base__=biofabric_website_base,
-        description="Attention check: are the two highlighted nodes connected?",
-        instruction=(
-            "### Connections\n"
-            f"The two nodes highlighted in pink are {check['source']} and {check['target']}."
-        ),
+        description="Attention check: select the first and the last node.",
+        instruction="### Select nodes\nSelect the first and the last node.",
         parameters={
             "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{check['graph_file']}",
-            "sourceNode": check["source"],
-            "targetNode": check["target"],
-            "readOnly": True,
         },
         response=[
             rvt.response(
-                type="radio",
-                id="attention-check",
-                prompt="Are the two highlighted nodes connected?",
-                options=["Yes", "No"],
+                type="reactive",
+                id=REVISIT_REACTIVE_RESPONSE_ID,
+                prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you have selected the two nodes.",
                 required=True,
                 location="belowStimulus",
+                showList=False,  # node labels are hidden, so listing the selection is not useful
             )
         ],
         correctAnswer=[
-            rvt.answer(
-                id="attention-check",
-                answer="Yes" if check["connected"] else "No",
-            )
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(check["solution"]))
         ],
-        helpTextPath=help_text_path("connection", condition),
+        helpTextPath=help_text_path("attention", condition),
         provideFeedback=True,
         trainingAttempts=ATTENTION_CHECK_ATTEMPTS,
         allowFailedTraining=False,
@@ -847,8 +839,8 @@ def generate_random_task_seqeuence(condition: str):
 
         # the variations are wrapped in a random sequence
         # to ensure that the order of the tasks is random.
-        # The attention check is shown once, right before the last of the three task blocks
-        # (inserted at index 2 of the shuffled blocks, so after the second block and its questionnaire).
+        # The attention check is shown once, at a random place between the three task blocks
+        # (so after the first or after the second block, i.e. roughly in the middle of the actual tasks).
         random_sequence = rvt.sequence(
             id=f"random_sequence_permutation_{i}_{condition}",
             order="random",
@@ -856,8 +848,8 @@ def generate_random_task_seqeuence(condition: str):
             interruptions=[
                 {
                     "components": [f"attention_check_{condition}"],
-                    "firstLocation": 2,
-                    "spacing": 3,
+                    "spacing": "random",
+                    "numInterruptions": 1,
                 }
             ],
         )
@@ -882,10 +874,10 @@ study_metadata = rvt.studyMetadata(
     version="pilot",
     authors=[
         "Sara Di Bartolomeo",
-        "Daniel Pahr",
+        "T Pahr",
         "Velitchko Filipov",
-        "Henry Ehlers",
-        "Johann Sebastian Schicho",
+        "P Ehlers",
+        "Johann X Schicho",
     ],
     date="2026-02-23",
     description="Working with collapsible BioFabric",  # todo

@@ -22,9 +22,14 @@ TUTORIAL_OF_CONDITION = {
 
 HOW_TO_ANSWER_BY_CLICKING = """### How to answer
 
-Click a node, on its horizontal line or on its label, to select it. Click it again to remove the selection. The nodes highlighted in pink are given by the question: you cannot change them, and they are not part of your answer. Submit your answer once you have selected all the nodes."""
+Click a node on its horizontal line to select it. Click it again to remove the selection. The nodes highlighted in pink are given by the question: you cannot change them, and they are not part of your answer. Submit your answer once you have selected all the nodes."""
+
+ATTENTION_CHECK_HELP = """## Help: select the first and the last node
+
+The first node is the one on the top horizontal line, and the last node is the one on the bottom horizontal line. Click a node on its horizontal line to select it. Click it again to remove the selection. Submit your answer once you have selected the two nodes."""
 
 QUESTION_SPECIFIC_PARTS = {
+    "attention": {"normal": ATTENTION_CHECK_HELP, "collapsed": ATTENTION_CHECK_HELP},
     "connection": {
         "normal": """## Help: are the two nodes connected?
 
