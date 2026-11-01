@@ -6,9 +6,10 @@ import { BioFabricRenderer } from './biofabricrenderer.js';
 
 const state = {
     width: 100,
-    height: 50,
+    height: 45, // less tall, since the depth icons on top are hidden
     dataPath: "./data/company-network.json",
     graph: null,
+    rendererOptions: {},
     svg: null,
 };
 
@@ -34,7 +35,7 @@ function render() {
     state.svg.selectAll("*").remove();
 
     const biofabric = new BioFabric(state.graph);
-    const renderer = new BioFabricRenderer(biofabric, state.width, state.height);
+    const renderer = new BioFabricRenderer(biofabric, state.width, state.height, undefined, state.rendererOptions);
     renderer.render(state.svg);
 }
 
@@ -48,6 +49,12 @@ async function init(options = {}) {
     if (options.width != null) state.width = options.width;
     if (options.height != null) state.height = options.height;
     if (options.dataPath != null) state.dataPath = options.dataPath;
+    state.rendererOptions = {
+        visibleLabels: options.visibleLabels,
+        labelFontSize: options.labelFontSize,
+        preselectedLabels: options.preselectedLabels,
+        hideDepthIcons: options.hideDepthIcons,
+    };
 
     await loadGraph(state.dataPath);
     render();
