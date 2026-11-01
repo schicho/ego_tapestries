@@ -530,13 +530,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo146.22.json_normal": {
+        "task3_component_grafo1761.20.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo146.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1761.20.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -552,13 +552,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo2469.23.json_normal": {
+        "task3_component_grafo1252.30.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo2469.23.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1252.30.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -574,13 +574,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1106.21.json_normal": {
+        "task3_component_grafo6207.40.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1106.21.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo6207.40.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -695,13 +695,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo137.21.json_normal": {
+        "task3_component_grafo1690.20.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo137.21.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1690.20.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -717,13 +717,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1055.19.json_normal": {
+        "task3_component_grafo1334.30.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1055.19.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1334.30.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -739,13 +739,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo153.21.json_normal": {
+        "task3_component_grafo6178.40.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo153.21.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo6178.40.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -963,13 +963,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1154.22.json_normal": {
+        "task3_component_grafo2056.20.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1154.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo2056.20.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -985,13 +985,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1052.22.json_normal": {
+        "task3_component_grafo4040.30.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1052.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo4040.30.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1007,13 +1007,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1037.22.json_normal": {
+        "task3_component_grafo6976.40.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1037.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo6976.40.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1335,13 +1335,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo146.22.json_collapsed": {
+        "task3_component_grafo1761.20.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo146.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1761.20.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1357,13 +1357,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo2469.23.json_collapsed": {
+        "task3_component_grafo1252.30.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo2469.23.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1252.30.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1379,13 +1379,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1106.21.json_collapsed": {
+        "task3_component_grafo6207.40.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1106.21.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo6207.40.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1500,13 +1500,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo137.21.json_collapsed": {
+        "task3_component_grafo1690.20.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo137.21.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1690.20.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1522,13 +1522,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1055.19.json_collapsed": {
+        "task3_component_grafo1334.30.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1055.19.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo1334.30.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1544,13 +1544,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo153.21.json_collapsed": {
+        "task3_component_grafo6178.40.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo153.21.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo6178.40.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1768,13 +1768,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1154.22.json_collapsed": {
+        "task3_component_grafo2056.20.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1154.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo2056.20.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1790,13 +1790,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1052.22.json_collapsed": {
+        "task3_component_grafo4040.30.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1052.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo4040.30.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -1812,13 +1812,13 @@
             ],
             "type": "website"
         },
-        "task3_component_grafo1037.22.json_collapsed": {
+        "task3_component_grafo6976.40.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
             "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo1037.22.json",
+                "graphDataPath": "./data/selected-rome-data/estimation//grafo6976.40.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -2088,9 +2088,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo146.22.json_normal",
-                                                    "task3_component_grafo2469.23.json_normal",
-                                                    "task3_component_grafo1106.21.json_normal"
+                                                    "task3_component_grafo1761.20.json_normal",
+                                                    "task3_component_grafo1252.30.json_normal",
+                                                    "task3_component_grafo6207.40.json_normal"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2151,9 +2151,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo137.21.json_normal",
-                                                    "task3_component_grafo1055.19.json_normal",
-                                                    "task3_component_grafo153.21.json_normal"
+                                                    "task3_component_grafo1690.20.json_normal",
+                                                    "task3_component_grafo1334.30.json_normal",
+                                                    "task3_component_grafo6178.40.json_normal"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2214,9 +2214,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo146.22.json_normal",
-                                                    "task3_component_grafo2469.23.json_normal",
-                                                    "task3_component_grafo1106.21.json_normal"
+                                                    "task3_component_grafo1761.20.json_normal",
+                                                    "task3_component_grafo1252.30.json_normal",
+                                                    "task3_component_grafo6207.40.json_normal"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2277,9 +2277,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo1154.22.json_normal",
-                                                    "task3_component_grafo1052.22.json_normal",
-                                                    "task3_component_grafo1037.22.json_normal"
+                                                    "task3_component_grafo2056.20.json_normal",
+                                                    "task3_component_grafo4040.30.json_normal",
+                                                    "task3_component_grafo6976.40.json_normal"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2340,9 +2340,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo137.21.json_normal",
-                                                    "task3_component_grafo1055.19.json_normal",
-                                                    "task3_component_grafo153.21.json_normal"
+                                                    "task3_component_grafo1690.20.json_normal",
+                                                    "task3_component_grafo1334.30.json_normal",
+                                                    "task3_component_grafo6178.40.json_normal"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2403,9 +2403,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo1154.22.json_normal",
-                                                    "task3_component_grafo1052.22.json_normal",
-                                                    "task3_component_grafo1037.22.json_normal"
+                                                    "task3_component_grafo2056.20.json_normal",
+                                                    "task3_component_grafo4040.30.json_normal",
+                                                    "task3_component_grafo6976.40.json_normal"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2479,9 +2479,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo146.22.json_collapsed",
-                                                    "task3_component_grafo2469.23.json_collapsed",
-                                                    "task3_component_grafo1106.21.json_collapsed"
+                                                    "task3_component_grafo1761.20.json_collapsed",
+                                                    "task3_component_grafo1252.30.json_collapsed",
+                                                    "task3_component_grafo6207.40.json_collapsed"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2542,9 +2542,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo137.21.json_collapsed",
-                                                    "task3_component_grafo1055.19.json_collapsed",
-                                                    "task3_component_grafo153.21.json_collapsed"
+                                                    "task3_component_grafo1690.20.json_collapsed",
+                                                    "task3_component_grafo1334.30.json_collapsed",
+                                                    "task3_component_grafo6178.40.json_collapsed"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2605,9 +2605,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo146.22.json_collapsed",
-                                                    "task3_component_grafo2469.23.json_collapsed",
-                                                    "task3_component_grafo1106.21.json_collapsed"
+                                                    "task3_component_grafo1761.20.json_collapsed",
+                                                    "task3_component_grafo1252.30.json_collapsed",
+                                                    "task3_component_grafo6207.40.json_collapsed"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2668,9 +2668,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo1154.22.json_collapsed",
-                                                    "task3_component_grafo1052.22.json_collapsed",
-                                                    "task3_component_grafo1037.22.json_collapsed"
+                                                    "task3_component_grafo2056.20.json_collapsed",
+                                                    "task3_component_grafo4040.30.json_collapsed",
+                                                    "task3_component_grafo6976.40.json_collapsed"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2731,9 +2731,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo137.21.json_collapsed",
-                                                    "task3_component_grafo1055.19.json_collapsed",
-                                                    "task3_component_grafo153.21.json_collapsed"
+                                                    "task3_component_grafo1690.20.json_collapsed",
+                                                    "task3_component_grafo1334.30.json_collapsed",
+                                                    "task3_component_grafo6178.40.json_collapsed"
                                                 ],
                                                 "order": "random"
                                             },
@@ -2794,9 +2794,9 @@
                                         "components": [
                                             {
                                                 "components": [
-                                                    "task3_component_grafo1154.22.json_collapsed",
-                                                    "task3_component_grafo1052.22.json_collapsed",
-                                                    "task3_component_grafo1037.22.json_collapsed"
+                                                    "task3_component_grafo2056.20.json_collapsed",
+                                                    "task3_component_grafo4040.30.json_collapsed",
+                                                    "task3_component_grafo6976.40.json_collapsed"
                                                 ],
                                                 "order": "random"
                                             },
