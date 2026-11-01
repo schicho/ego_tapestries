@@ -54,3 +54,24 @@ body {
     stroke: gold;
     stroke-width: 0.2px;
 }
+
+.highlight-biofabric-preselected {
+    stroke: #ff4fa3;
+    stroke-width: 0.2px;
+}
+
+/* invisible click target of a node line: shows a light band on hover, and a pointer cursor */
+.nodehit {
+    cursor: pointer;
+}
+
+.nodehit:hover {
+    stroke: rgba(80, 80, 80, 0.15);
+}
+
+/* preselected nodes cannot be clicked */
+.nodehit-locked,
+.nodehit-locked:hover {
+    cursor: default;
+    stroke: transparent;
+}

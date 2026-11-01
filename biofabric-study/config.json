@@ -38,9 +38,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -68,9 +69,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -103,9 +105,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -134,9 +137,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -165,9 +169,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -196,9 +201,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -208,7 +214,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -228,7 +235,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -248,7 +256,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -287,9 +296,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -318,9 +328,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -349,9 +360,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -361,7 +373,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -381,7 +394,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -401,7 +415,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -441,9 +456,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -476,9 +492,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -507,9 +524,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -538,9 +556,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -569,9 +588,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -600,9 +620,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -612,7 +633,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -632,7 +654,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -652,7 +675,8 @@
             "instruction": "### Task 3\nEstimate the number of edges in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json"
+                "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
+                "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -691,9 +715,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -724,9 +749,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -755,9 +781,10 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
                     "required": true,
-                    "type": "reactive"
+                    "type": "reactive",
+                    "showList": false
                 }
             ],
             "type": "website"
@@ -779,12 +806,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task1_component_grafo4286.74.json",
                                             "task1_component_grafo4481.77.json",
                                             "task1_component_grafo4672.76.json"
@@ -804,12 +825,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task2_component_grafo7907.80.json",
                                             "task2_component_grafo8127.78.json",
                                             "task2_component_grafo8142.73.json"
@@ -827,12 +842,6 @@
                             },
                             {
                                 "components": [
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
                                     {
                                         "components": [
                                             "task3_component_grafo8961.75.json",
@@ -860,12 +869,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task1_component_grafo4286.74.json",
                                             "task1_component_grafo4481.77.json",
                                             "task1_component_grafo4672.76.json"
@@ -885,12 +888,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task2_component_grafo8961.75.json",
                                             "task2_component_grafo9163.72.json",
                                             "task2_component_grafo9691.79.json"
@@ -908,12 +905,6 @@
                             },
                             {
                                 "components": [
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
                                     {
                                         "components": [
                                             "task3_component_grafo7907.80.json",
@@ -941,12 +932,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task1_component_grafo7907.80.json",
                                             "task1_component_grafo8127.78.json",
                                             "task1_component_grafo8142.73.json"
@@ -966,12 +951,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task2_component_grafo4286.74.json",
                                             "task2_component_grafo4481.77.json",
                                             "task2_component_grafo4672.76.json"
@@ -989,12 +968,6 @@
                             },
                             {
                                 "components": [
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
                                     {
                                         "components": [
                                             "task3_component_grafo8961.75.json",
@@ -1022,12 +995,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task1_component_grafo7907.80.json",
                                             "task1_component_grafo8127.78.json",
                                             "task1_component_grafo8142.73.json"
@@ -1047,12 +1014,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task2_component_grafo8961.75.json",
                                             "task2_component_grafo9163.72.json",
                                             "task2_component_grafo9691.79.json"
@@ -1070,12 +1031,6 @@
                             },
                             {
                                 "components": [
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
                                     {
                                         "components": [
                                             "task3_component_grafo4286.74.json",
@@ -1103,12 +1058,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task1_component_grafo8961.75.json",
                                             "task1_component_grafo9163.72.json",
                                             "task1_component_grafo9691.79.json"
@@ -1128,12 +1077,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task2_component_grafo4286.74.json",
                                             "task2_component_grafo4481.77.json",
                                             "task2_component_grafo4672.76.json"
@@ -1151,12 +1094,6 @@
                             },
                             {
                                 "components": [
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
                                     {
                                         "components": [
                                             "task3_component_grafo7907.80.json",
@@ -1184,12 +1121,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task1_component_grafo8961.75.json",
                                             "task1_component_grafo9163.72.json",
                                             "task1_component_grafo9691.79.json"
@@ -1209,12 +1140,6 @@
                                 "components": [
                                     {
                                         "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
-                                    {
-                                        "components": [
                                             "task2_component_grafo7907.80.json",
                                             "task2_component_grafo8127.78.json",
                                             "task2_component_grafo8142.73.json"
@@ -1232,12 +1157,6 @@
                             },
                             {
                                 "components": [
-                                    {
-                                        "components": [
-                                            "$nasa-tlx.components.nasa-tlx"
-                                        ],
-                                        "order": "fixed"
-                                    },
                                     {
                                         "components": [
                                             "task3_component_grafo4286.74.json",
