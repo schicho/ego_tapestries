@@ -80,6 +80,18 @@ export class BioFabricRenderer {
         let compressG = svg.append("g")
             .attr("transform", "translate(" + (this.canvasWidth * this.nodeDepthX) + "," + (this.canvasHeight * this.edgeDepthY) + ")")
 
+        // Height of the invisible click target of a node line: almost the smallest vertical
+        // distance between two node lines, so that neighboring targets do not overlap.
+        const sortedY = this.biofabric.graph.nodes
+            .filter(node => node.get_depth() <= this.biofabric.graph.get_depth())
+            .map(node => node.get_y())
+            .sort((a, b) => a - b);
+        let minGap = Infinity;
+        for (let i = 1; i < sortedY.length; i++) {
+            if (sortedY[i] > sortedY[i - 1]) minGap = Math.min(minGap, sortedY[i] - sortedY[i - 1]);
+        }
+        const hitWidth = Number.isFinite(minGap) ? 0.95 * minGap * this.canvasHeight * (1 - this.innerY) : 1;
+
         // Iterate over all Nodes in Depth Limit
         for (let node of this.biofabric.graph.nodes.filter(node => (node.get_depth() <= this.biofabric.graph.get_depth()))) {
 
@@ -95,6 +107,29 @@ export class BioFabricRenderer {
                 .attr("stroke", "#eee")
                 .attr("stroke-width", 0.25)
                 .attr("stroke-linecap", "round")
+                .on("click", (_event, d) => {
+                    this.globalDispatcher.call("highlight", this, d.get_id());
+                })
+                .on("mouseover", (_event, d) => {
+                    this.globalDispatcher.call("hover-in", this, d.get_id());
+                })
+                .on("mouseout", () => {
+                    this.globalDispatcher.call("hover-out");
+                });
+
+            // Add a wide, invisible click target around the node line (extending over the label
+            // column), as the visible line itself is very thin and hard to hit.
+            innerG.append("line")
+                .attr("id", "nodeHit-" + node.get_id())
+                // preselected nodes cannot be clicked, so they get no hover feedback
+                .attr("class", this.preselectedLabels.has(node.get_label()) ? "nodehit nodehit-locked" : "nodehit")
+                .datum(node) // node data
+                .attr("x1", -this.canvasWidth * this.innerX * 0.9)
+                .attr("x2", this.canvasWidth * (0.95 * (1 - this.innerX)))
+                .attr("y1", node.get_y() * (this.canvasHeight * (1 - this.innerY)))
+                .attr("y2", node.get_y() * (this.canvasHeight * (1 - this.innerY)))
+                .attr("stroke", "transparent")
+                .attr("stroke-width", hitWidth)
                 .on("click", (_event, d) => {
                     this.globalDispatcher.call("highlight", this, d.get_id());
                 })
@@ -699,8 +734,13 @@ export class BioFabricRenderer {
     }
 
     updateHighlightClasses() {
-        d3.selectAll(".edgecircle").classed("highlight-biofabric", d => d.get_highlighted());
-        d3.selectAll(".nodeline").classed("highlight-biofabric", d => d.get_highlighted());
+        // Preselected nodes get their own highlight color to tell them apart from the selected answers
+        const isPreselected = d => this.preselectedLabels.has(d.get_label());
+        for (const selector of [".edgecircle", ".nodeline"]) {
+            d3.selectAll(selector)
+                .classed("highlight-biofabric", d => d.get_highlighted() && !isPreselected(d))
+                .classed("highlight-biofabric-preselected", d => d.get_highlighted() && isPreselected(d));
+        }
     }
 
     // Update

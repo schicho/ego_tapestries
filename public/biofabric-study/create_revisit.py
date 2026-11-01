@@ -135,9 +135,10 @@ biofabric_website_base = rvt.component(
 task1_response_base = rvt.response(
     type="reactive",
     id=REVISIT_REACTIVE_RESPONSE_ID,
-    prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes. Your selected nodes:",
+    prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the adjacent nodes.",
     required=True,
     location="belowStimulus",
+    showList=False,  # the selection is not listed, as only the given node's label is shown
 )
 
 
@@ -172,9 +173,10 @@ def generate_task1_component(graph_file: str, solution: dict, path_prefix: str =
 task2_response_base = rvt.response(
     type="reactive",
     id=REVISIT_REACTIVE_RESPONSE_ID,
-    prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
+    prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors.",
     required=True,
     location="belowStimulus",
+    showList=False,  # node labels are hidden in this task, so listing the selection is not useful
 )
 
 task2_base = rvt.component(
@@ -230,6 +232,7 @@ def generate_task3_component(graph_file: str, path_prefix: str = "./"):
         instruction="### Task 3\nEstimate the number of edges in the graph.",
         parameters={
             "graphDataPath": f"{path_prefix}/{graph_file}",
+            "hideLabels": True,
         },
         provideFeedback=False,
     )
@@ -238,11 +241,6 @@ def generate_task3_component(graph_file: str, path_prefix: str = "./"):
 # predefined sequences for NASA-TLX components, to be used in the task sequences
 
 NASA_TLX = rvt.sequence(order="fixed", components=["$nasa-tlx.components.nasa-tlx"])
-
-# a separate instance is needed so the same sequence is not attached twice
-NASA_TLX_BEFORE_TASK = rvt.sequence(
-    order="fixed", components=["$nasa-tlx.components.nasa-tlx"]
-)
 
 
 def generate_intro_sequence():
@@ -336,7 +334,6 @@ def generate_task_sequence_with_tlx(task: str, graph_subset):
 
     task_outer_fixed = rvt.sequence(order="fixed", components=[])
 
-    task_outer_fixed += NASA_TLX_BEFORE_TASK
     task_outer_fixed += random_inner_task
     task_outer_fixed += NASA_TLX
 

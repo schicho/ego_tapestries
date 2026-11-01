@@ -2856,6 +2856,10 @@
           "description": "The secondary text that is displayed to the participant under the prompt. This does not accept markdown.",
           "type": "string"
         },
+        "showList": {
+          "description": "Whether to display the list of values sent from the component. The values are still recorded as the answer. Defaults to true.",
+          "type": "boolean"
+        },
         "style": {
           "$ref": "#/definitions/Styles",
           "description": "You can set styles here, using React CSSProperties, for example: `{\"width\": 100}` or `{\"width\": \"50%\"}`"

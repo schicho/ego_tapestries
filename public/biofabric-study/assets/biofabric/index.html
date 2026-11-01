@@ -35,13 +35,20 @@
             // note the path must be relative to 'main.js'
             options.dataPath = data.graphDataPath;
 
-            // Only the two nodes of the common neighbors task keep their labels (larger font).
-            // The common neighbors' names are left blank on purpose.
-            if (data.sourceNode && data.targetNode) {
-                options.visibleLabels = [data.sourceNode, data.targetNode];
+            // Only the nodes that the task is about keep their labels (larger font) and start out
+            // highlighted: the given node (task 1) or the two given nodes (task 2).
+            // All other labels, e.g. those of the answers, are left blank on purpose.
+            const givenNodes = data.sourceNode && data.targetNode
+                ? [data.sourceNode, data.targetNode]
+                : (data.givenNode ? [data.givenNode] : []);
+            if (givenNodes.length > 0) {
+                options.visibleLabels = givenNodes;
                 options.labelFontSize = "0.8pt";
-                // The two given nodes start out highlighted (but are not part of the answer).
-                options.preselectedLabels = [data.sourceNode, data.targetNode];
+                // The given nodes are not part of the answer.
+                options.preselectedLabels = givenNodes;
+            } else if (data.hideLabels) {
+                // No node labels at all (task 3)
+                options.visibleLabels = [];
             }
 
             if (Object.hasOwn(data, "nodeAlterCompressions")) {

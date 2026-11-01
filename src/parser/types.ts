@@ -817,6 +817,8 @@ export interface RankingResponse extends BaseResponse {
  */
 export interface ReactiveResponse extends BaseResponse {
   type: 'reactive';
+  /** Whether to display the list of values sent from the component. The values are still recorded as the answer. Defaults to true. */
+  showList?: boolean;
 }
 
 /**

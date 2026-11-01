@@ -18,6 +18,7 @@ export function ReactiveInput({
     required,
     secondaryText,
     infoText,
+    showList = true,
   } = response;
 
   return (
@@ -26,7 +27,7 @@ export function ReactiveInput({
       description={secondaryText}
       size="md"
     >
-      {answer.value && (
+      {showList && answer.value && (
       <List>
         {Array.isArray(answer.value)
           ? (answer.value).map((item) => <List.Item key={item}>{item}</List.Item>)
