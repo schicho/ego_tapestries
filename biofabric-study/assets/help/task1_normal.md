@@ -1,6 +1,6 @@
 ## Help: select the nodes connected to the given node
 
-Find the node highlighted in pink: it is the node the question is about. Every vertical line that has a circle on its horizontal line is a connection to another node: follow the line to the circle on the horizontal line of that other node. All the nodes connected to the given node are **below** it. Select every one of them.
+Find the node highlighted in pink: it is the node the question is about. Every vertical line that has a circle on the horizontal line of this node is a connection to another node: follow the line to the circle on the horizontal line of that other node. All the nodes connected to the given node are **below** it. Select every one of them.
 
 ### How to answer
 

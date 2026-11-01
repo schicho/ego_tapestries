@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent</title>
+    <!-- Load revisit-communicate to be able to send data to reVISit -->
+    <script src="../../revisitUtilities/revisit-communicate.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            line-height: 1.5;
+        }
+
+        .content {
+            max-width: 46em;
+            margin: 0 auto;
+        }
+
+        .warning {
+            max-width: 40em;
+            margin: 0 auto;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            color: #c92a2a;
+        }
+
+        h2 {
+            margin-top: 1.2em;
+        }
+
+        .warning h2 {
+            margin-top: 0;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.06);
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="consent" class="content" hidden>
+<h1>Informed Consent</h1>
+<p><b>Study Title:</b> BioFabric Study — Answering Questions About Networks with BioFabric Visualizations</p>
+<p><b>Principal Investigator:</b> Sara Di Bartolomeo, TU Wien</p>
+<h2>Purpose</h2>
+<p>You are invited to participate in a research study examining how different ways of drawing a network in the BioFabric visualization affect your ability to answer questions about the network. This study will take approximately <b>[TODO: duration] minutes</b>.</p>
+<h2>What You Will Do</h2>
+<p>You will view a series of network visualizations and answer questions about each one. First, a short tutorial explains how to read the visualization, followed by a short practice section so you can learn the interactions. During practice you will receive feedback on your answers, and you can only continue once your answer is correct. You have three attempts for each practice question: if none of them is correct, the study ends and you cannot continue. After the practice, a page tells you when the actual experiment starts. In the actual experiment you will not receive feedback. The actual experiment also contains one simple attention-check question. If you answer it incorrectly twice, the study ends and you cannot continue.</p>
+<p>The experiment has three groups of questions, one for each type of question:</p>
+<ol>
+<li><b>Finding the nodes connected to a given node</b></li>
+<li><b>Finding the common neighbors of two given nodes</b></li>
+<li><b>Estimating the number of connections</b> in a network</li>
+</ol>
+<p>In the first two types of question, you will click nodes to select your answer and then submit it. In the third, you will type your estimate. After each group of questions, you will answer a short questionnaire about how demanding the questions were (the NASA Task Load Index, which uses sliders).</p>
+<h2>Participation</h2>
+<ul>
+<li>Participation is entirely <b>voluntary</b>. You may withdraw at any time without penalty, by closing the browser window.</li>
+<li>There are no known risks beyond those of normal computer use.</li>
+<li>Your responses will be recorded anonymously and used only for research purposes.</li>
+<li>De-identified data may be shared in academic publications or archived in a public repository.</li>
+</ul>
+<h2>Data and Privacy</h2>
+<ul>
+<li>You are not asked for your name or any other personal information.</li>
+<li>The data that is recorded are your answers, your response times, your interactions with the visualizations (such as which nodes you click), and your answers to the questionnaires.</li>
+<li>The study software also records technical information about your browser session: your browser and operating system, your screen resolution, your browser language, and your IP address. The IP address is not part of the data that will be published or shared.</li>
+<li>The data is stored securely on a server and is accessible only to the research team.</li>
+<li>Data will be retained for a minimum of five years, in accordance with institutional policy.</li>
+</ul>
+<h2>Contact</h2>
+<p>If you have questions about this study, contact: <a href="mailto:sdb@ac.tuwien.ac.at">sdb@ac.tuwien.ac.at</a></p>
+<p><b>Sara Di Bartolomeo</b></p>
+<p>TU Wien, Vienna, Austria</p>
+<hr>
+<p>By clicking <b>I Agree</b> below, you confirm that:</p>
+<ul>
+<li>You are 18 years of age or older.</li>
+<li>You have read and understood this consent form.</li>
+<li>You voluntarily agree to participate.</li>
+</ul>
+    </div>
+    <div id="warning" class="warning" hidden>
+        <h2>The link of this study is incomplete</h2>
+        <p>The study cannot be started, because the web address does not contain the study condition. Please open the link that you were sent again, in a new (private) browser window. The address ends with <code>?condition=…</code>.</p>
+        <p>If you do not have this link, please contact the researcher.</p>
+    </div>
+</body>
+
+<script>
+    // The conditions of the study. The link to the study has to contain exactly one of them,
+    // e.g. ?condition=normal or ?condition=collapsed. The study runs in the parent window of this page.
+    // This page shows the consent form if the link is valid, and a warning otherwise. The answer is
+    // required in the study, so the "I Agree" button is only enabled if the link is valid.
+    const CONDITIONS = ["normal", "collapsed"];
+
+    function getConditionFromUrl() {
+        try {
+            const condition = new URLSearchParams(window.parent.location.search).get("condition");
+            return condition ? condition.trim() : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function check() {
+        const condition = getConditionFromUrl();
+        const valid = CONDITIONS.includes(condition);
+        document.getElementById("consent").hidden = !valid;
+        document.getElementById("warning").hidden = valid;
+        if (valid) {
+            Revisit.postAnswers({ conditionCheck: [condition] });
+        }
+    }
+
+    // The answer can get lost if reVISit is not listening yet when this page loads, and reVISit does not
+    // send any data to this page in return, so the answer is sent again for a few seconds
+    check();
+    Revisit.onDataReceive(check);
+    let attempts = 0;
+    const resend = setInterval(() => {
+        check();
+        attempts += 1;
+        if (attempts >= 20) {
+            clearInterval(resend);
+        }
+    }, 500);
+</script>
+
+</html>

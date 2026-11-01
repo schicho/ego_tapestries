@@ -10,19 +10,15 @@ Each **connection** between two nodes is shown as a vertical line, with a circle
 
 <img alt="Connections are represented as vertical lines, connections that start at the same node share one line" src="biofabric-study/assets/images/connections-collapsed.png" width="35%" mx="auto" />
 
-### Collapsed connections
-
-The node at the very top of a vertical line is the node that all the connections of that line start from. The line runs down to the lowest node that this node is connected to. Every other circle on the line marks a node that is connected to the top node.
-
-<img alt="The connections of node 7 are drawn on top of each other, as one vertical line" src="biofabric-study/assets/images/collapsing-explained.png" width="50%" mx="auto" />
-
 ### Reading the connections
 
 Two nodes are connected if one of them is at the top of a vertical line, and the other one has a circle on that same line. In the example, node 7 is at the top of the first line, and node 5 has a circle on that line, so node 7 and node 5 are connected.
 
 <img alt="A connection between node 7 and node 5" src="biofabric-study/assets/images/connection-collapsed.png" width="50%" mx="auto" />
 
-Two nodes that both have a circle on the same line, but neither of them at the top, are not necessarily connected to each other. A line may also pass over other node lines without a circle: this does not mean that those nodes are connected. Follow the vertical line to identify its top node and its circles.
+<span style="color: #e03131; font-weight: 600;">If two nodes have a circle on the same vertical line, they are both connected to the node at the TOPMOST end of that line, but not necessarily to each other.</span>
+
+A line may also pass over other node lines without a circle: this does not mean that those nodes are connected. Follow the vertical line to identify its top node and its circles.
 
 To find all the neighbors of a node:
 - The neighbors **below** the node are the other circles on the vertical line that the node is at the top of.

@@ -1,9 +1,81 @@
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "components": {
-        "condition_check": {
-            "nextButtonText": "Continue",
-            "path": "biofabric-study/assets/condition_check.html",
+        "attention_check_normal": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": "No",
+                    "id": "attention-check"
+                }
+            ],
+            "description": "Attention check: are the two highlighted nodes connected?",
+            "helpTextPath": "biofabric-study/assets/help/connection_normal.md",
+            "instruction": "### Connections\nThe two nodes highlighted in pink are Harper and Benjamin.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json",
+                "sourceNode": "Harper",
+                "targetNode": "Benjamin",
+                "readOnly": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "attention-check",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "prompt": "Are the two highlighted nodes connected?",
+                    "required": true,
+                    "type": "radio"
+                }
+            ],
+            "trainingAttempts": 2,
+            "type": "website"
+        },
+        "attention_check_collapsed": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": "No",
+                    "id": "attention-check"
+                }
+            ],
+            "description": "Attention check: are the two highlighted nodes connected?",
+            "helpTextPath": "biofabric-study/assets/help/connection_collapsed.md",
+            "instruction": "### Connections\nThe two nodes highlighted in pink are Harper and Benjamin.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json",
+                "sourceNode": "Harper",
+                "targetNode": "Benjamin",
+                "readOnly": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "attention-check",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "prompt": "Are the two highlighted nodes connected?",
+                    "required": true,
+                    "type": "radio"
+                }
+            ],
+            "trainingAttempts": 2,
+            "type": "website"
+        },
+        "consent": {
+            "nextButtonText": "I Agree",
+            "path": "biofabric-study/assets/consent.html",
             "response": [
                 {
                     "id": "conditionCheck",
@@ -15,12 +87,6 @@
                 }
             ],
             "type": "website"
-        },
-        "consent": {
-            "nextButtonText": "I Agree",
-            "path": "biofabric-study/assets/consent.md",
-            "response": [],
-            "type": "markdown"
         },
         "intro_introduction": {
             "path": "biofabric-study/assets/introduction.md",
@@ -52,7 +118,7 @@
             ],
             "description": "Practice: are the two highlighted nodes connected?",
             "helpTextPath": "biofabric-study/assets/help/connection_normal.md",
-            "instruction": "### Practice 1: Connections\nIn BioFabric, two nodes are **connected** if a **vertical line (an edge, also called a connection)** has a circle on the horizontal line of each of the two nodes. A vertical line that only crosses a node's horizontal line does not connect that node: it connects the two nodes where it ends.\n\nThe two nodes highlighted in pink are Luna and Camila. You can only continue once your answer is correct.",
+            "instruction": "### Practice 1: Connections\nIn BioFabric, two nodes are **connected** if a **vertical line (an edge, also called a connection)** has a circle on the horizontal line of each of the two nodes. A vertical line that only crosses a node's horizontal line does not connect that node: it connects the two nodes where it ends.\n\nThe two nodes highlighted in pink are Luna and Camila. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1682.21.json",
@@ -75,7 +141,7 @@
                     "type": "radio"
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_connection_collapsed": {
@@ -88,7 +154,7 @@
             ],
             "description": "Practice: are the two highlighted nodes connected?",
             "helpTextPath": "biofabric-study/assets/help/connection_collapsed.md",
-            "instruction": "### Practice 1: Connections\nIn this version of BioFabric, all connections that start at the same node share one **vertical line**. Two nodes are **connected** if one of them is at the top of a vertical line, and the other one has a circle on that same line. Two nodes that both have a circle on the same line, but neither of them at the top, are not necessarily connected to each other. A vertical line that only crosses a node's horizontal line, without a circle, does not connect that node.\n\nThe two nodes highlighted in pink are Luna and Camila. You can only continue once your answer is correct.",
+            "instruction": "### Practice 1: Connections\nIn this version of BioFabric, all connections that start at the same node share one **vertical line**. Two nodes are **connected** if one of them is at the top of a vertical line, and the other one has a circle on that same line. <span style=\"color: #e03131; font-weight: 600;\">If two nodes have a circle on the same vertical line, they are both connected to the node at the TOPMOST end of that line, but not necessarily to each other.</span> A vertical line that only crosses a node's horizontal line, without a circle, does not connect that node.\n\nThe two nodes highlighted in pink are Luna and Camila. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1682.21.json",
@@ -111,7 +177,43 @@
                     "type": "radio"
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
+            "type": "website"
+        },
+        "practice_connection_2_collapsed": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": "No",
+                    "id": "practice-connection-2"
+                }
+            ],
+            "description": "Practice: are the two highlighted nodes connected?",
+            "helpTextPath": "biofabric-study/assets/help/connection_collapsed.md",
+            "instruction": "### Practice 2: Connections\nIn this version of BioFabric, all connections that start at the same node share one **vertical line**. Two nodes are **connected** if one of them is at the top of a vertical line, and the other one has a circle on that same line. <span style=\"color: #e03131; font-weight: 600;\">If two nodes have a circle on the same vertical line, they are both connected to the node at the TOPMOST end of that line, but not necessarily to each other.</span> A vertical line that only crosses a node's horizontal line, without a circle, does not connect that node.\n\nThe two nodes highlighted in pink are Henry and Liam. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo1682.21.json",
+                "sourceNode": "Henry",
+                "targetNode": "Liam",
+                "readOnly": true
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "practice-connection-2",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "prompt": "Are the two highlighted nodes connected?",
+                    "required": true,
+                    "type": "radio"
+                }
+            ],
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_task1_normal": {
@@ -130,7 +232,7 @@
             ],
             "description": "Practice: Locate and select all nodes connected to node Amelia.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Practice 2: Task 1\nLocate and select all nodes connected to node Amelia. You can only continue once your answer is correct.",
+            "instruction": "### Practice 2: Connected nodes\nLocate and select all nodes connected to node Amelia. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1819.22.json",
@@ -148,7 +250,7 @@
                     "showList": false
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_task1_collapsed": {
@@ -167,7 +269,7 @@
             ],
             "description": "Practice: Locate and select all nodes connected to node Amelia.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Practice 2: Task 1\nLocate and select all nodes connected to node Amelia. The given node is at the top of its own vertical line: its neighbors are the other nodes that have a circle on that line. You can only continue once your answer is correct.",
+            "instruction": "### Practice 3: Connected nodes\nLocate and select all nodes connected to node Amelia. The given node is at the top of its own vertical line: its neighbors are the other nodes that have a circle on that line. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1819.22.json",
@@ -185,7 +287,7 @@
                     "showList": false
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_task2_normal": {
@@ -202,7 +304,7 @@
             ],
             "description": "Practice: Locate and select all common neighbors of nodes Daniel and Amelia.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Practice 3: Task 2\nLocate and select all common neighbors of nodes Daniel and Amelia. The common neighbors are below the two given nodes: each of them has a circle on a connection from the first given node and a circle on a connection from the second given node, on its horizontal line. You can only continue once your answer is correct.",
+            "instruction": "### Practice 3: Common neighbors\nLocate and select all common neighbors of nodes Daniel and Amelia. The common neighbors are below the two given nodes: each of them has a circle on a connection from the first given node and a circle on a connection from the second given node, on its horizontal line. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2209.20.json",
@@ -221,7 +323,7 @@
                     "showList": false
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_task2_collapsed": {
@@ -238,7 +340,7 @@
             ],
             "description": "Practice: Locate and select all common neighbors of nodes Daniel and Amelia.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Practice 3: Task 2\nLocate and select all common neighbors of nodes Daniel and Amelia. The common neighbors are below the two given nodes: each of them has circles side by side on its horizontal line, one on the vertical line of each of the two given nodes. You can only continue once your answer is correct.",
+            "instruction": "### Practice 4: Common neighbors\nLocate and select all common neighbors of nodes Daniel and Amelia. The common neighbors are below the two given nodes: each of them has circles side by side on its horizontal line, one on the vertical line of each of the two given nodes. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2209.20.json",
@@ -257,25 +359,25 @@
                     "showList": false
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_task3_normal": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
-                    "acceptableHigh": 40.25,
-                    "acceptableLow": 29.75,
-                    "answer": 35,
+                    "acceptableHigh": 16.1,
+                    "acceptableLow": 11.9,
+                    "answer": 14,
                     "id": "task3-numerical"
                 }
             ],
             "description": "Practice: estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Practice 4: Task 3\nEstimate the number of connections between nodes in the graph. Each vertical line is one connection, so you can count the vertical lines. Your estimate has to be within 15% of the actual number of connections to continue.",
+            "instruction": "### Practice 4: Estimating connections\nEstimate the number of connections between nodes in the graph. Each vertical line is one connection, so you can count the vertical lines. Your estimate has to be within 15% of the actual number of connections to continue.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json",
+                "graphDataPath": "./data/selected-rome-data/small//grafo1654.10.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -289,25 +391,25 @@
                     "type": "numerical"
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "practice_task3_collapsed": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
-                    "acceptableHigh": 40.25,
-                    "acceptableLow": 29.75,
-                    "answer": 35,
+                    "acceptableHigh": 16.1,
+                    "acceptableLow": 11.9,
+                    "answer": 14,
                     "id": "task3-numerical"
                 }
             ],
             "description": "Practice: estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Practice 4: Task 3\nEstimate the number of connections between nodes in the graph. For each vertical line, count the nodes on it and subtract one. Add up the results of all lines. Your estimate has to be within 15% of the actual number of connections to continue.",
+            "instruction": "### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. For each vertical line, count the nodes on it and subtract one. Add up the results of all lines. Your estimate has to be within 15% of the actual number of connections to continue.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
-                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json",
+                "graphDataPath": "./data/selected-rome-data/small//grafo1654.10.json",
                 "hideLabels": true
             },
             "path": "biofabric-study/assets/biofabric/index.html",
@@ -321,7 +423,7 @@
                     "type": "numerical"
                 }
             ],
-            "trainingAttempts": -1,
+            "trainingAttempts": 3,
             "type": "website"
         },
         "experiment_start": {
@@ -344,7 +446,7 @@
             ],
             "description": "Locate and select all nodes connected to node Mason.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Mason.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Mason.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
@@ -378,7 +480,7 @@
             ],
             "description": "Locate and select all nodes connected to node Ethan.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Ethan.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Ethan.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
@@ -412,7 +514,7 @@
             ],
             "description": "Locate and select all nodes connected to node Stella.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Stella.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Stella.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
@@ -444,7 +546,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Christopher and Nathan.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and Nathan. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Christopher and Nathan. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
@@ -477,7 +579,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Luna and Samuel.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Luna and Samuel. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Luna and Samuel. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
@@ -509,7 +611,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Maya and Christopher.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Maya and Christopher. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Maya and Christopher. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
@@ -533,7 +635,7 @@
         "task3_component_grafo1761.20.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1761.20.json",
@@ -555,7 +657,7 @@
         "task3_component_grafo1252.30.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1252.30.json",
@@ -577,7 +679,7 @@
         "task3_component_grafo6207.40.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo6207.40.json",
@@ -608,7 +710,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Hannah and Layla.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Hannah and Layla. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Hannah and Layla. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
@@ -641,7 +743,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Nathan and David.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Nathan and David. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Nathan and David. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
@@ -674,7 +776,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Connor and Clara.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Connor and Clara. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Connor and Clara. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
@@ -698,7 +800,7 @@
         "task3_component_grafo1690.20.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1690.20.json",
@@ -720,7 +822,7 @@
         "task3_component_grafo1334.30.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1334.30.json",
@@ -742,7 +844,7 @@
         "task3_component_grafo6178.40.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo6178.40.json",
@@ -775,7 +877,7 @@
             ],
             "description": "Locate and select all nodes connected to node Amelia.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Amelia.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Amelia.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
@@ -810,7 +912,7 @@
             ],
             "description": "Locate and select all nodes connected to node Ava.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Ava.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Ava.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
@@ -844,7 +946,7 @@
             ],
             "description": "Locate and select all nodes connected to node James.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node James.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node James.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
@@ -876,7 +978,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Liam and Charlotte.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Liam and Charlotte. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Liam and Charlotte. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
@@ -909,7 +1011,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Ellie and Ava.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Ellie and Ava. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Ellie and Ava. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
@@ -942,7 +1044,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Christopher and James.",
             "helpTextPath": "biofabric-study/assets/help/task2_normal.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and James. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Christopher and James. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
@@ -966,7 +1068,7 @@
         "task3_component_grafo2056.20.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo2056.20.json",
@@ -988,7 +1090,7 @@
         "task3_component_grafo4040.30.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo4040.30.json",
@@ -1010,7 +1112,7 @@
         "task3_component_grafo6976.40.json_normal": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo6976.40.json",
@@ -1045,7 +1147,7 @@
             ],
             "description": "Locate and select all nodes connected to node Julian.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Julian.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Julian.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
@@ -1080,7 +1182,7 @@
             ],
             "description": "Locate and select all nodes connected to node Isabella.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Isabella.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Isabella.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
@@ -1114,7 +1216,7 @@
             ],
             "description": "Locate and select all nodes connected to node Matthew.",
             "helpTextPath": "biofabric-study/assets/help/task1_normal.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Matthew.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Matthew.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
@@ -1149,7 +1251,7 @@
             ],
             "description": "Locate and select all nodes connected to node Mason.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Mason.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Mason.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
@@ -1183,7 +1285,7 @@
             ],
             "description": "Locate and select all nodes connected to node Ethan.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Ethan.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Ethan.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
@@ -1217,7 +1319,7 @@
             ],
             "description": "Locate and select all nodes connected to node Stella.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Stella.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Stella.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
@@ -1249,7 +1351,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Christopher and Nathan.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and Nathan. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Christopher and Nathan. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
@@ -1282,7 +1384,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Luna and Samuel.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Luna and Samuel. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Luna and Samuel. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
@@ -1314,7 +1416,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Maya and Christopher.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Maya and Christopher. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Maya and Christopher. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
@@ -1338,7 +1440,7 @@
         "task3_component_grafo1761.20.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1761.20.json",
@@ -1360,7 +1462,7 @@
         "task3_component_grafo1252.30.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1252.30.json",
@@ -1382,7 +1484,7 @@
         "task3_component_grafo6207.40.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo6207.40.json",
@@ -1413,7 +1515,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Hannah and Layla.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Hannah and Layla. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Hannah and Layla. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
@@ -1446,7 +1548,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Nathan and David.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Nathan and David. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Nathan and David. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
@@ -1479,7 +1581,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Connor and Clara.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Connor and Clara. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Connor and Clara. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
@@ -1503,7 +1605,7 @@
         "task3_component_grafo1690.20.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1690.20.json",
@@ -1525,7 +1627,7 @@
         "task3_component_grafo1334.30.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo1334.30.json",
@@ -1547,7 +1649,7 @@
         "task3_component_grafo6178.40.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo6178.40.json",
@@ -1580,7 +1682,7 @@
             ],
             "description": "Locate and select all nodes connected to node Amelia.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Amelia.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Amelia.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
@@ -1615,7 +1717,7 @@
             ],
             "description": "Locate and select all nodes connected to node Ava.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Ava.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Ava.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
@@ -1649,7 +1751,7 @@
             ],
             "description": "Locate and select all nodes connected to node James.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node James.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node James.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
@@ -1681,7 +1783,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Liam and Charlotte.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Liam and Charlotte. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Liam and Charlotte. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
@@ -1714,7 +1816,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Ellie and Ava.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Ellie and Ava. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Ellie and Ava. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
@@ -1747,7 +1849,7 @@
             ],
             "description": "Locate and select all common neighbors of nodes Christopher and James.",
             "helpTextPath": "biofabric-study/assets/help/task2_collapsed.md",
-            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Christopher and James. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
+            "instruction": "### Common neighbors\nLocate and select all common neighbors of nodes Christopher and James. The common neighbors are below the two nodes. Each of them has circles side by side on its horizontal line: one on a vertical line that starts at the first node, and one on a vertical line that starts at the second node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
@@ -1771,7 +1873,7 @@
         "task3_component_grafo2056.20.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo2056.20.json",
@@ -1793,7 +1895,7 @@
         "task3_component_grafo4040.30.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo4040.30.json",
@@ -1815,7 +1917,7 @@
         "task3_component_grafo6976.40.json_collapsed": {
             "description": "Estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Task 3\nEstimate the number of connections between nodes in the graph.",
+            "instruction": "### Estimating connections\nEstimate the number of connections between nodes in the graph.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/estimation//grafo6976.40.json",
@@ -1850,7 +1952,7 @@
             ],
             "description": "Locate and select all nodes connected to node Julian.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Julian.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Julian.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
@@ -1885,7 +1987,7 @@
             ],
             "description": "Locate and select all nodes connected to node Isabella.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Isabella.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Isabella.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
@@ -1919,7 +2021,7 @@
             ],
             "description": "Locate and select all nodes connected to node Matthew.",
             "helpTextPath": "biofabric-study/assets/help/task1_collapsed.md",
-            "instruction": "### Task 1\nLocate and select all nodes connected to node Matthew.",
+            "instruction": "### Connected nodes\nLocate and select all nodes connected to node Matthew.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
@@ -1945,7 +2047,6 @@
     ],
     "sequence": {
         "components": [
-            "condition_check",
             "consent",
             "intro_introduction",
             "intro_tutorial",
@@ -1978,6 +2079,14 @@
                     {
                         "components": [
                             "practice_connection_collapsed"
+                        ],
+                        "conditional": true,
+                        "id": "collapsed",
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "practice_connection_2_collapsed"
                         ],
                         "conditional": true,
                         "id": "collapsed",
@@ -2105,6 +2214,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_0_normal",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_normal"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2168,6 +2286,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_1_normal",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_normal"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2231,6 +2358,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_2_normal",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_normal"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2294,6 +2430,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_3_normal",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_normal"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2357,6 +2502,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_4_normal",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_normal"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2420,10 +2574,19 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_5_normal",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_normal"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             }
                         ],
-                        "numSamples": 1,
+                        "numSamples": 1.0,
                         "order": "latinSquare"
                     }
                 ],
@@ -2496,6 +2659,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_0_collapsed",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_collapsed"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2559,6 +2731,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_1_collapsed",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_collapsed"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2622,6 +2803,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_2_collapsed",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_collapsed"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2685,6 +2875,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_3_collapsed",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_collapsed"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2748,6 +2947,15 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_4_collapsed",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_collapsed"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             },
                             {
@@ -2811,10 +3019,19 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_5_collapsed",
+                                "interruptions": [
+                                    {
+                                        "components": [
+                                            "attention_check_collapsed"
+                                        ],
+                                        "firstLocation": 2,
+                                        "spacing": 3
+                                    }
+                                ],
                                 "order": "random"
                             }
                         ],
-                        "numSamples": 1,
+                        "numSamples": 1.0,
                         "order": "latinSquare"
                     }
                 ],
