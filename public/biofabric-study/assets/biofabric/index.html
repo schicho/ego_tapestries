@@ -35,6 +35,15 @@
             // note the path must be relative to 'main.js'
             options.dataPath = data.graphDataPath;
 
+            // Only the two nodes of the common neighbors task keep their labels (larger font).
+            // The common neighbors' names are left blank on purpose.
+            if (data.sourceNode && data.targetNode) {
+                options.visibleLabels = [data.sourceNode, data.targetNode];
+                options.labelFontSize = "0.8pt";
+                // The two given nodes start out highlighted (but are not part of the answer).
+                options.preselectedLabels = [data.sourceNode, data.targetNode];
+            }
+
             if (Object.hasOwn(data, "nodeAlterCompressions")) {
                 options.nodeAlterCompressions = data.nodeAlterCompressions;
             }

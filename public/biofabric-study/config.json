@@ -114,21 +114,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Andrew",
-                        "Chloe",
-                        "Christopher",
-                        "Benjamin"
+                        "Michael",
+                        "Natalie"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Andrew and Benjamin.",
-            "instruction": "### Task 2\nIdentify the shortest path between Andrew and Benjamin.",
+            "description": "Locate and select all common neighbors of nodes Alexander and Avery.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Alexander and Avery.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo7907.80.json",
-                "sourceNode": "Andrew",
-                "targetNode": "Benjamin"
+                "sourceNode": "Alexander",
+                "targetNode": "Avery"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -136,7 +134,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -147,21 +145,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Grace",
-                        "Luna",
-                        "Adrian",
-                        "Samuel"
+                        "Chloe",
+                        "Julian"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Grace and Samuel.",
-            "instruction": "### Task 2\nIdentify the shortest path between Grace and Samuel.",
+            "description": "Locate and select all common neighbors of nodes Aaron and Luke.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Aaron and Luke.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8127.78.json",
-                "sourceNode": "Grace",
-                "targetNode": "Samuel"
+                "sourceNode": "Aaron",
+                "targetNode": "Luke"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -169,7 +165,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -180,21 +176,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Sebastian",
-                        "Adrian",
-                        "Maya",
-                        "Violet"
+                        "Christopher",
+                        "Julian"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Sebastian and Violet.",
-            "instruction": "### Task 2\nIdentify the shortest path between Sebastian and Violet.",
+            "description": "Locate and select all common neighbors of nodes Caleb and Olivia.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Caleb and Olivia.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8142.73.json",
-                "sourceNode": "Sebastian",
-                "targetNode": "Violet"
+                "sourceNode": "Caleb",
+                "targetNode": "Olivia"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -202,7 +196,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -273,21 +267,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Aurora",
-                        "Evelyn",
-                        "Lincoln",
-                        "Ellie"
+                        "Chloe",
+                        "Matthew"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Aurora and Ellie.",
-            "instruction": "### Task 2\nIdentify the shortest path between Aurora and Ellie.",
+            "description": "Locate and select all common neighbors of nodes Alexander and Julian.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Alexander and Julian.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo8961.75.json",
-                "sourceNode": "Aurora",
-                "targetNode": "Ellie"
+                "sourceNode": "Alexander",
+                "targetNode": "Julian"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -295,7 +287,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -306,21 +298,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Adrian",
-                        "Aurora",
-                        "Mia",
-                        "Henry"
+                        "Andrew",
+                        "Owen"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Adrian and Henry.",
-            "instruction": "### Task 2\nIdentify the shortest path between Adrian and Henry.",
+            "description": "Locate and select all common neighbors of nodes Alice and Ella.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Alice and Ella.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9163.72.json",
-                "sourceNode": "Adrian",
-                "targetNode": "Henry"
+                "sourceNode": "Alice",
+                "targetNode": "Ella"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -328,7 +318,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -339,21 +329,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Daniel",
-                        "Scarlett",
-                        "Samuel",
-                        "Victoria"
+                        "Grace",
+                        "Harper"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Daniel and Victoria.",
-            "instruction": "### Task 2\nIdentify the shortest path between Daniel and Victoria.",
+            "description": "Locate and select all common neighbors of nodes Aaron and Mason.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Aaron and Mason.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo9691.79.json",
-                "sourceNode": "Daniel",
-                "targetNode": "Victoria"
+                "sourceNode": "Aaron",
+                "targetNode": "Mason"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -361,7 +349,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -530,21 +518,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Luna",
-                        "Victoria",
-                        "Adrian",
-                        "Michael"
+                        "Ryan",
+                        "Sebastian"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Luna and Michael.",
-            "instruction": "### Task 2\nIdentify the shortest path between Luna and Michael.",
+            "description": "Locate and select all common neighbors of nodes Avery and Scarlett.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Avery and Scarlett.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4286.74.json",
-                "sourceNode": "Luna",
-                "targetNode": "Michael"
+                "sourceNode": "Avery",
+                "targetNode": "Scarlett"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -552,7 +538,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -563,21 +549,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Victoria",
-                        "Dylan",
-                        "Aurora",
-                        "Zoey"
+                        "Ava",
+                        "Ellie"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Victoria and Zoey.",
-            "instruction": "### Task 2\nIdentify the shortest path between Victoria and Zoey.",
+            "description": "Locate and select all common neighbors of nodes Adrian and Noah.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Adrian and Noah.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4481.77.json",
-                "sourceNode": "Victoria",
-                "targetNode": "Zoey"
+                "sourceNode": "Adrian",
+                "targetNode": "Noah"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -585,7 +569,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }
@@ -596,21 +580,19 @@
             "correctAnswer": [
                 {
                     "answer": [
-                        "Owen",
-                        "Natalie",
-                        "Lincoln",
+                        "Isaac",
                         "Stella"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Identify the shortest path between Owen and Stella.",
-            "instruction": "### Task 2\nIdentify the shortest path between Owen and Stella.",
+            "description": "Locate and select all common neighbors of nodes Anthony and Joshua.",
+            "instruction": "### Task 2\nLocate and select all common neighbors of nodes Anthony and Joshua.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/large//grafo4672.76.json",
-                "sourceNode": "Owen",
-                "targetNode": "Stella"
+                "sourceNode": "Anthony",
+                "targetNode": "Joshua"
             },
             "path": "biofabric-study/assets/biofabric/index.html",
             "provideFeedback": false,
@@ -618,7 +600,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
                     "required": true,
                     "type": "reactive"
                 }

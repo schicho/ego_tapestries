@@ -59,61 +59,62 @@ TASK_1_SOLUTIONS = [  # in order of the graph files in ROME_GRAPH_FILES_LARGE
     {"given": "Naomi", "adjacent": ["Luke", "Nathan", "Connor"]},
 ]
 
-# TASK 2: Identify the shortest path between two nodes.
+# TASK 2: Select all common neighbors of two given nodes.
 
 TASK_2_SOLUTIONS = [  # in order of the graph files in ROME_GRAPH_FILES_LARGE
     # 4286
     {
-        "source": "Luna",
-        "target": "Michael",
-        "path": ["Luna", "Victoria", "Adrian", "Michael"],
+        "source": "Avery",
+        "target": "Scarlett",
+        "common": ["Ryan", "Sebastian"],
     },
     # 4481
     {
-        "source": "Victoria",
-        "target": "Zoey",
-        "path": ["Victoria", "Dylan", "Aurora", "Zoey"],
+        "source": "Adrian",
+        "target": "Noah",
+        "common": ["Ava", "Ellie"],
     },
     # 4672
     {
-        "source": "Owen",
-        "target": "Stella",
-        "path": ["Owen", "Natalie", "Lincoln", "Stella"],
+        "source": "Anthony",
+        "target": "Joshua",
+        "common": ["Isaac", "Stella"],
     },
     # 7907
     {
-        "source": "Andrew",
-        "target": "Benjamin",
-        "path": ["Andrew", "Chloe", "Christopher", "Benjamin"],
+        "source": "Alexander",
+        "target": "Avery",
+        "common": ["Michael", "Natalie"],
     },
     # 8127
     {
-        "source": "Grace",
-        "target": "Samuel",
-        "path": ["Grace", "Luna", "Adrian", "Samuel"],
+        "source": "Aaron",
+        "target": "Luke",
+        "common": ["Chloe", "Julian"],
     },
     # 8142
     {
-        "source": "Sebastian",
-        "target": "Violet",
-        "path": ["Sebastian", "Adrian", "Maya", "Violet"],
+        "source": "Caleb",
+        "target": "Olivia",
+        "common": ["Christopher", "Julian"],
     },
     # 8961
     {
-        "source": "Aurora",
-        "target": "Ellie",
-        "path": ["Aurora", "Evelyn", "Lincoln", "Ellie"],
+        "source": "Alexander",
+        "target": "Julian",
+        "common": ["Chloe", "Matthew"],
     },
     # 9163
     {
-        "source": "Adrian",
-        "target": "Henry",
-        "path": ["Adrian", "Aurora", "Mia", "Henry"],
-    },  # 9691
+        "source": "Alice",
+        "target": "Ella",
+        "common": ["Andrew", "Owen"],
+    },
+    # 9691
     {
-        "source": "Daniel",
-        "target": "Victoria",
-        "path": ["Daniel", "Scarlett", "Samuel", "Victoria"],
+        "source": "Aaron",
+        "target": "Mason",
+        "common": ["Grace", "Harper"],
     },
 ]
 
@@ -166,12 +167,12 @@ def generate_task1_component(graph_file: str, solution: dict, path_prefix: str =
     )
 
 
-# TASK 2: Identify the shortest path between two nodes.
+# TASK 2: Select all common neighbors of two given nodes.
 
 task2_response_base = rvt.response(
     type="reactive",
     id=REVISIT_REACTIVE_RESPONSE_ID,
-    prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select the entire path.",
+    prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you select all the common neighbors. Your selected nodes:",
     required=True,
     location="belowStimulus",
 )
@@ -180,18 +181,18 @@ task2_base = rvt.component(
     component_name__="task2_base",
     base__=biofabric_website_base,
     response=[task2_response_base],
-    # description= (details filled in by generate_task1_component)
-    # instruction= (details filled in by generate_task1_component)
+    # description= (details filled in by generate_task2_component)
+    # instruction= (details filled in by generate_task2_component)
 )
 
 
 def generate_task2_component(graph_file: str, solution: dict, path_prefix: str = "./"):
-    # todo: this is currently a dummy implementation
+    task_text = f"Locate and select all common neighbors of nodes {solution['source']} and {solution['target']}."
     return rvt.component(
         component_name__=f"task2_component_{graph_file}",
         base__=task2_base,
-        description=f"Identify the shortest path between {solution['source']} and {solution['target']}.",
-        instruction=f"### Task 2\nIdentify the shortest path between {solution['source']} and {solution['target']}.",
+        description=task_text,
+        instruction=f"### Task 2\n{task_text}",
         parameters={
             "graphDataPath": f"{path_prefix}/{graph_file}",
             "sourceNode": solution["source"],
@@ -199,7 +200,7 @@ def generate_task2_component(graph_file: str, solution: dict, path_prefix: str =
         },
         provideFeedback=False,
         correctAnswer=[
-            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=solution["path"])
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=solution["common"])
         ],
     )
 

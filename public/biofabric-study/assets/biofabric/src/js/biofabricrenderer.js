@@ -8,13 +8,24 @@ const transitionDuration = 300;
 export class BioFabricRenderer {
 
     // Constructor
-    constructor(biofabric, canvasWidth, canvasHeight, globalDispatcher = d3.dispatch("highlight", "hover-in", "hover-out", "compression", "edge-hover-in", "edge-hover-out")) {
+    constructor(biofabric, canvasWidth, canvasHeight, globalDispatcher = d3.dispatch("highlight", "hover-in", "hover-out", "compression", "edge-hover-in", "edge-hover-out"), options = {}) {
 
         //
         this.biofabric = biofabric;
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
         this.globalDispatcher = globalDispatcher;
+
+        // Optional list of node labels to show; all other node labels are left blank.
+        // When null, every node label is shown.
+        this.visibleLabels = options.visibleLabels != null ? new Set(options.visibleLabels) : null;
+        // Optional CSS font size for the node labels (overrides the stylesheet).
+        this.labelFontSize = options.labelFontSize ?? null;
+        // Optional list of node labels that start out highlighted. They stay highlighted
+        // (clicks on them are ignored) and are not part of the answer sent to reVISit.
+        this.preselectedLabels = new Set(options.preselectedLabels ?? []);
+        // The depth icons (circles and lines with "all") on the top and left are hidden by default.
+        this.hideDepthIcons = options.hideDepthIcons ?? true;
 
         // InnerG (x,y)
         this.innerX = 0.12
@@ -28,9 +39,23 @@ export class BioFabricRenderer {
         this.nodeGX = 0.001
         this.nodeGY = 0.1
 
+        // Without the depth icons on top, less space is needed above the drawing
+        if (this.hideDepthIcons) {
+            this.innerY = 0.02;
+            this.nodeGY = 0.02;
+        }
+
         // EdgeDepthG (x,y)
         this.edgeDepthX = 0.1
         this.edgeDepthY = 0.05
+    }
+
+    // Label to display for a node, blank if it is not in the list of visible labels
+    nodeLabel(node) {
+        if (this.visibleLabels == null || this.visibleLabels.has(node.get_label())) {
+            return node.get_label();
+        }
+        return "";
     }
 
     // Renderer
@@ -84,12 +109,13 @@ export class BioFabricRenderer {
             nodeG.append("text")
                 .attr("id", "nodeText-" + node.get_id())
                 .attr("class", "nodetext")
+                .style("font-size", this.labelFontSize)
                 .datum(node) // node data
                 .attr("x", 0.95 * this.canvasWidth * (this.innerX - this.nodeGX))
                 .attr("y", node.get_y() * (this.canvasHeight * (1 - this.nodeGY)))
                 .attr("text-anchor", "end")
                 .attr("dominant-baseline", "middle")
-                .text(node.get_label())
+                .text(this.nodeLabel(node))
                 .attr("fill", "#333")
                 .on("click", (_event, d) => {
                     this.globalDispatcher.call("highlight", this, d.get_id());
@@ -346,6 +372,12 @@ export class BioFabricRenderer {
                 .text(edgeDepth.get_group_label());
         }
 
+        if (this.hideDepthIcons) {
+            nodeDepthG.remove();
+            edgeDepthG.remove();
+            compressG.remove();
+        }
+
         this.globalDispatcher.on("compression.biofabric", (msg) => {
             let foundNodeDepthIcon = null;
             let foundEdgeDepth = null;
@@ -431,7 +463,7 @@ export class BioFabricRenderer {
                             if (node.get_state() == State["Fully Compressed"]) {
                                 return nodesInDepthCount + " Nodes"
                             } else {
-                                return node.get_label()
+                                return this.nodeLabel(node)
                             }
                         })
                 }
@@ -652,12 +684,23 @@ export class BioFabricRenderer {
         this.globalDispatcher.on("highlight.biofabric", (id) => {
             // equivalent to matrix highlighting.
             const n = this.biofabric.graph.nodes.find(n => n.get_id() === id);
+            if (this.preselectedLabels.has(n.get_label())) return;
             this.biofabric.highlight_unh_nodes(n);
-            d3.selectAll(".edgecircle").classed("highlight-biofabric", d => d.get_highlighted());
-            d3.selectAll(".nodeline").classed("highlight-biofabric", d => d.get_highlighted());
+            this.updateHighlightClasses();
 
             this.sendRevisitAnswers();
         });
+
+        // Apply the preselected highlights
+        this.biofabric.graph.nodes
+            .filter(n => this.preselectedLabels.has(n.get_label()))
+            .forEach(n => n.set_highlighted(true));
+        this.updateHighlightClasses();
+    }
+
+    updateHighlightClasses() {
+        d3.selectAll(".edgecircle").classed("highlight-biofabric", d => d.get_highlighted());
+        d3.selectAll(".nodeline").classed("highlight-biofabric", d => d.get_highlighted());
     }
 
     // Update
@@ -667,7 +710,7 @@ export class BioFabricRenderer {
 
     sendRevisitAnswers() {
         // Revisit is defined globaly through loading its script in the index.html.
-        let highlightedNodes = this.biofabric.graph.nodes.filter(n => n.get_highlighted()).map(n => n.label);
+        let highlightedNodes = this.biofabric.graph.nodes.filter(n => n.get_highlighted() && !this.preselectedLabels.has(n.get_label())).map(n => n.label);
         Revisit.postAnswers({
             // 'graphVis' must match id defined in config.json baseComponent response 
             ['graphVis']: highlightedNodes.sort()
