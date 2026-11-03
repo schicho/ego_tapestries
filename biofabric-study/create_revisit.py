@@ -194,14 +194,30 @@ PRACTICE_CONNECTION_2 = {
     "target": "Liam",
     "connected": False,
 }
-# ATTENTION CHECK, at a random place between the task blocks (roughly in the middle of the actual
-# tasks): select the first and the last node (the top and the bottom line) of a small graph.
-# Participants have two attempts, and are rejected from the study if both are wrong.
-ATTENTION_CHECK = {
-    "graph_file": "grafo2375.19.json",
-    # the first and the last node of the graph in the visualization (the top and the bottom line)
-    "solution": ["Harper", "Henry"],
+# ATTENTION CHECKS: three simple questions on a small graph, each shown once in the middle of one of
+# the three task blocks (at a random place between its tasks). Participants have two attempts for each
+# attention check, and are rejected from the study if both are wrong.
+ATTENTION_CHECK_GRAPH_FILE = "grafo2375.19.json"
+# Harper is the first node (top line) and Henry the last node (bottom line) of the graph in the visualization
+ATTENTION_CHECKS = {
+    "top": {
+        "instruction": "Select the top node.",
+        "prompt": "Click on the node to select it. Submit your answer once you have selected the node.",
+        "solution": ["Harper"],
+    },
+    "bottom": {
+        "instruction": "Select the bottom node.",
+        "prompt": "Click on the node to select it. Submit your answer once you have selected the node.",
+        "solution": ["Henry"],
+    },
+    "top_bottom": {
+        "instruction": "Select the top node and the bottom node.",
+        "prompt": "Click on the nodes to select them. Submit your answer once you have selected both nodes.",
+        "solution": ["Harper", "Henry"],
+    },
 }
+# the attention check that is shown in the block of each task
+ATTENTION_CHECK_OF_TASK = {"task1": "top", "task2": "bottom", "task3": "top_bottom"}
 ATTENTION_CHECK_ATTEMPTS = 2
 
 PRACTICE_TASK_1 = {
@@ -222,8 +238,8 @@ PRACTICE_TASK_2 = {
 PRACTICE_TASK_3 = {
     "graph_file": "grafo1654.10.json",
     "num_edges": 14,
-    # the estimate is accepted within 15% of the actual number of connections
-    "allowed_error": 0.15,
+    # multiple choice: the options are far enough apart that only the actual number is close to the answer
+    "options": ["8", "11", "14", "19", "25"],
 }
 
 
@@ -409,12 +425,14 @@ def generate_intro_sequence():
         component_name__="intro_graph_terminology_biofabric",
         type="markdown",
         path="biofabric-study/assets/graph_terminology_biofabric.md",
+        helpTextPath="biofabric-study/assets/help/tutorial_normal.md",
     )
 
     intro_graph_terminology_biofabric_collapsed = rvt.component(
         component_name__="intro_graph_terminology_biofabric_collapsed",
         type="markdown",
         path="biofabric-study/assets/graph_terminology_biofabric_collapsed.md",
+        helpTextPath="biofabric-study/assets/help/tutorial_collapsed.md",
     )
 
     # a brief explanation of the NASA-TLX questionnaire that follows each group of questions
@@ -422,6 +440,7 @@ def generate_intro_sequence():
         component_name__="intro_tlx_tutorial",
         type="markdown",
         path="biofabric-study/assets/tlx_tutorial.md",
+        helpTextPath="biofabric-study/assets/help/tlx.md",
     )
 
     intro_sequence = rvt.sequence(
@@ -607,7 +626,6 @@ def generate_practice_task2_component(condition: str = CONDITION_NORMAL):
 
 def generate_practice_task3_component(condition: str = CONDITION_NORMAL):
     practice = PRACTICE_TASK_3
-    allowed_error = practice["allowed_error"]
     return rvt.component(
         component_name__=f"practice_task3_{condition}",
         base__=task3_base,
@@ -615,21 +633,25 @@ def generate_practice_task3_component(condition: str = CONDITION_NORMAL):
         instruction=(
             f"### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. "
             f"{PRACTICE_HINTS[condition]['task3']}"
-            f"Your estimate has to be within {round(allowed_error * 100)}% of the actual number "
-            "of connections to continue."
+            "Choose the option that is the closest to the actual number of connections. "
+            f"{PRACTICE_CONTINUE_TEXT}"
         ),
         parameters={
             "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{practice['graph_file']}",
             "hideLabels": True,
         },
-        correctAnswer=[
-            rvt.answer(
-                id="task3-numerical",
-                answer=practice["num_edges"],
-                acceptableLow=round(practice["num_edges"] * (1 - allowed_error), 2),
-                acceptableHigh=round(practice["num_edges"] * (1 + allowed_error), 2),
+        # multiple choice instead of the number field of the actual task
+        response=[
+            rvt.response(
+                type="radio",
+                id="practice-task3",
+                prompt="How many connections are there between the nodes in the graph?",
+                options=practice["options"],
+                required=True,
+                location="belowStimulus",
             )
         ],
+        correctAnswer=[rvt.answer(id="practice-task3", answer=str(practice["num_edges"]))],
         helpTextPath=help_text_path("task3", condition),
         **PRACTICE_FEEDBACK,
     )
@@ -666,6 +688,7 @@ def generate_experiment_start_sequence():
 def generate_task1_sequence(graphs_subset, condition: str):
     task1_random_sequence = rvt.sequence(
         order="random",
+        interruptions=attention_check_interruptions("task1", condition),
         components=[
             generate_task1_component(
                 graph_file,
@@ -686,6 +709,7 @@ def generate_task2_sequence(graph_subset, condition: str):
 
     task2_random_sequence = rvt.sequence(
         order="random",
+        interruptions=attention_check_interruptions("task2", condition),
         components=[
             generate_task2_component(
                 graph_file,
@@ -705,6 +729,7 @@ def generate_task2_sequence(graph_subset, condition: str):
 def generate_task3_sequence(graph_subset, condition: str):
     task3_random_sequence = rvt.sequence(
         order="random",
+        interruptions=attention_check_interruptions("task3", condition),
         components=[
             generate_task3_component(
                 TASK_3_GRAPH_FILE_OF_LARGE_GRAPH[graph_file],
@@ -718,34 +743,49 @@ def generate_task3_sequence(graph_subset, condition: str):
     return task3_random_sequence
 
 
-def generate_attention_check_component(condition: str = CONDITION_NORMAL):
-    check = ATTENTION_CHECK
+def attention_check_name(check: str, condition: str) -> str:
+    return f"attention_check_{check}_{condition}"
+
+
+def generate_attention_check_component(check: str, condition: str = CONDITION_NORMAL):
+    attention_check = ATTENTION_CHECKS[check]
     return rvt.component(
-        component_name__=f"attention_check_{condition}",
+        component_name__=attention_check_name(check, condition),
         base__=biofabric_website_base,
-        description="Attention check: select the first and the last node.",
-        instruction="### Select nodes\nSelect the first and the last node.",
+        description=f"Attention check: {attention_check['instruction'][0].lower()}{attention_check['instruction'][1:]}",
+        instruction=f"### Select nodes\n{attention_check['instruction']}",
         parameters={
-            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{check['graph_file']}",
+            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{ATTENTION_CHECK_GRAPH_FILE}",
         },
         response=[
             rvt.response(
                 type="reactive",
                 id=REVISIT_REACTIVE_RESPONSE_ID,
-                prompt="### How to answer\n Click on the nodes to select them. Submit your answer once you have selected the two nodes.",
+                prompt=f"### How to answer\n {attention_check['prompt']}",
                 required=True,
                 location="belowStimulus",
                 showList=False,  # node labels are hidden, so listing the selection is not useful
             )
         ],
         correctAnswer=[
-            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(check["solution"]))
+            rvt.answer(id=REVISIT_REACTIVE_RESPONSE_ID, answer=sorted(attention_check["solution"]))
         ],
         helpTextPath=help_text_path("attention", condition),
         provideFeedback=True,
         trainingAttempts=ATTENTION_CHECK_ATTEMPTS,
         allowFailedTraining=False,
     )
+
+
+def attention_check_interruptions(task: str, condition: str):
+    """One attention check at a random place between the tasks of a block (never first or last)."""
+    return [
+        {
+            "components": [attention_check_name(ATTENTION_CHECK_OF_TASK[task], condition)],
+            "spacing": "random",
+            "numInterruptions": 1,
+        }
+    ]
 
 
 def generate_task_sequence_with_tlx(task: str, graph_subset, condition: str):
@@ -839,19 +879,10 @@ def generate_random_task_seqeuence(condition: str):
 
         # the variations are wrapped in a random sequence
         # to ensure that the order of the tasks is random.
-        # The attention check is shown once, at a random place between the three task blocks
-        # (so after the first or after the second block, i.e. roughly in the middle of the actual tasks).
         random_sequence = rvt.sequence(
             id=f"random_sequence_permutation_{i}_{condition}",
             order="random",
             components=[],
-            interruptions=[
-                {
-                    "components": [f"attention_check_{condition}"],
-                    "spacing": "random",
-                    "numInterruptions": 1,
-                }
-            ],
         )
         # these additions need to be separated, otherwise they will be attached
         # as children to each other, breaking the sequence structure.
@@ -915,8 +946,9 @@ def main() -> None:
         + generate_conditional_task_sequence(CONDITION_COLLAPSED),
         # the attention checks are only referenced by name (as interruptions), so they are added here
         components=[
-            generate_attention_check_component(CONDITION_NORMAL),
-            generate_attention_check_component(CONDITION_COLLAPSED),
+            generate_attention_check_component(check, condition)
+            for check in ATTENTION_CHECKS
+            for condition in [CONDITION_NORMAL, CONDITION_COLLAPSED]
         ],
         importedLibraries=["nasa-tlx"],
     )

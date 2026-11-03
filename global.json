@@ -12,6 +12,9 @@
     },
     "biofabric-study": {
       "path": "biofabric-study/config.json"
+    },
+    "biofabric-study-pilot": {
+      "path": "biofabric-study/config.json"
     }
   }
 }

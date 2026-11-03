@@ -1,6 +1,6 @@
 ## Help: estimate the number of connections
 
-Connections that start at the same node share one vertical line. For each vertical line, count the nodes on it and subtract one: that is the number of connections of that line. Add up the results of all the lines. You only need an estimate, not the exact number. Enter your estimate in the field below the visualization and submit it.
+Connections that start at the same node share one vertical line. For each vertical line, count the nodes on it and subtract one: that is the number of connections of that line. Add up the results of all the lines. You only need an estimate, not the exact number. Give your estimate below the visualization (by choosing an option in the practice, or by entering a number in the actual questions) and submit it.
 
 ---
 

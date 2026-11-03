@@ -10,7 +10,7 @@ You are invited to participate in a research study examining how different ways 
 
 ## What You Will Do
 
-You will view a series of network visualizations and answer questions about each one. First, a short tutorial explains how to read the visualization, followed by a short practice section so you can learn the interactions. During practice you will receive feedback on your answers, and you can only continue once your answer is correct. You have three attempts for each practice question: if none of them is correct, the study ends and you cannot continue. After the practice, a page tells you when the actual experiment starts. In the actual experiment you will not receive feedback. The actual experiment also contains one simple attention-check question. If you answer it incorrectly twice, the study ends and you cannot continue.
+You will view a series of network visualizations and answer questions about each one. First, a short tutorial explains how to read the visualization, followed by a short practice section so you can learn the interactions. During practice you will receive feedback on your answers, and you can only continue once your answer is correct. You have three attempts for each practice question: if none of them is correct, the study ends and you cannot continue. After the practice, a page tells you when the actual experiment starts. In the actual experiment you will not receive feedback. The actual experiment also contains three simple attention-check questions. Each of them gives you two attempts: if you answer one of them incorrectly twice, the study ends and you cannot continue.
 
 The experiment has three groups of questions, one for each type of question:
 

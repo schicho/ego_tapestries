@@ -1,6 +1,6 @@
-## Help: select the first and the last node
+## Help: select the top and the bottom node
 
-The first node is the one on the top horizontal line, and the last node is the one on the bottom horizontal line. Click a node on its horizontal line to select it. Click it again to remove the selection. Submit your answer once you have selected the two nodes.
+The top node is the one on the top horizontal line, and the bottom node is the one on the bottom horizontal line. Click a node on its horizontal line to select it. Click it again to remove the selection. Submit your answer once you have selected the node or nodes that the question asks for.
 
 ---
 

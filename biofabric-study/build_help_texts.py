@@ -24,9 +24,9 @@ HOW_TO_ANSWER_BY_CLICKING = """### How to answer
 
 Click a node on its horizontal line to select it. Click it again to remove the selection. The nodes highlighted in pink are given by the question: you cannot change them, and they are not part of your answer. Submit your answer once you have selected all the nodes."""
 
-ATTENTION_CHECK_HELP = """## Help: select the first and the last node
+ATTENTION_CHECK_HELP = """## Help: select the top and the bottom node
 
-The first node is the one on the top horizontal line, and the last node is the one on the bottom horizontal line. Click a node on its horizontal line to select it. Click it again to remove the selection. Submit your answer once you have selected the two nodes."""
+The top node is the one on the top horizontal line, and the bottom node is the one on the bottom horizontal line. Click a node on its horizontal line to select it. Click it again to remove the selection. Submit your answer once you have selected the node or nodes that the question asks for."""
 
 QUESTION_SPECIFIC_PARTS = {
     "attention": {"normal": ATTENTION_CHECK_HELP, "collapsed": ATTENTION_CHECK_HELP},
@@ -65,10 +65,10 @@ Find the two nodes highlighted in pink. A common neighbor is a node that is conn
     "task3": {
         "normal": """## Help: estimate the number of connections
 
-Each vertical line is one connection between two nodes, so you can estimate the number of connections by counting the vertical lines. You only need an estimate, not the exact number. Enter your estimate in the field below the visualization and submit it.""",
+Each vertical line is one connection between two nodes, so you can estimate the number of connections by counting the vertical lines. You only need an estimate, not the exact number. Give your estimate below the visualization (by choosing an option in the practice, or by entering a number in the actual questions) and submit it.""",
         "collapsed": """## Help: estimate the number of connections
 
-Connections that start at the same node share one vertical line. For each vertical line, count the nodes on it and subtract one: that is the number of connections of that line. Add up the results of all the lines. You only need an estimate, not the exact number. Enter your estimate in the field below the visualization and submit it.""",
+Connections that start at the same node share one vertical line. For each vertical line, count the nodes on it and subtract one: that is the number of connections of that line. Add up the results of all the lines. You only need an estimate, not the exact number. Give your estimate below the visualization (by choosing an option in the practice, or by entering a number in the actual questions) and submit it.""",
     },
 }
 
@@ -80,8 +80,23 @@ def tutorial_text(condition: str) -> str:
     return "\n".join(["## How to read BioFabric"] + lines[1:])
 
 
+TUTORIAL_PAGE_HELP = """## Help: how to read BioFabric
+
+This page explains how to read the diagrams of the study. Read it, then click **Next**. The same explanation is available from the help button on every question."""
+
+TLX_HELP = """## Help: workload questionnaire
+
+After each group of questions, you rate how demanding the questions were using six sliders. Move each slider to the position that matches your experience, then click **Next**.
+
+<span style="color: #e03131; font-weight: 600;">Pay attention: the **Performance** slider is the other way around. Its left end is **Good** and its right end is **Poor**; on the other sliders the right end means *more*.</span>"""
+
+
 def main() -> None:
     HELP_DIR.mkdir(exist_ok=True)
+    for condition in CONDITIONS:
+        text = f"{TUTORIAL_PAGE_HELP}\n\n---\n\n{tutorial_text(condition)}\n"
+        (HELP_DIR / f"tutorial_{condition}.md").write_text(text, encoding="utf-8")
+    (HELP_DIR / "tlx.md").write_text(f"{TLX_HELP}\n", encoding="utf-8")
     for question, parts in QUESTION_SPECIFIC_PARTS.items():
         for condition in CONDITIONS:
             text = f"{parts[condition]}\n\n---\n\n{tutorial_text(condition)}\n"
