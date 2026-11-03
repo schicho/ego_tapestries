@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Starting the study</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>body { font-family: sans-serif; text-align: center; margin-top: 20vh; color: #333; }</style>
+</head>
+<body>
+    <p id="message">Starting the study…</p>
+    <script>
+    // Entry page of the study: assigns the participant to the condition that has the fewest
+    // participants so far (random if equal), and opens the study with ?condition=<condition>.
+    // All other parameters of this page (e.g. the Prolific ones) are passed on to the study.
+    //
+    //   .../biofabric-study/start.html?study=biofabric-study-pilot   (study defaults to biofabric-study)
+    const SUPABASE_URL = "https://bqvfqlaclfcajcnqlksi.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_qrBsD5s36emBZOpw2kvL6w_umoGLK9B";
+    const CONDITIONS = ["normal", "collapsed"];
+
+    const params = new URLSearchParams(window.location.search);
+    const study = params.get("study") || "biofabric-study";
+    params.delete("study");
+    params.delete("condition");
+
+    // The study stores its data in the folder dev-<study> when it runs locally, and prod-<study> when deployed
+    const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+    const folder = `${isLocal ? "dev-" : "prod-"}${study}`;
+
+    async function countPerCondition() {
+        const counts = Object.fromEntries(CONDITIONS.map((c) => [c, 0]));
+        const query = `studyId=eq.${encodeURIComponent(folder)}&docId=like.sequenceAssignment_*&select=data`;
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/revisit?${query}`, {
+            headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+        });
+        if (!response.ok) throw new Error(`Supabase answered ${response.status}`);
+        (await response.json()).forEach(({ data }) => {
+            (data.conditions || []).forEach((c) => { if (c in counts) counts[c] += 1; });
+        });
+        return counts;
+    }
+
+    function pickCondition(counts) {
+        const smallest = Math.min(...CONDITIONS.map((c) => counts[c]));
+        const candidates = CONDITIONS.filter((c) => counts[c] === smallest);
+        return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+
+    async function start() {
+        let condition;
+        try {
+            condition = pickCondition(await countPerCondition());
+        } catch (e) {
+            console.warn("Could not count the participants, choosing the condition at random.", e);
+            condition = CONDITIONS[Math.floor(Math.random() * CONDITIONS.length)];
+        }
+        params.set("condition", condition);
+        // this page is at <base>/biofabric-study/start.html, the study at <base>/<study>
+        const base = window.location.pathname.split("/biofabric-study/")[0];
+        window.location.replace(`${base}/${study}?${params.toString()}`);
+    }
+
+    start();
+    </script>
+    <noscript>This study needs JavaScript.</noscript>
+</body>
+</html>
