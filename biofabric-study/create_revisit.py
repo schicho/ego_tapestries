@@ -194,26 +194,30 @@ PRACTICE_CONNECTION_2 = {
     "target": "Liam",
     "connected": False,
 }
-# ATTENTION CHECKS: three simple questions on a small graph, each shown once in the middle of one of
-# the three task blocks (at a random place between its tasks). Participants have two attempts for each
-# attention check, and are rejected from the study if both are wrong.
-ATTENTION_CHECK_GRAPH_FILE = "grafo2375.19.json"
-# Harper is the first node (top line) and Henry the last node (bottom line) of the graph in the visualization
+# ATTENTION CHECKS: three simple questions on large graphs (like the ones of the real tasks, so that they
+# do not look suspicious), each shown once in the middle of one of the three task blocks (at a random
+# place between its tasks). Participants have two attempts for each attention check, and are rejected
+# from the study if both are wrong.
+ATTENTION_CHECK_PATH_PREFIX = "./data/selected-rome-data/large"
+# The solutions are the first node (top line) and the last node (bottom line) of the graph in the visualization
 ATTENTION_CHECKS = {
     "top": {
+        "graph_file": "grafo4286.74.json",
         "instruction": "Select the top node.",
         "prompt": "Click on the node to select it. Submit your answer once you have selected the node.",
-        "solution": ["Harper"],
+        "solution": ["Adrian"],
     },
     "bottom": {
+        "graph_file": "grafo8127.78.json",
         "instruction": "Select the bottom node.",
         "prompt": "Click on the node to select it. Submit your answer once you have selected the node.",
-        "solution": ["Henry"],
+        "solution": ["Connor"],
     },
     "top_bottom": {
+        "graph_file": "grafo9691.79.json",
         "instruction": "Select the top node and the bottom node.",
         "prompt": "Click on the nodes to select them. Submit your answer once you have selected both nodes.",
-        "solution": ["Harper", "Henry"],
+        "solution": ["Connor", "Ruby"],
     },
 }
 # the attention check that is shown in the block of each task
@@ -755,7 +759,7 @@ def generate_attention_check_component(check: str, condition: str = CONDITION_NO
         description=f"Attention check: {attention_check['instruction'][0].lower()}{attention_check['instruction'][1:]}",
         instruction=f"### Select nodes\n{attention_check['instruction']}",
         parameters={
-            "graphDataPath": f"{PRACTICE_PATH_PREFIX}/{ATTENTION_CHECK_GRAPH_FILE}",
+            "graphDataPath": f"{ATTENTION_CHECK_PATH_PREFIX}/{attention_check['graph_file']}",
         },
         response=[
             rvt.response(
@@ -774,6 +778,9 @@ def generate_attention_check_component(check: str, condition: str = CONDITION_NO
         provideFeedback=True,
         trainingAttempts=ATTENTION_CHECK_ATTEMPTS,
         allowFailedTraining=False,
+        # do not confirm that the answer is correct (revisitpy does not know this field and drops it: after
+        # generating the config, add "hideCorrectFeedback": true to the attention check components again)
+        hideCorrectFeedback=True,
     )
 
 
