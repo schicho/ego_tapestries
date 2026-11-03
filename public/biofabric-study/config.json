@@ -1,20 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "components": {
-        "attention_check_normal": {
+        "attention_check_top_normal": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
                     "answer": [
-                        "Harper",
-                        "Henry"
+                        "Harper"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Attention check: select the first and the last node.",
+            "description": "Attention check: select the top node.",
             "helpTextPath": "biofabric-study/assets/help/attention_normal.md",
-            "instruction": "### Select nodes\nSelect the first and the last node.",
+            "instruction": "### Select nodes\nSelect the top node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json"
@@ -25,7 +24,7 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you have selected the two nodes.",
+                    "prompt": "### How to answer\n Click on the node to select it. Submit your answer once you have selected the node.",
                     "required": true,
                     "type": "reactive",
                     "showList": false
@@ -34,20 +33,19 @@
             "trainingAttempts": 2,
             "type": "website"
         },
-        "attention_check_collapsed": {
+        "attention_check_top_collapsed": {
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
                     "answer": [
-                        "Harper",
-                        "Henry"
+                        "Harper"
                     ],
                     "id": "graphVis"
                 }
             ],
-            "description": "Attention check: select the first and the last node.",
+            "description": "Attention check: select the top node.",
             "helpTextPath": "biofabric-study/assets/help/attention_collapsed.md",
-            "instruction": "### Select nodes\nSelect the first and the last node.",
+            "instruction": "### Select nodes\nSelect the top node.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json"
@@ -58,7 +56,137 @@
                 {
                     "id": "graphVis",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you have selected the two nodes.",
+                    "prompt": "### How to answer\n Click on the node to select it. Submit your answer once you have selected the node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "trainingAttempts": 2,
+            "type": "website"
+        },
+        "attention_check_bottom_normal": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Henry"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Attention check: select the bottom node.",
+            "helpTextPath": "biofabric-study/assets/help/attention_normal.md",
+            "instruction": "### Select nodes\nSelect the bottom node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the node to select it. Submit your answer once you have selected the node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "trainingAttempts": 2,
+            "type": "website"
+        },
+        "attention_check_bottom_collapsed": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Henry"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Attention check: select the bottom node.",
+            "helpTextPath": "biofabric-study/assets/help/attention_collapsed.md",
+            "instruction": "### Select nodes\nSelect the bottom node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the node to select it. Submit your answer once you have selected the node.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "trainingAttempts": 2,
+            "type": "website"
+        },
+        "attention_check_top_bottom_normal": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Harper",
+                        "Henry"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Attention check: select the top node and the bottom node.",
+            "helpTextPath": "biofabric-study/assets/help/attention_normal.md",
+            "instruction": "### Select nodes\nSelect the top node and the bottom node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you have selected both nodes.",
+                    "required": true,
+                    "type": "reactive",
+                    "showList": false
+                }
+            ],
+            "trainingAttempts": 2,
+            "type": "website"
+        },
+        "attention_check_top_bottom_collapsed": {
+            "allowFailedTraining": false,
+            "correctAnswer": [
+                {
+                    "answer": [
+                        "Harper",
+                        "Henry"
+                    ],
+                    "id": "graphVis"
+                }
+            ],
+            "description": "Attention check: select the top node and the bottom node.",
+            "helpTextPath": "biofabric-study/assets/help/attention_collapsed.md",
+            "instruction": "### Select nodes\nSelect the top node and the bottom node.",
+            "instructionLocation": "aboveStimulus",
+            "parameters": {
+                "graphDataPath": "./data/selected-rome-data/small//grafo2375.19.json"
+            },
+            "path": "biofabric-study/assets/biofabric/index.html",
+            "provideFeedback": true,
+            "response": [
+                {
+                    "id": "graphVis",
+                    "location": "belowStimulus",
+                    "prompt": "### How to answer\n Click on the nodes to select them. Submit your answer once you have selected both nodes.",
                     "required": true,
                     "type": "reactive",
                     "showList": false
@@ -93,16 +221,19 @@
             "type": "markdown"
         },
         "intro_graph_terminology_biofabric": {
+            "helpTextPath": "biofabric-study/assets/help/tutorial_normal.md",
             "path": "biofabric-study/assets/graph_terminology_biofabric.md",
             "response": [],
             "type": "markdown"
         },
         "intro_graph_terminology_biofabric_collapsed": {
+            "helpTextPath": "biofabric-study/assets/help/tutorial_collapsed.md",
             "path": "biofabric-study/assets/graph_terminology_biofabric_collapsed.md",
             "response": [],
             "type": "markdown"
         },
         "intro_tlx_tutorial": {
+            "helpTextPath": "biofabric-study/assets/help/tlx.md",
             "path": "biofabric-study/assets/tlx_tutorial.md",
             "response": [],
             "type": "markdown"
@@ -401,15 +532,13 @@
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
-                    "acceptableHigh": 16.1,
-                    "acceptableLow": 11.9,
-                    "answer": 14,
-                    "id": "task3-numerical"
+                    "answer": "14",
+                    "id": "practice-task3"
                 }
             ],
             "description": "Practice: estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_normal.md",
-            "instruction": "### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. Each vertical line is one connection, so you can count the vertical lines. Your estimate has to be within 15% of the actual number of connections to continue.",
+            "instruction": "### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. Each vertical line is one connection, so you can count the vertical lines. Choose the option that is the closest to the actual number of connections. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1654.10.json",
@@ -419,11 +548,18 @@
             "provideFeedback": true,
             "response": [
                 {
-                    "id": "task3-numerical",
+                    "id": "practice-task3",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "options": [
+                        "8",
+                        "11",
+                        "14",
+                        "19",
+                        "25"
+                    ],
+                    "prompt": "How many connections are there between the nodes in the graph?",
                     "required": true,
-                    "type": "numerical"
+                    "type": "radio"
                 }
             ],
             "trainingAttempts": 3,
@@ -433,15 +569,13 @@
             "allowFailedTraining": false,
             "correctAnswer": [
                 {
-                    "acceptableHigh": 16.1,
-                    "acceptableLow": 11.9,
-                    "answer": 14,
-                    "id": "task3-numerical"
+                    "answer": "14",
+                    "id": "practice-task3"
                 }
             ],
             "description": "Practice: estimate the number of connections between nodes in the graph.",
             "helpTextPath": "biofabric-study/assets/help/task3_collapsed.md",
-            "instruction": "### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. For each vertical line, count the nodes on it and subtract one. Add up the results of all lines. Your estimate has to be within 15% of the actual number of connections to continue.",
+            "instruction": "### Practice 5: Estimating connections\nEstimate the number of connections between nodes in the graph. For each vertical line, count the nodes on it and subtract one. Add up the results of all lines. Choose the option that is the closest to the actual number of connections. You can only continue once your answer is correct. You have 3 attempts: if none of them is correct, you cannot continue with the study.",
             "instructionLocation": "aboveStimulus",
             "parameters": {
                 "graphDataPath": "./data/selected-rome-data/small//grafo1654.10.json",
@@ -451,11 +585,18 @@
             "provideFeedback": true,
             "response": [
                 {
-                    "id": "task3-numerical",
+                    "id": "practice-task3",
                     "location": "belowStimulus",
-                    "prompt": "### How to answer\n Enter the number of your estimate in the field below and submit. Your numerical estimate of the number of connections:",
+                    "options": [
+                        "8",
+                        "11",
+                        "14",
+                        "19",
+                        "25"
+                    ],
+                    "prompt": "How many connections are there between the nodes in the graph?",
                     "required": true,
-                    "type": "numerical"
+                    "type": "radio"
                 }
             ],
             "trainingAttempts": 3,
@@ -2212,6 +2353,15 @@
                                                     "task1_component_grafo4481.77.json_normal",
                                                     "task1_component_grafo4672.76.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2231,6 +2381,15 @@
                                                     "task2_component_grafo8127.78.json_normal",
                                                     "task2_component_grafo8142.73.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2249,6 +2408,15 @@
                                                     "task3_component_grafo1761.20.json_normal",
                                                     "task3_component_grafo1252.30.json_normal",
                                                     "task3_component_grafo6207.40.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2263,15 +2431,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_0_normal",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_normal"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2283,6 +2442,15 @@
                                                     "task1_component_grafo4286.74.json_normal",
                                                     "task1_component_grafo4481.77.json_normal",
                                                     "task1_component_grafo4672.76.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2303,6 +2471,15 @@
                                                     "task2_component_grafo9163.72.json_normal",
                                                     "task2_component_grafo9691.79.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2322,6 +2499,15 @@
                                                     "task3_component_grafo1334.30.json_normal",
                                                     "task3_component_grafo6178.40.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2335,15 +2521,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_1_normal",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_normal"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2355,6 +2532,15 @@
                                                     "task1_component_grafo7907.80.json_normal",
                                                     "task1_component_grafo8127.78.json_normal",
                                                     "task1_component_grafo8142.73.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2374,6 +2560,15 @@
                                                     "task2_component_grafo4286.74.json_normal",
                                                     "task2_component_grafo4481.77.json_normal",
                                                     "task2_component_grafo4672.76.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2394,6 +2589,15 @@
                                                     "task3_component_grafo1252.30.json_normal",
                                                     "task3_component_grafo6207.40.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2407,15 +2611,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_2_normal",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_normal"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2427,6 +2622,15 @@
                                                     "task1_component_grafo7907.80.json_normal",
                                                     "task1_component_grafo8127.78.json_normal",
                                                     "task1_component_grafo8142.73.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2447,6 +2651,15 @@
                                                     "task2_component_grafo9163.72.json_normal",
                                                     "task2_component_grafo9691.79.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2466,6 +2679,15 @@
                                                     "task3_component_grafo4040.30.json_normal",
                                                     "task3_component_grafo6976.40.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2479,15 +2701,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_3_normal",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_normal"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2499,6 +2712,15 @@
                                                     "task1_component_grafo8961.75.json_normal",
                                                     "task1_component_grafo9163.72.json_normal",
                                                     "task1_component_grafo9691.79.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2519,6 +2741,15 @@
                                                     "task2_component_grafo4481.77.json_normal",
                                                     "task2_component_grafo4672.76.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2538,6 +2769,15 @@
                                                     "task3_component_grafo1334.30.json_normal",
                                                     "task3_component_grafo6178.40.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2551,15 +2791,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_4_normal",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_normal"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2571,6 +2802,15 @@
                                                     "task1_component_grafo8961.75.json_normal",
                                                     "task1_component_grafo9163.72.json_normal",
                                                     "task1_component_grafo9691.79.json_normal"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2591,6 +2831,15 @@
                                                     "task2_component_grafo8127.78.json_normal",
                                                     "task2_component_grafo8142.73.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2610,6 +2859,15 @@
                                                     "task3_component_grafo4040.30.json_normal",
                                                     "task3_component_grafo6976.40.json_normal"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_normal"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2623,15 +2881,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_5_normal",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_normal"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             }
                         ],
@@ -2657,6 +2906,15 @@
                                                     "task1_component_grafo4481.77.json_collapsed",
                                                     "task1_component_grafo4672.76.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2676,6 +2934,15 @@
                                                     "task2_component_grafo8127.78.json_collapsed",
                                                     "task2_component_grafo8142.73.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2694,6 +2961,15 @@
                                                     "task3_component_grafo1761.20.json_collapsed",
                                                     "task3_component_grafo1252.30.json_collapsed",
                                                     "task3_component_grafo6207.40.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2708,15 +2984,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_0_collapsed",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_collapsed"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2728,6 +2995,15 @@
                                                     "task1_component_grafo4286.74.json_collapsed",
                                                     "task1_component_grafo4481.77.json_collapsed",
                                                     "task1_component_grafo4672.76.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2748,6 +3024,15 @@
                                                     "task2_component_grafo9163.72.json_collapsed",
                                                     "task2_component_grafo9691.79.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2767,6 +3052,15 @@
                                                     "task3_component_grafo1334.30.json_collapsed",
                                                     "task3_component_grafo6178.40.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2780,15 +3074,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_1_collapsed",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_collapsed"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2800,6 +3085,15 @@
                                                     "task1_component_grafo7907.80.json_collapsed",
                                                     "task1_component_grafo8127.78.json_collapsed",
                                                     "task1_component_grafo8142.73.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2819,6 +3113,15 @@
                                                     "task2_component_grafo4286.74.json_collapsed",
                                                     "task2_component_grafo4481.77.json_collapsed",
                                                     "task2_component_grafo4672.76.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2839,6 +3142,15 @@
                                                     "task3_component_grafo1252.30.json_collapsed",
                                                     "task3_component_grafo6207.40.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2852,15 +3164,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_2_collapsed",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_collapsed"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2872,6 +3175,15 @@
                                                     "task1_component_grafo7907.80.json_collapsed",
                                                     "task1_component_grafo8127.78.json_collapsed",
                                                     "task1_component_grafo8142.73.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2892,6 +3204,15 @@
                                                     "task2_component_grafo9163.72.json_collapsed",
                                                     "task2_component_grafo9691.79.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2911,6 +3232,15 @@
                                                     "task3_component_grafo4040.30.json_collapsed",
                                                     "task3_component_grafo6976.40.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2924,15 +3254,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_3_collapsed",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_collapsed"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -2944,6 +3265,15 @@
                                                     "task1_component_grafo8961.75.json_collapsed",
                                                     "task1_component_grafo9163.72.json_collapsed",
                                                     "task1_component_grafo9691.79.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -2964,6 +3294,15 @@
                                                     "task2_component_grafo4481.77.json_collapsed",
                                                     "task2_component_grafo4672.76.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2983,6 +3322,15 @@
                                                     "task3_component_grafo1334.30.json_collapsed",
                                                     "task3_component_grafo6178.40.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -2996,15 +3344,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_4_collapsed",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_collapsed"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             },
                             {
@@ -3016,6 +3355,15 @@
                                                     "task1_component_grafo8961.75.json_collapsed",
                                                     "task1_component_grafo9163.72.json_collapsed",
                                                     "task1_component_grafo9691.79.json_collapsed"
+                                                ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
                                                 ],
                                                 "order": "random"
                                             },
@@ -3036,6 +3384,15 @@
                                                     "task2_component_grafo8127.78.json_collapsed",
                                                     "task2_component_grafo8142.73.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -3055,6 +3412,15 @@
                                                     "task3_component_grafo4040.30.json_collapsed",
                                                     "task3_component_grafo6976.40.json_collapsed"
                                                 ],
+                                                "interruptions": [
+                                                    {
+                                                        "components": [
+                                                            "attention_check_top_bottom_collapsed"
+                                                        ],
+                                                        "numInterruptions": 1,
+                                                        "spacing": "random"
+                                                    }
+                                                ],
                                                 "order": "random"
                                             },
                                             {
@@ -3068,15 +3434,6 @@
                                     }
                                 ],
                                 "id": "random_sequence_permutation_5_collapsed",
-                                "interruptions": [
-                                    {
-                                        "components": [
-                                            "attention_check_collapsed"
-                                        ],
-                                        "numInterruptions": 1,
-                                        "spacing": "random"
-                                    }
-                                ],
                                 "order": "random"
                             }
                         ],

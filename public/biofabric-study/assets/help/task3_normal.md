@@ -1,6 +1,6 @@
 ## Help: estimate the number of connections
 
-Each vertical line is one connection between two nodes, so you can estimate the number of connections by counting the vertical lines. You only need an estimate, not the exact number. Enter your estimate in the field below the visualization and submit it.
+Each vertical line is one connection between two nodes, so you can estimate the number of connections by counting the vertical lines. You only need an estimate, not the exact number. Give your estimate below the visualization (by choosing an option in the practice, or by entering a number in the actual questions) and submit it.
 
 ---
 
