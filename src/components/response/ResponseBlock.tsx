@@ -298,7 +298,9 @@ export function ResponseBlock({
     if (hasCorrectAnswerFeedback) {
       allResponsesWithDefaults.forEach((response) => {
         if (correctAnswers[response.id] && !alertConfig[response.id]?.message.includes('You\'ve failed to answer this question correctly')) {
-          updateAlertConfig(response.id, true, 'Correct Answer', 'You have answered the question correctly.', 'green');
+          if (!config?.hideCorrectFeedback) {
+            updateAlertConfig(response.id, true, 'Correct Answer', 'You have answered the question correctly.', 'green');
+          }
         } else {
           storeDispatch(saveIncorrectAnswer({ question: identifier, identifier: response.id, answer: allAnswers[response.id] }));
           let message = '';

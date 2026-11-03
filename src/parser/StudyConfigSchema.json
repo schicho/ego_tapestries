@@ -67,6 +67,10 @@
             "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
             "type": "string"
           },
+          "hideCorrectFeedback": {
+            "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+            "type": "boolean"
+          },
           "instruction": {
             "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
             "type": "string"
@@ -1004,6 +1008,10 @@
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
         },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
+        },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
           "type": "string"
@@ -1266,6 +1274,10 @@
         "helpTextPath": {
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
+        },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
         },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
@@ -1735,6 +1747,10 @@
         "helpTextPath": {
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
+        },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
         },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
@@ -2294,6 +2310,10 @@
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
         },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
+        },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
           "type": "string"
@@ -2703,6 +2723,10 @@
         "helpTextPath": {
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
+        },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
         },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
@@ -3834,6 +3858,10 @@
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
         },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
+        },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
           "type": "string"
@@ -3988,6 +4016,10 @@
         "helpTextPath": {
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
+        },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
         },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
@@ -4152,6 +4184,10 @@
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
         },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
+        },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",
           "type": "string"
@@ -4310,6 +4346,10 @@
         "helpTextPath": {
           "description": "The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. If present, will override the help text path set in the uiConfig.",
           "type": "string"
+        },
+        "hideCorrectFeedback": {
+          "description": "Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false.",
+          "type": "boolean"
         },
         "instruction": {
           "description": "The instruction of the component. This is used to identify and provide additional information for the component in the admin panel.",

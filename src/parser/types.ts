@@ -1041,6 +1041,8 @@ export interface BaseIndividualComponent {
   trainingAttempts?: number;
   /** Controls whether the component should allow failed training. If present, will override the allow failed training setting in the uiConfig. */
   allowFailedTraining?: boolean;
+  /** Controls whether the confirmation that the answer is correct is hidden when the component provides feedback. The participant is then not told that a correct answer was given, but still gets the feedback for incorrect answers. Defaults to false. */
+  hideCorrectFeedback?: boolean;
   /** Whether or not we want to utilize think-aloud features. If present, will override the record audio setting in the uiConfig. */
   recordAudio?: boolean;
   /** Enables a click-and-hold microphone button instead of continuous recording. When true, audio is muted by default and is recorded only while the button is held. When false, recording starts immediately and can be paused/resumed via the microphone button. Defaults to false. */
