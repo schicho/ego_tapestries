@@ -3448,19 +3448,22 @@
             "P Ehlers",
             "Johann X Schicho"
         ],
-        "date": "2026-02-23",
+        "date": "2026-11-05",
         "description": "Working with collapsible BioFabric",
         "organizations": [
             "TU Wien"
         ],
         "title": "BioFabric Study",
-        "version": "pilot"
+        "version": "1.0"
     },
     "uiConfig": {
         "contactEmail": "sdb@ac.tuwien.ac.at",
         "helpTextPath": "biofabric-study/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
-        "studyEndMsg": "## The experiment is finished\n\nThank you very much for taking part in this study! Your answers have been recorded.\n\nYou can now close this window.",
+        "studyEndAutoRedirectURL": "https://app.prolific.com/submissions/complete?cc=CY4MCQU3",
+        "studyEndMsg": "## The experiment is finished\n\nThank you very much for taking part in this study! Your answers have been recorded.\n\nYou will be redirected to Prolific in a few seconds to complete your submission. If nothing happens, [click here](https://app.prolific.com/submissions/complete?cc=CY4MCQU3).",
+        "trainingFailedRedirectURL": "https://app.prolific.com/submissions/complete?cc=C89OLB9V",
+        "urlParticipantIdParam": "PROLIFIC_PID",
         "withProgressBar": true,
         "withSidebar": false
     }
