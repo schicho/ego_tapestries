@@ -909,7 +909,7 @@ def generate_conditional_task_sequence(condition: str):
 
 study_metadata = rvt.studyMetadata(
     title="BioFabric Study",
-    version="pilot",
+    version="1.0",
     authors=[
         "Sara Di Bartolomeo",
         "T Pahr",
@@ -917,15 +917,20 @@ study_metadata = rvt.studyMetadata(
         "P Ehlers",
         "Johann X Schicho",
     ],
-    date="2026-02-23",
+    date="2026-11-05",
     description="Working with collapsible BioFabric",  # todo
     organizations=["TU Wien"],
 )
 
+PROLIFIC_COMPLETION_URL = "https://app.prolific.com/submissions/complete?cc=CY4MCQU3"
+# Participants who fail the practice or an attention check are sent here, which asks them to return their submission
+PROLIFIC_RETURN_URL = "https://app.prolific.com/submissions/complete?cc=C89OLB9V"
+
 STUDY_END_MESSAGE = (
     "## The experiment is finished\n\n"
     "Thank you very much for taking part in this study! Your answers have been recorded.\n\n"
-    "You can now close this window."
+    "You will be redirected to Prolific in a few seconds to complete your submission. "
+    f"If nothing happens, [click here]({PROLIFIC_COMPLETION_URL})."
 )
 
 ui_config = rvt.uiConfig(
@@ -934,6 +939,11 @@ ui_config = rvt.uiConfig(
     logoPath="revisitAssets/revisitLogoSquare.svg",
     contactEmail="sdb@ac.tuwien.ac.at",
     studyEndMsg=STUDY_END_MESSAGE,
+    # the participant ID is read from the URL parameter that Prolific adds to the study link
+    urlParticipantIdParam="PROLIFIC_PID",
+    # after the study, participants are sent back to Prolific with the completion code
+    studyEndAutoRedirectURL=PROLIFIC_COMPLETION_URL,
+    trainingFailedRedirectURL=PROLIFIC_RETURN_URL,
     withProgressBar=True,
     showNavigationButtons=True,
     showComponentTitles=True,

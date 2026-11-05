@@ -309,6 +309,8 @@ export interface UIConfig {
   studyEndAutoRedirectURL?: string;
   /** The duration after which participants will be auto-redirected to the URL specified in studyEndAutoRedirectURL. Defaults to 10000 milliseconds (10 seconds). */
   studyEndAutoRedirectDelay?: number;
+  /** The URL which participants will be auto-redirected to when they are rejected because they failed a training or attention check (e.g. a Prolific completion URL that asks them to return their submission). The redirect happens after the delay set in studyEndAutoRedirectDelay (default 10 seconds). */
+  trainingFailedRedirectURL?: string;
   /** Controls whether the study data is automatically downloaded at the end of the study. */
   autoDownloadStudy?: boolean;
   /** The time in milliseconds to wait before automatically downloading the study data. */

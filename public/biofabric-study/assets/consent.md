@@ -6,7 +6,7 @@
 
 ## Purpose
 
-You are invited to participate in a research study examining how different ways of drawing a network in the BioFabric visualization affect your ability to answer questions about the network. This study will take approximately **[TODO: duration] minutes**.
+You are invited to participate in a research study examining how different ways of drawing a network in the BioFabric visualization affect your ability to answer questions about the network. This study will take approximately **15 minutes**.
 
 ## What You Will Do
 
@@ -29,7 +29,7 @@ In the first two types of question, you will click nodes to select your answer a
 
 ## Data and Privacy
 
-- You are not asked for your name or any other personal information.
+- You are not asked for your name or any other personal information. Your Prolific ID is recorded together with your answers, so that your submission can be matched to your payment.
 - The data that is recorded are your answers, your response times, your interactions with the visualizations (such as which nodes you click), and your answers to the questionnaires.
 - The study software also records technical information about your browser session: your browser and operating system, your screen resolution, your browser language, and your IP address. The IP address is not part of the data that will be published or shared.
 - The data is stored securely on a server and is accessible only to the research team.
