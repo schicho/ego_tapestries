@@ -1,9 +1,12 @@
 export const NODE_COMPRESSION = "node_compression";
 export const EDGE_COMPRESSION = "edge_compression";
-export const UNCOMPRESS_ALL = "uncompress_all";
-export const NODE_COMPRESS_FULL = "node_compress_full";
-export const EDGE_COMPRESS_FULL = "edge_compress_full";
-export const EDGE_COMPRESS_HALF = "edge_compress_half";
+
+export const ALL_UNCOMPRESS = "all_uncompress";
+
+export const ALL_NODE_COMPRESS_FULL = "all_node_compress_full";
+
+export const ALL_EDGE_COMPRESS_FULL = "all_edge_compress_full";
+export const ALL_EDGE_COMPRESS_HALF = "all_edge_compress_half";
 
 export class CompressionMsg {
     constructor(msg, compressionType = "") {

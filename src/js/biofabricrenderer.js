@@ -1,6 +1,6 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import { State } from './state.js';
-import { CompressionMsg, NODE_COMPRESSION, EDGE_COMPRESSION, UNCOMPRESS_ALL, NODE_COMPRESS_FULL, EDGE_COMPRESS_HALF, EDGE_COMPRESS_FULL } from "./CompressionMsg.js";
+import { CompressionMsg, NODE_COMPRESSION, EDGE_COMPRESSION, ALL_UNCOMPRESS, ALL_NODE_COMPRESS_FULL, ALL_EDGE_COMPRESS_HALF, ALL_EDGE_COMPRESS_FULL } from "./CompressionMsg.js";
 
 const transitionDuration = 300;
 
@@ -123,12 +123,7 @@ export class BioFabricRenderer {
                     .attr("fill", "black");
             })
             .on("click", () => {
-                for (let nodeDepthIcon of this.biofabric.nodeDepths.filter(nodeDepth => nodeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
-                    switch (nodeDepthIcon.get_state()) {
-                        case State["Uncompressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(nodeDepthIcon, NODE_COMPRESSION));
-                    }
-                }
+                this.globalDispatcher.call("compression", this, new CompressionMsg(null, ALL_NODE_COMPRESS_FULL));
             });
 
         // require a group for the half step to render the semi circle and the circle
@@ -176,15 +171,7 @@ export class BioFabricRenderer {
                     })
             })
             .on("click", () => {
-                for (let edgeDepth of this.biofabric.edgeDepths.filter(edgeDepth => edgeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
-                    switch (edgeDepth.get_state()) {
-                        case State["Fully Compressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, EDGE_COMPRESSION));
-                        // fall through to uncompressed
-                        case State["Uncompressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, EDGE_COMPRESSION));
-                    }
-                }
+                this.globalDispatcher.call("compression", this, new CompressionMsg(null, ALL_EDGE_COMPRESS_HALF));
             })
 
 
@@ -211,15 +198,7 @@ export class BioFabricRenderer {
                     .attr("fill", "black");
             })
             .on("click", () => {
-                for (let edgeDepth of this.biofabric.edgeDepths.filter(edgeDepth => edgeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
-                    switch (edgeDepth.get_state()) {
-                        case State["Uncompressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, EDGE_COMPRESSION));
-                        // fall through to partially compressed
-                        case State["Partially Compressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, EDGE_COMPRESSION));
-                    }
-                }
+                this.globalDispatcher.call("compression", this, new CompressionMsg(null, ALL_EDGE_COMPRESS_FULL));
             });
 
         // uncompress All Button
@@ -246,21 +225,7 @@ export class BioFabricRenderer {
                     .attr("fill", "white");
             })
             .on("click", () => {
-                for (let edgeDepth of this.biofabric.edgeDepths.filter(edgeDepth => edgeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
-                    switch (edgeDepth.get_state()) {
-                        case State["Partially Compressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, EDGE_COMPRESSION));
-                        // fall through to fully compressed
-                        case State["Fully Compressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(edgeDepth, EDGE_COMPRESSION));
-                    }
-                }
-                for (let nodeDepthIcon of this.biofabric.nodeDepths.filter(nodeDepth => nodeDepth.get_depth() <= this.biofabric.graph.get_depth())) {
-                    switch (nodeDepthIcon.get_state()) {
-                        case State["Fully Compressed"]:
-                            this.globalDispatcher.call("compression", this, new CompressionMsg(nodeDepthIcon, NODE_COMPRESSION));
-                    }
-                }
+                this.globalDispatcher.call("compression", this, new CompressionMsg(null, ALL_UNCOMPRESS));
             });
 
         // Iterate over unique node Depths       
@@ -540,38 +505,53 @@ export class BioFabricRenderer {
 
 
         const compressionFn = (msg) => {
-            let foundNodeDepthIcon = null;
-            let foundEdgeDepth = null;
+            if (msg.compressionType == NODE_COMPRESSION
+                || msg.compressionType == ALL_NODE_COMPRESS_FULL
+                || msg.compressionType == ALL_UNCOMPRESS) {
 
-            if (msg.compressionType == NODE_COMPRESSION) {
-                foundNodeDepthIcon = msg.msg;
-            } else if (msg.compressionType == EDGE_COMPRESSION) {
-                foundEdgeDepth = msg.msg;
-            }
+                // normal singular toggle of a depth icon
+                if (msg.compressionType == NODE_COMPRESSION) {
+                    const nodeDepthIcon = msg.msg;
+                    let depthNodes = this.biofabric.graph.nodes.filter(node => node.get_depth() == nodeDepthIcon.get_depth());
 
-            if (msg.compressionType == NODE_COMPRESSION) {
-                const nodeDepthIcon = foundNodeDepthIcon;
-                let depthNodes = this.biofabric.graph.nodes.filter(node => node.get_depth() == nodeDepthIcon.get_depth());
-
-                // Switch the State of the DepthIcon
-                switch (nodeDepthIcon.get_state()) {
-                    case State["Uncompressed"]:
-                        nodeDepthIcon.set_state(State["Fully Compressed"])
-                        break;
-                    case State["Fully Compressed"]:
-                        nodeDepthIcon.set_state(State["Uncompressed"]);
-                        break;
-                }
-
-                // Iterate over all nodes in the current depth and update their state
-                for (let depthNode of depthNodes) {
-                    switch (depthNode.get_state()) {
+                    // Switch the State of the DepthIcon
+                    switch (nodeDepthIcon.get_state()) {
                         case State["Uncompressed"]:
-                            depthNode.set_state(State["Fully Compressed"])
+                            nodeDepthIcon.set_state(State["Fully Compressed"])
                             break;
                         case State["Fully Compressed"]:
-                            depthNode.set_state(State["Uncompressed"]);
+                            nodeDepthIcon.set_state(State["Uncompressed"]);
                             break;
+                    }
+
+                    // Iterate over all nodes in the current depth and update their state
+                    for (let depthNode of depthNodes) {
+                        switch (depthNode.get_state()) {
+                            case State["Uncompressed"]:
+                                depthNode.set_state(State["Fully Compressed"])
+                                break;
+                            case State["Fully Compressed"]:
+                                depthNode.set_state(State["Uncompressed"]);
+                                break;
+                        }
+                    }
+                }
+
+                if (msg.compressionType == ALL_NODE_COMPRESS_FULL) {
+                    for (let nodeDepthIcon of this.biofabric.nodeDepths) {
+                        nodeDepthIcon.set_state(State["Fully Compressed"])
+                    }
+                    for (let node of this.biofabric.graph.nodes) {
+                        node.set_state(State["Fully Compressed"])
+                    }
+                }
+
+                if (msg.compressionType == ALL_UNCOMPRESS) {
+                    for (let nodeDepthIcon of this.biofabric.nodeDepths) {
+                        nodeDepthIcon.set_state(State["Uncompressed"])
+                    }
+                    for (let node of this.biofabric.graph.nodes) {
+                        node.set_state(State["Uncompressed"])
                     }
                 }
 
@@ -621,34 +601,30 @@ export class BioFabricRenderer {
                         .duration(transitionDuration)
                         .attr("transform", "translate(0," + nodeDepthIconB.get_y() * (this.canvasHeight * (1 - this.innerY)) + ")")
 
+                    nodeDepthG.select("#nodeDepthCircleIcon-" + nodeDepthIconB.get_depth().toString().replace(".", "-"))
+                        .transition()
+                        .duration(transitionDuration)
+                        .attr("opacity", () => {
+                            if (nodeDepthIconB.get_state() == State["Uncompressed"]) {
+                                return "0"
+                            } else {
+                                return "1"
+                            }
+                        })
+                        .attr("d", () => {
+                            let curve = d3.line().curve(d3.curveBasisClosed)
+                            switch (nodeDepthIconB.get_state()) {
+                                case State["Singleton"]:
+                                    return curve([[0, 0.2], [-0.2, 0], [0, -0.2], [0.2, 0]]);
+                                case State["Partially Compressed"]:
+                                    return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]]);
+                                case State["Fully Compressed"]:
+                                    return curve([[0, 0.7], [-0.7, 0], [0, -0.7], [0.7, 0]]);
+                                case State["Uncompressed"]:
+                                    return curve([[0, 0.7], [0, 0.7], [0, 0.7], [0, 0.7]]);
+                            }
+                        })
                 }
-
-                // Update the Opacity and Shape of the Node Depth Circle Icon
-                d3.select("#nodeDepthCircleIcon-" + nodeDepthIcon.get_depth().toString().replace(".", "-"))
-                    .transition()
-                    .duration(transitionDuration)
-                    .attr("opacity", () => {
-                        if (nodeDepthIcon.get_state() == State["Uncompressed"]) {
-                            return "0"
-                        } else {
-                            return "1"
-                        }
-                    })
-                    .attr("d", () => {
-                        let curve = d3.line().curve(d3.curveBasisClosed)
-                        switch (nodeDepthIcon.get_state()) {
-                            case State["Singleton"]:
-                                return curve([[0, 0.2], [-0.2, 0], [0, -0.2], [0.2, 0]]);
-                            case State["Partially Compressed"]:
-                                return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]]);
-                            case State["Fully Compressed"]:
-                                return curve([[0, 0.7], [-0.7, 0], [0, -0.7], [0.7, 0]]);
-                            case State["Uncompressed"]:
-                                return curve([[0, 0.7], [0, 0.7], [0, 0.7], [0, 0.7]]);
-
-                        }
-                    }
-                    )
 
                 for (let edge of this.biofabric.graph.edges.filter(edge => edge.get_depth() <= this.biofabric.graph.get_depth())) {
 
@@ -678,35 +654,69 @@ export class BioFabricRenderer {
             // Continuing with Edge Depth Icon Toggle. Unfortunaltely, this has to be in the same function, as calls from other visualizations do not differentiate.
             // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-            if (msg.compressionType == EDGE_COMPRESSION) {
-                const edgeDepth = foundEdgeDepth;
+            if (msg.compressionType == EDGE_COMPRESSION
+                || msg.compressionType == ALL_EDGE_COMPRESS_HALF
+                || msg.compressionType == ALL_EDGE_COMPRESS_FULL
+                || msg.compressionType == ALL_UNCOMPRESS) {
 
-                // Switch the State of the DepthIcon
-                switch (edgeDepth.get_state()) {
-                    case State["Uncompressed"]:
-                        edgeDepth.set_state(State["Partially Compressed"])
-                        break;
-                    case State["Partially Compressed"]:
-                        edgeDepth.set_state(State["Fully Compressed"])
-                        break;
-                    case State["Fully Compressed"]:
-                        edgeDepth.set_state(State["Uncompressed"]);
-                        break;
+                // normal singular compression
+                if (msg.compressionType == EDGE_COMPRESSION) {
+                    const edgeDepth = msg.msg;
+
+                    // Switch the State of the DepthIcon
+                    switch (edgeDepth.get_state()) {
+                        case State["Uncompressed"]:
+                            edgeDepth.set_state(State["Partially Compressed"])
+                            break;
+                        case State["Partially Compressed"]:
+                            edgeDepth.set_state(State["Fully Compressed"])
+                            break;
+                        case State["Fully Compressed"]:
+                            edgeDepth.set_state(State["Uncompressed"]);
+                            break;
+                    }
+
+
+                    // Set the New States (Un/Fully/Partially Compressed) for all edges in clicked Depth
+                    for (let edge of this.biofabric.graph.edges.filter(edge => edge.get_depth() == edgeDepth.get_depth())) {
+                        switch (edge.get_state()) {
+                            case (State["Uncompressed"]):
+                                edge.set_state(State["Partially Compressed"]);
+                                break;
+                            case (State["Partially Compressed"]):
+                                edge.set_state(State["Fully Compressed"]);
+                                break;
+                            case (State["Fully Compressed"]):
+                                edge.set_state(State["Uncompressed"]);
+                                break;
+                        }
+                    }
                 }
 
+                if (msg.compressionType == ALL_EDGE_COMPRESS_HALF) {
+                    for (let edgeDepth of this.biofabric.edgeDepths) {
+                        edgeDepth.set_state(State["Partially Compressed"])
+                    }
+                    for (let edge of this.biofabric.graph.edges) {
+                        edge.set_state(State["Partially Compressed"])
+                    }
+                }
 
-                // Set the New States (Un/Fully/Partially Compressed) for all edges in clicked Depth
-                for (let edge of this.biofabric.graph.edges.filter(edge => edge.get_depth() == edgeDepth.get_depth())) {
-                    switch (edge.get_state()) {
-                        case (State["Uncompressed"]):
-                            edge.set_state(State["Partially Compressed"]);
-                            break;
-                        case (State["Partially Compressed"]):
-                            edge.set_state(State["Fully Compressed"]);
-                            break;
-                        case (State["Fully Compressed"]):
-                            edge.set_state(State["Uncompressed"]);
-                            break;
+                if (msg.compressionType == ALL_EDGE_COMPRESS_FULL) {
+                    for (let edgeDepth of this.biofabric.edgeDepths) {
+                        edgeDepth.set_state(State["Fully Compressed"])
+                    }
+                    for (let edge of this.biofabric.graph.edges) {
+                        edge.set_state(State["Fully Compressed"])
+                    }
+                }
+
+                if (msg.compressionType == ALL_UNCOMPRESS) {
+                    for (let edgeDepth of this.biofabric.edgeDepths) {
+                        edgeDepth.set_state(State["Uncompressed"])
+                    }
+                    for (let edge of this.biofabric.graph.edges) {
+                        edge.set_state(State["Uncompressed"])
                     }
                 }
 
@@ -749,31 +759,32 @@ export class BioFabricRenderer {
                         .duration(transitionDuration)
                         .attr("transform", "translate(" + (edgeDepthB.get_x() * this.canvasWidth * (1 - this.edgeDepthX)) + ",0)")
 
-                }
 
-                d3.select("#edgeDepthCircleIcon-" + edgeDepth.get_depth().toString().replace(".", "-"))
-                    .transition()
-                    .duration(transitionDuration)
-                    .attr("opacity", () => {
-                        if (edgeDepth.get_state() != State["Uncompressed"]) {
-                            return "1"
-                        } else {
-                            return "0"
-                        }
-                    })
-                    .attr("d", () => {
-                        let curve = d3.line().curve(d3.curveBasisClosed)
-                        if (edgeDepth.get_state() == State["Singleton"]) {
-                            return curve([[0, 0.2], [-0.2, 0], [0, -0.2], [0.2, 0]])
-                        }
-                        if (edgeDepth.get_state() == State["Partially Compressed"]) {
-                            return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]])
-                        } else if (edgeDepth.get_state() == State["Fully Compressed"]) {
-                            return curve([[0, 0.7], [-0.7, 0], [0, -0.7], [0.7, 0]])
-                        } else if (edgeDepth.get_state() == State["Uncompressed"]) {
-                            return curve([[0, 0.7], [0, 0.7], [0, 0.7], [0, 0.7]])
-                        }
-                    });
+
+                    edgeDepthG.select("#edgeDepthCircleIcon-" + edgeDepthB.get_depth().toString().replace(".", "-"))
+                        .transition()
+                        .duration(transitionDuration)
+                        .attr("opacity", () => {
+                            if (edgeDepthB.get_state() != State["Uncompressed"]) {
+                                return "1"
+                            } else {
+                                return "0"
+                            }
+                        })
+                        .attr("d", () => {
+                            let curve = d3.line().curve(d3.curveBasisClosed)
+                            if (edgeDepthB.get_state() == State["Singleton"]) {
+                                return curve([[0, 0.2], [-0.2, 0], [0, -0.2], [0.2, 0]])
+                            }
+                            if (edgeDepthB.get_state() == State["Partially Compressed"]) {
+                                return curve([[0, 0.7], [-0.7, 0], [0, 0], [0.7, 0]])
+                            } else if (edgeDepthB.get_state() == State["Fully Compressed"]) {
+                                return curve([[0, 0.7], [-0.7, 0], [0, -0.7], [0.7, 0]])
+                            } else if (edgeDepthB.get_state() == State["Uncompressed"]) {
+                                return curve([[0, 0.7], [0, 0.7], [0, 0.7], [0, 0.7]])
+                            }
+                        });
+                }
             }
         }
 
