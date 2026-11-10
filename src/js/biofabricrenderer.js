@@ -537,21 +537,21 @@ export class BioFabricRenderer {
                     }
                 }
 
-                if (msg.compressionType == ALL_NODE_COMPRESS_FULL) {
-                    for (let nodeDepthIcon of this.biofabric.nodeDepths) {
-                        nodeDepthIcon.set_state(State["Fully Compressed"])
-                    }
-                    for (let node of this.biofabric.graph.nodes) {
-                        node.set_state(State["Fully Compressed"])
-                    }
-                }
+                if (msg.compressionType == ALL_NODE_COMPRESS_FULL || msg.compressionType == ALL_UNCOMPRESS) {
+                    const targetState = (msg.compressionType == ALL_NODE_COMPRESS_FULL) ?
+                        State["Fully Compressed"] : State["Uncompressed"];
 
-                if (msg.compressionType == ALL_UNCOMPRESS) {
                     for (let nodeDepthIcon of this.biofabric.nodeDepths) {
-                        nodeDepthIcon.set_state(State["Uncompressed"])
+                        if (nodeDepthIcon.get_state() == State["Singleton"] || nodeDepthIcon.get_state() == State["Empty"]) {
+                            continue;
+                        }
+                        nodeDepthIcon.set_state(targetState)
                     }
                     for (let node of this.biofabric.graph.nodes) {
-                        node.set_state(State["Uncompressed"])
+                        if (node.get_state() == State["Singleton"] || node.get_state() == State["Empty"]) {
+                            continue;
+                        }
+                        node.set_state(targetState)
                     }
                 }
 
@@ -693,30 +693,22 @@ export class BioFabricRenderer {
                     }
                 }
 
-                if (msg.compressionType == ALL_EDGE_COMPRESS_HALF) {
-                    for (let edgeDepth of this.biofabric.edgeDepths) {
-                        edgeDepth.set_state(State["Partially Compressed"])
-                    }
-                    for (let edge of this.biofabric.graph.edges) {
-                        edge.set_state(State["Partially Compressed"])
-                    }
-                }
+                // batch compression
+                if (msg.compressionType == ALL_EDGE_COMPRESS_HALF || msg.compressionType == ALL_EDGE_COMPRESS_FULL || msg.compressionType == ALL_UNCOMPRESS) {
+                    const targetState = (msg.compressionType == ALL_EDGE_COMPRESS_HALF) ? State["Partially Compressed"] :
+                        (msg.compressionType == ALL_EDGE_COMPRESS_FULL) ? State["Fully Compressed"] : State["Uncompressed"];
 
-                if (msg.compressionType == ALL_EDGE_COMPRESS_FULL) {
                     for (let edgeDepth of this.biofabric.edgeDepths) {
-                        edgeDepth.set_state(State["Fully Compressed"])
+                        if (edgeDepth.get_state() == State["Singleton"] || edgeDepth.get_state() == State["Empty"]) {
+                            continue;
+                        }
+                        edgeDepth.set_state(targetState)
                     }
                     for (let edge of this.biofabric.graph.edges) {
-                        edge.set_state(State["Fully Compressed"])
-                    }
-                }
-
-                if (msg.compressionType == ALL_UNCOMPRESS) {
-                    for (let edgeDepth of this.biofabric.edgeDepths) {
-                        edgeDepth.set_state(State["Uncompressed"])
-                    }
-                    for (let edge of this.biofabric.graph.edges) {
-                        edge.set_state(State["Uncompressed"])
+                        if (edge.get_state() == State["Singleton"] || edge.get_state() == State["Empty"]) {
+                            continue;
+                        }
+                        edge.set_state(targetState)
                     }
                 }
 
