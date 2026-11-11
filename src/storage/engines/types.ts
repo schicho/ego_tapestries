@@ -6,6 +6,7 @@ import { ParticipantMetadata, Sequence } from '../../store/types';
 import { ParticipantData, ParticipantDataWithStatus } from '../types';
 import { hash, isParticipantData } from './utils/storageEngineHelpers';
 import { shouldPreferCachedParticipantData } from './utils/participantDataRecovery';
+import { mapWithConcurrencyAndRetry } from './utils/fetchWithRetry';
 import { RevisitNotification } from '../../utils/notifications';
 import { parseConditionParam } from '../../utils/handleConditionLogic';
 import {
@@ -1157,24 +1158,22 @@ export abstract class StorageEngine {
       sequenceAssignments.map((assignment) => [assignment.participantId, assignment.completed !== null]),
     );
 
-    const participantPulls = participantIds.map(async (participantId) => {
-      const participantData = await this._getFromStorage(
-        `participants/${participantId}`,
-        'participantData',
-        studyId,
-      );
+    // Downloading every participant at once gets throttled by the backend (requests fail without CORS headers),
+    // so fetch in small batches and retry the ones that came back empty.
+    const fetchedParticipants = await mapWithConcurrencyAndRetry(
+      participantIds,
+      (participantId) => this._getFromStorage(`participants/${participantId}`, 'participantData', studyId),
+      isParticipantData,
+    );
 
-      if (isParticipantData(participantData)) {
-        return {
+    return fetchedParticipants.flatMap((participantData, index) => (
+      isParticipantData(participantData)
+        ? [{
           ...participantData,
-          completed: completedByParticipantId.get(participantId) ?? false,
-        } satisfies ParticipantDataWithStatus;
-      }
-      return null;
-    });
-
-    const participantsData = await Promise.all(participantPulls);
-    return participantsData.filter((participant): participant is ParticipantDataWithStatus => participant !== null);
+          completed: completedByParticipantId.get(participantIds[index]) ?? false,
+        } satisfies ParticipantDataWithStatus]
+        : []
+    ));
   }
 
   async getParticipantsStatusCounts(studyId: string) {
